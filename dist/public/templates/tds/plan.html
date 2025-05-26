@@ -1,0 +1,78 @@
+{{#each plans}}
+<div
+  id="plan{{id}}"
+  class="flex py-1 border-b border-gray-200 first:border-t cursor-pointer hover:bg-black/5"
+>
+  <div class="flex-1 pl-2">{{status}}</div>
+  <div class="flex-1 pl-2">{{as_seri_no}}</div>
+  <div class="flex-1">{{denetim_tarih}} - {{baslangic}}</div>
+  <div class="flex-1">{{as_firma_kisa_ad}}</div>
+  <div class="flex-1">{{modul}}</div>
+  <div class="flex-1">{{as_ilce}} - {{as_il}}</div>
+  <div class="flex-1 pr-2">{{denetci}}</div>
+</div>
+<div
+  style="display: none"
+  class="plan{{id}} px-10 py-4 shadow-[inset_0_0_3px_rgba(0,0,0,0.3)] bg-black/5"
+>
+  <div class="flex items-center space-x-2 pb-2">
+    <button
+      class="btn-denetime-gonder px-4 py-1 bg-red-600 text-white hover:bg-red-700 active:bg-red-500 select-none"
+    >
+      Denetime Gönder
+    </button>
+    <button
+      class="btn-projeye-gonder px-4 py-1 bg-red-600 text-white hover:bg-red-700 active:bg-red-500 select-none"
+    >
+      Projeye Gönder
+    </button>
+    <div class="flex-1"></div>
+    <button
+      class="btn-onayla px-4 py-1 bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-500 select-none"
+    >
+      Onayla
+    </button>
+  </div>
+  <div class="flex space-x-2">
+    <div>
+      <strong>Asansör Adres:</strong> {{as_mahalle}} {{adres}} {{as_ilce}} /
+      {{as_il}}
+    </div>
+    <div class="flex-1"><strong>Ada/Parsel:</strong> {{ada}} - {{parsel}}</div>
+    <div class="space-x-2 flex items-center">
+      <button
+        class="btn-yazdir rounded min-w-[75px] bg-blue-600 hover:bg-blue-700 active:bg-blue-500 text-white py-1"
+      >
+        Yazdır
+      </button>
+      <button
+        class="btn-tum-indir rounded px-2 min-w-[75px] bg-blue-600 hover:bg-blue-700 active:bg-blue-500 text-white py-1"
+      >
+        İndir
+      </button>
+    </div>
+  </div>
+  <div class="flex space-x-5">
+    <div class="w-[50%]">
+      <div class="font-semibold">Tuv Forms</div>
+      <div class="tuv-forms">
+        <ul class="list-disc pl-10"></ul>
+      </div>
+    </div>
+    <div class="w-[50%]">
+      <div class="font-semibold">Ayarlar</div>
+      <div class="settings">Ayarlar Alanı</div>
+    </div>
+  </div>
+</div>
+{{/each}}
+<div
+  class="spinner-area fixed top-0 left-0 w-full h-full flex-col items-center justify-center bg-white/20 z-[10]"
+>
+  <div class="flex flex-col items-center justify-center space-y-2">
+    <div class="flex items-center space-x-2 text-[64px] text-blue-600">
+      <div class="spin icon-spin-1 spin-steps1"></div>
+    </div>
+    <div class="font-bold">Lütfen Bekleyiniz</div>
+  </div>
+</div>

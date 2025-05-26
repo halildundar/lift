@@ -1,0 +1,1623 @@
+<div
+  class="as-bilgipop z-[1] fixed top-0 left-0 w-full h-full bg-black/20 flex flex-col items-center justify-center"
+>
+  <div
+    class="flex flex-col bg-white rounded shadow-lg overflow-hidden h-[90vh] w-[80vw]"
+  >
+    <div class="flex items-center select-none">
+      <div class="font-semibold flex-1 pl-2">Asansör Bilgileri</div>
+      <i
+        class="as-bilgiclose tio text-[1.2rem] p-2 hover:bg-black/10 rounded-full cursor-pointer"
+        >clear</i
+      >
+    </div>
+    <div class="px-5 py-2 border-y border-gray-200">
+      <div>{{firmaa}} - {{modull}}</div>
+      <div>{{address}}</div>
+      <div>{{seri_no}}</div>
+    </div>
+    <form class="relative overflow-y-auto overflow-hidden pl-5 pr-5 py-5">
+      <!-- Birinci Sıra -->
+      <div class="flex space-x-5 pb-2">
+        <div class="w-[200px]">
+          <label class="frm-lbl">Sınıf</label>
+          <select name="sinif" class="frm-slct">
+            <option value="Sınıf I">Sınıf I-İnsan</option>
+            <option value="Sınıf II">Sınıf II-insan ve Yük</option>
+            <option value="Sınıf III">Sınıf III</option>
+            <option value="Sınıf IV">Sınıf IV-Sedye</option>
+          </select>
+        </div>
+        <div class="w-[200px]">
+          <label class="frm-lbl">Sınıf</label>
+          <select name="elek_hidrolik" class="frm-slct">
+            <option value="Elektrikli">Elektrikli</option>
+            <option value="Hidrolik">Hidrolik</option>
+          </select>
+        </div>
+        <div class="w-[100px]">
+          <label class="frm-lbl">Askı</label>
+          <select name="aski_tipi" class="frm-slct">
+            <option value="1:1">1:1</option>
+            <option value="2:1">2:1</option>
+            <option value="3:1">3:1</option>
+            <option value="4:1">4:1</option>
+          </select>
+        </div>
+        <div class="w-[100px]">
+          <label class="frm-lbl">Askı</label>
+          <select name="direkt_endirekt" class="frm-slct">
+            <option value="Direkt">Direkt</option>
+            <option value="Endirekt">Endirekt</option>
+          </select>
+        </div>
+        <div class="w-[150px]">
+          <label class="frm-lbl">Kapasite(kg)</label>
+          <input
+            type="text"
+            name="beyan_yuk"
+            class="frm-txt"
+            placeholder="kg"
+          />
+        </div>
+        <div class="w-[150px]">
+          <label class="frm-lbl">Kişi Sayısı(adet)</label>
+          <input
+            type="text"
+            name="kisi_sayisi"
+            class="frm-txt"
+            placeholder="adet"
+          />
+        </div>
+        <div class="w-[100px]">
+          <label class="frm-lbl">Hız(m/s)</label>
+          <select name="beyan_hiz" class="frm-slct">
+            <option value="1.0">1.0</option>
+            <option value="1.6">1.6</option>
+            <option value="1.6">0.3</option>
+            <option value="1.6">0.4</option>
+            <option value="1.6">0.63</option>
+            <option value="1.6">0.8</option>
+            <option value="1.6">2.0</option>
+            <option value="1.6">2.5</option>
+          </select>
+        </div>
+      </div>
+      <!-- İkinci Sıra -->
+      <div class="flex space-x-5 pb-2">
+        <div>
+          <label class="frm-lbl">Durak Sayı(adet)</label>
+          <input
+            type="text"
+            name="durak_sayisi"
+            class="frm-txt"
+            placeholder="adet"
+          />
+        </div>
+        <div>
+          <label class="frm-lbl">Kat Sayı(adet)</label>
+          <input
+            type="text"
+            name="kat_sayisi"
+            class="frm-txt"
+            placeholder="adet"
+          />
+        </div>
+        <div>
+          <label class="frm-lbl">Kat Rumuzu</label>
+          <input
+            type="text"
+            name="kat_rumuzu"
+            class="frm-txt"
+            placeholder="-1,0,1,..3,4"
+          />
+        </div>
+        <div>
+          <label class="frm-lbl">Kabin Toplam Ağ(kg)</label>
+          <input type="text" name="kabin_ag" class="frm-txt" placeholder="kg" />
+        </div>
+        <div>
+          <label class="frm-lbl">Karşı Ağırlık Toplam Ağ(kg)</label>
+          <input
+            type="text"
+            name="karsi_ag_ag"
+            class="frm-txt"
+            placeholder="kg"
+          />
+        </div>
+      </div>
+      <!-- Üçüncü Sıra -->
+      <div class="flex space-x-5 pb-2">
+        <div>
+          <label class="frm-lbl">Halat Adet(adet)</label>
+          <input
+            type="text"
+            name="halat_adet"
+            class="frm-txt"
+            placeholder="adet"
+          />
+        </div>
+        <div>
+          <label class="frm-lbl">Halat Çap(mm)</label>
+          <input type="text" name="halat_mm" class="frm-txt" placeholder="mm" />
+        </div>
+        <div>
+          <label class="frm-lbl">Tahrik Kasnak Çap(mm)</label>
+          <input
+            type="text"
+            name="tahrik_kasnak_cap"
+            class="frm-txt"
+            placeholder="mm"
+          />
+        </div>
+        <div>
+          <label class="frm-lbl">Palanga Çap(mm)</label>
+          <input
+            type="text"
+            name="palanga_cap"
+            class="frm-txt"
+            placeholder="mm"
+          />
+        </div>
+      </div>
+      <!-- Kabin girişleri -->
+      <div class="flex items-center pb-2">
+        <div class="font-semibold w-[150px]">Kabin Girişleri:</div>
+        <div class="flex items-center space-x-5">
+          <div>
+            <input
+              type="radio"
+              id="tek_giris"
+              name="giris_sayisi"
+              value="Tek Giriş"
+              checked
+            />
+            <label for="tek_giris">Tek Giriş</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="cift_giris"
+              name="giris_sayisi"
+              value="Çift Giriş"
+            />
+            <label for="cift_giris">Çift Giriş</label>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-end pb-2">
+        <div class="font-semibold w-[150px]">
+          <div class="flex items-end space-x-5 pb-2">
+            <div class="w-[100px] font-semibold text-[0.8rem]">Ana Giriş:</div>
+            <div>
+              <label class="frm-lbl">Genişlik(mm)</label>
+              <input
+                type="text"
+                name="ana_kapi_genislik"
+                class="frm-txt"
+                placeholder="mm"
+              />
+            </div>
+            <div>
+              <label class="frm-lbl">Yükseklik(mm)</label>
+              <input
+                type="text"
+                name="ana_kapi_yukseklik"
+                class="frm-txt"
+                placeholder="mm"
+              />
+            </div>
+            <div>
+              <label class="frm-lbl">Adet(mm)</label>
+              <input
+                type="text"
+                name="ana_kapi_adet"
+                class="frm-txt"
+                placeholder="mm"
+              />
+            </div>
+            <div>
+              <label class="frm-lbl">Panel Sayı(adet)</label>
+              <select class="frm-slct" name="ana_giris_panel_sayi" id="">
+                <option value="2-Panel">2-Panel</option>
+                <option value="1-Panel">1-Panel</option>
+                <option value="3-Panel">3-Panel</option>
+                <option value="4-Panel">4-Panel</option>
+              </select>
+            </div>
+            <div>
+              <label class="frm-lbl">Kapı Yönü</label>
+              <select class="frm-slct" name="ana_giris_acilma_yon" id="">
+                <option value="Sol">Sol</option>
+                <option value="Sağ">Sağ</option>
+                <option value="Merkezi">Merkezi</option>
+              </select>
+            </div>
+          </div>
+          <div
+            style="display: none"
+            class="cift_giris_area items-center space-x-5"
+          >
+            <div class="w-[100px]">
+              <label class="frm-lbl">Konumu</label>
+              <select name="ikinci_giris_konum" class="frm-slct">
+                <option value="">Seçiniz</option>
+                <option value="Arka">Arka</option>
+                <option value="Sağ">Sağ</option>
+                <option value="Sol">Sol</option>
+              </select>
+            </div>
+            <div>
+              <label class="frm-lbl">Genişlik(mm)</label>
+              <input
+                type="text"
+                name="ikinci_kapi_genislik"
+                class="frm-txt"
+                placeholder="mm"
+              />
+            </div>
+            <div>
+              <label class="frm-lbl">Yükseklik(mm)</label>
+              <input
+                type="text"
+                name="ikinci_kapi_yukseklik"
+                class="frm-txt"
+                placeholder="mm"
+              />
+            </div>
+            <div>
+              <label class="frm-lbl">Adet(mm)</label>
+              <input
+                type="text"
+                name="ikinci_kapi_adet"
+                class="frm-txt"
+                placeholder="mm"
+              />
+            </div>
+            <div>
+              <label class="frm-lbl">Panel Sayı(adet)</label>
+              <select class="frm-slct" name="ikinci_kapi_panel_sayi" id="">
+                <option value="2-Panel">2-Panel</option>
+                <option value="1-Panel">1-Panel</option>
+                <option value="3-Panel">3-Panel</option>
+                <option value="4-Panel">4-Panel</option>
+              </select>
+            </div>
+            <div>
+              <label class="frm-lbl">Kapı Yönü</label>
+              <select class="frm-slct" name="ikinci_kapi_acilma_yon" id="">
+                <option value="Sol">Sol</option>
+                <option value="Sağ">Sağ</option>
+                <option value="Merkezi">Merkezi</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Makine Dairesi -->
+      <div class="flex items-center pb-2">
+        <div class="font-semibold w-[150px]">Makine Dairesi</div>
+        <div class="flex items-center space-x-5">
+          <div>
+            <input
+              type="radio"
+              id="mak_daireli"
+              name="mak_dairesi"
+              value="Makine Daireli"
+              checked
+            />
+            <label for="mak_daireli">Makine Daireli</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="mak_dairesiz"
+              name="mak_dairesi"
+              value="Makine Dairesiz"
+            />
+            <label for="mak_dairesiz">Makine Dairesiz</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-end pb-2">
+        <div class="font-semibold w-[150px]"></div>
+        <div class="flex items-center space-x-5">
+          <div>
+            <label class="frm-lbl">Kapı Yükseklik(mm)</label>
+            <input
+              type="text"
+              name="makd_kapi_yukseklik"
+              class="frm-txt"
+              placeholder="mm"
+            />
+          </div>
+          <div>
+            <label class="frm-lbl">Kapı Genişlik(mm)</label>
+            <input
+              type="text"
+              name="makd_kapi_genislik"
+              class="frm-txt"
+              placeholder="mm"
+            />
+          </div>
+          <div>
+            <label class="frm-lbl">Çalışma Yükseklik(mm)</label>
+            <input
+              type="text"
+              name="makd_yukseklik"
+              class="frm-txt"
+              placeholder="mm"
+            />
+          </div>
+          <div>
+            <label class="frm-lbl">Hareket Yükseklik(mm)</label>
+            <input
+              type="text"
+              name="makd_hareket_yukseklik"
+              class="frm-txt"
+              placeholder="mm"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Kabin -->
+      <div class="flex items-end pb-2">
+        <div class="font-semibold w-[150px]">Kabin:</div>
+        <div class="flex items-center space-x-5">
+          <div>
+            <label class="frm-lbl">Genişlik(mm)</label>
+            <input
+              type="text"
+              name="kabin_genislik"
+              class="frm-txt"
+              placeholder="mm"
+            />
+          </div>
+          <div>
+            <label class="frm-lbl">Derinlik(mm)</label>
+            <input
+              type="text"
+              name="kabin_derinlik"
+              class="frm-txt"
+              placeholder="mm"
+            />
+          </div>
+          <div>
+            <label class="frm-lbl">İç Yükseklik(mm)</label>
+            <input
+              type="text"
+              name="kabin_yukselik"
+              class="frm-txt"
+              placeholder="mm"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Kuyu -->
+      <div class="flex items-end pb-2">
+        <div class="font-semibold w-[150px]">Kuyu:</div>
+        <div class="flex flex-1 space-x-2">
+          <div>
+            <label class="frm-lbl">Genişlik(mm)</label>
+            <input
+              type="text"
+              name="kuyu_genislik"
+              class="frm-txt"
+              placeholder="mm"
+            />
+          </div>
+          <div>
+            <label class="frm-lbl">Derinlik(mm)</label>
+            <input
+              type="text"
+              name="kuyu_derinlik"
+              class="frm-txt"
+              placeholder="mm"
+            />
+          </div>
+          <div>
+            <label class="frm-lbl">K.Dip Yükseklik(mm)</label>
+            <input
+              type="text"
+              name="kuyu_dip_yukseklik"
+              class="frm-txt"
+              placeholder="mm"
+            />
+          </div>
+          <div>
+            <label class="frm-lbl">Seyir Mesafesi(mm)</label>
+            <input
+              type="text"
+              name="seyir_mesafesi"
+              class="frm-txt"
+              placeholder="adet"
+            />
+          </div>
+          <div>
+            <label class="frm-lbl">Kat Yükseklik(mm)</label>
+            <input
+              type="text"
+              name="kat_yukseklik"
+              class="frm-txt"
+              placeholder="mm"
+            />
+          </div>
+          <div>
+            <label class="frm-lbl">Son Kat Yüksek(mm)</label>
+            <input
+              type="text"
+              name="kuyu_son_kat_yukseklik"
+              class="frm-txt"
+              placeholder="mm"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Raylar -->
+      <div class="flex pb-2">
+        <div class="font-semibold w-[150px]">Raylar:</div>
+        <div>
+          <div class="flex items-center space-x-2 pb-2">
+            <div class="w-[200px]">
+              <label class="frm-lbl">Kabin Ray Tip</label>
+              <select name="kab_ray_tip" class="frm-slct">
+                <option value="T125/B 125x82x16">T125/B 125x82x16</option>
+                <option value="T90/B 90x75x16mm">T90/B 90x75x16mm</option>
+                <option value="T89/B 89x62x16mm">T89/B 89x62x16mm</option>
+                <option value="T82/B 82x68x9mm">T82/B 82x68x9mm</option>
+                <option value="T70/B 70x65x9mm">T70/B 70x65x9mm</option>
+                <option value="T50/B 50x50x5mm">T50/B 50x50x5mm</option>
+                <option value="T90/A 90x75x16mm">T90/A 90x75x16mm</option>
+                <option value="T89/A 89x62x16mm">T89/A 89x62x16mm</option>
+                <option value="T82/A 82x68x9mm">T82/A 82x68x9mm</option>
+                <option value="T70/A 70x65x9mm">T70/A 70x65x9mm</option>
+                <option value="T50/A 50x50x5mm">T50/A 50x50x5mm</option>
+              </select>
+            </div>
+            <div class="w-[200px]">
+              <label class="frm-lbl">Karşı Ağırlık Ray Tip</label>
+              <select name="kar_ray_tip" class="frm-slct">
+                <option value="T90/B 90x75x16mm">T90/B 90x75x16mm</option>
+                <option value="T89/B 89x62x16mm">T89/B 89x62x16mm</option>
+                <option value="T82/B 82x68x9mm">T82/B 82x68x9mm</option>
+                <option value="T70/B 70x65x9mm">T70/B 70x65x9mm</option>
+                <option value="T50/B 50x50x5mm">T50/B 50x50x5mm</option>
+                <option value="T90/A 90x75x16mm">T90/A 90x75x16mm</option>
+                <option value="T89/A 89x62x16mm">T89/A 89x62x16mm</option>
+                <option value="T82/A 82x68x9mm">T82/A 82x68x9mm</option>
+                <option value="T70/A 70x65x9mm">T70/A 70x65x9mm</option>
+                <option value="T50/A 50x50x5mm">T50/A 50x50x5mm</option>
+              </select>
+            </div>
+          </div>
+          <div class="flex items-center space-x-2">
+            <div>
+              <label class="frm-lbl">Kabin Ray Arası(mm)</label>
+              <input
+                type="text"
+                name="kab_rayarasi"
+                class="frm-txt"
+                placeholder="mm"
+              />
+            </div>
+            <div>
+              <label class="frm-lbl">Karşı Ağ.Ray Arası(mm)</label>
+              <input
+                type="text"
+                name="kar_rayarasi"
+                class="frm-txt"
+                placeholder="mm"
+              />
+            </div>
+          </div>
+          <div class="flex items-center space-x-2">
+            <div>
+              <label class="frm-lbl">Kabin Ray-Karşı Ağ.Ray Arası(mm)</label>
+              <input
+                type="text"
+                name="kab_kar_rayarasi"
+                class="frm-txt"
+                placeholder="mm"
+              />
+            </div>
+            <div>
+              <label class="frm-lbl">Kabin Ray-Durak kapısı Arası(mm)</label>
+              <input
+                type="text"
+                name="ray_kapi"
+                class="frm-txt"
+                placeholder="mm"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Diğer -->
+      <div class="flex items-end pb-2">
+        <div class="font-semibold w-[150px]">Diğer:</div>
+        <div class="flex items-center space-x-2">
+          <div>
+            <label class="frm-lbl">Durak Kapı Girinti(mm)</label>
+            <input
+              type="text"
+              name="dura_kapi_cikinti"
+              class="frm-txt"
+              placeholder="kuyu içi giriş yatay mesafesi"
+            />
+          </div>
+          <div>
+            <label class="frm-lbl">Regülatör Konum</label>
+            <select name="regg_konum" class="frm-slct">
+              <option value="Sol Arka">Sol Arka</option>
+              <option value="Sağ Arka">Sağ Arka</option>
+              <option value="Sol Ön">Sol Ön</option>
+              <option value="Sol Ön">Sol Ön</option>
+            </select>
+          </div>
+          <div>
+            <label class="frm-lbl">Karşı Ağırlık Konum</label>
+            <select name="kar_ag_konum" class="frm-slct">
+              <option value="Sol">Sol</option>
+              <option value="Sağ">Sağ</option>
+              <option value="Arka">Arka</option>
+            </select>
+          </div>
+          <div>
+            <label class="frm-lbl">Kabin Palanga Konum</label>
+            <select name="kabin_palanga_konum" class="frm-slct">
+              <option value="-">Yok</option>
+              <option value="Kabin Üstü">Kabin Üstü</option>
+              <option value="Kabin Altı">Kabin Altı</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <!-- Hız Regülatörü -->
+        <div class="flex items-end">
+          <div class="w-[150px] font-semibold">Hız Regülatörü:</div>
+          <div class="flex items-end space-x-2">
+            <button
+              type="button"
+              class="btn-reg-sec px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-900 active:bg-blue-600"
+            >
+              CE Belg.
+            </button>
+            <div
+              style="display: none"
+              class="h-reg-form-area flex items-end space-x-2 pl-5"
+            >
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Marka</label>
+                <div class="h-reg-marka-adi"></div>
+                <input type="hidden" name="guv_komps[hiz_regulator][cert_id]" />
+                <input type="hidden" name="guv_komps[hiz_regulator][marka]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Tip</label>
+                <select
+                  name="guv_komps[hiz_regulator][tip]"
+                  class="frm-slct"
+                ></select>
+              </div>
+              <div>
+                <label for="" class="frm-lbl">Seri No</label>
+                <input
+                  type="text"
+                  name="guv_komps[hiz_regulator][serino]"
+                  class="frm-txt"
+                  placeholder="seri no"
+                />
+              </div>
+              <div class="">
+                <label for="" class="frm-lbl">Sertifika</label>
+                <div>
+                  <a
+                    target="_blank"
+                    class="h-reg-cert-url text-blue-500 hover:underline"
+                    >İncele</a
+                  >
+                </div>
+                <input
+                  type="hidden"
+                  name="guv_komps[hiz_regulator][cert_url]"
+                />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Resim</label>
+                <div class="flex items-center space-x-2">
+                  <a
+                    class="h-reg-img-anchor text-blue-500 hover:underline cursor-pointer select-none"
+                    >Yükle</a
+                  >
+                  <div id="hiz-reg-wrp" class="min-w-[150px]">
+                    <div class="progress-wrp">
+                      <div class="progress-bar"></div>
+                      <div class="status">0%</div>
+                    </div>
+
+                    <div class="file-area hidden">
+                      <a
+                        href=""
+                        download="Hız Regülatörü"
+                        class="text-blue-500 hover:underline"
+                      >
+                        İndir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <input type="file" class="hidden hiz_reg_resim_file" />
+                <input type="hidden" name="guv_komps[hiz_regulator][img]" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Fren -->
+        <div class="flex items-end">
+          <div class="w-[150px] font-semibold">Fren:</div>
+          <div class="flex items-end space-x-2">
+            <button
+              type="button"
+              class="btn-fren-sec px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-900 active:bg-blue-600"
+            >
+              CE Belg.
+            </button>
+            <div
+              style="display: none"
+              class="fren-form-area flex items-end space-x-2 pl-5"
+            >
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Marka</label>
+                <div class="fren-marka-adi"></div>
+                <input type="hidden" name="guv_komps[fren][cert_id]" />
+                <input type="hidden" name="guv_komps[fren][marka]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Tip</label>
+                <select name="guv_komps[fren][tip]" class="frm-slct"></select>
+              </div>
+              <div>
+                <label for="" class="frm-lbl">Seri No</label>
+                <input
+                  type="text"
+                  name="guv_komps[fren][serino]"
+                  class="frm-txt"
+                  placeholder="seri no"
+                />
+              </div>
+              <div class="">
+                <label for="" class="frm-lbl">Sertifika</label>
+                <div>
+                  <a
+                    href=""
+                    target="_blank"
+                    class="fren-cert-url text-blue-500 hover:underline"
+                    >İncele</a
+                  >
+                </div>
+                <input type="hidden" name="guv_komps[fren][cert_url]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Resim</label>
+                <div class="flex items-center space-x-2">
+                  <a
+                    class="fren-img-anchor text-blue-500 hover:underline cursor-pointer select-none"
+                    >Yükle</a
+                  >
+                  <div id="fren-wrp" class="min-w-[150px]">
+                    <div class="progress-wrp">
+                      <div class="progress-bar"></div>
+                      <div class="status">0%</div>
+                    </div>
+
+                    <div class="file-area hidden">
+                      <a
+                        href=""
+                        download="Fren"
+                        class="text-blue-500 hover:underline"
+                      >
+                        İndir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <input type="file" class="hidden fren_resim_file" />
+                <input type="hidden" name="guv_komps[fren][img]" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Kart -->
+        <div class="flex items-end">
+          <div class="w-[150px] font-semibold">Kontrol Kart:</div>
+          <div class="flex items-end space-x-2">
+            <button
+              type="button"
+              class="btn-kart-sec px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-900 active:bg-blue-600"
+            >
+              CE Belg.
+            </button>
+            <div
+              style="display: none"
+              class="kart-form-area flex items-end space-x-2 pl-5"
+            >
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Marka</label>
+                <div class="kart-marka-adi"></div>
+                <input type="hidden" name="guv_komps[kart][cert_id]" />
+                <input type="hidden" name="guv_komps[kart][marka]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Tip</label>
+                <select name="guv_komps[kart][tip]" class="frm-slct"></select>
+              </div>
+              <div>
+                <label for="" class="frm-lbl">Seri No</label>
+                <input
+                  type="text"
+                  name="guv_komps[kart][serino]"
+                  class="frm-txt"
+                  placeholder="seri no"
+                />
+              </div>
+              <div class="">
+                <label for="" class="frm-lbl">Sertifika</label>
+                <div>
+                  <a
+                    href=""
+                    target="_blank"
+                    class="kart-cert-url text-blue-500 hover:underline"
+                    >İncele</a
+                  >
+                </div>
+                <input type="hidden" name="guv_komps[kart][cert_url]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Resim</label>
+                <div class="flex items-center space-x-2">
+                  <a
+                    class="kart-img-anchor text-blue-500 hover:underline cursor-pointer select-none"
+                    >Yükle</a
+                  >
+                  <div id="kart-wrp" class="min-w-[150px]">
+                    <div class="progress-wrp">
+                      <div class="progress-bar"></div>
+                      <div class="status">0%</div>
+                    </div>
+
+                    <div class="file-area hidden">
+                      <a
+                        href=""
+                        download="kart"
+                        class="text-blue-500 hover:underline"
+                      >
+                        İndir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <input type="file" class="hidden kart_resim_file" />
+                <input type="hidden" name="guv_komps[kart][img]" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Kabin Tampon -->
+        <div class="flex items-end">
+          <div class="w-[150px] font-semibold">Kabin Tampon:</div>
+          <div class="flex items-end space-x-2">
+            <button
+              type="button"
+              class="btn-kab_tamp-sec px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-900 active:bg-blue-600"
+            >
+              CE Belg.
+            </button>
+            <div
+              style="display: none"
+              class="kab_tamp-form-area flex items-end space-x-2 pl-5"
+            >
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Marka</label>
+                <div class="kab_tamp-marka-adi"></div>
+                <input type="hidden" name="guv_komps[kab_tamp][cert_id]" />
+                <input type="hidden" name="guv_komps[kab_tamp][marka]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Tip</label>
+                <select
+                  name="guv_komps[kab_tamp][tip]"
+                  class="frm-slct"
+                ></select>
+              </div>
+              <div>
+                <label for="" class="frm-lbl">Seri No</label>
+                <input
+                  type="text"
+                  name="guv_komps[kab_tamp][serino]"
+                  class="frm-txt"
+                  placeholder="seri no"
+                />
+              </div>
+              <div class="">
+                <label for="" class="frm-lbl">Sertifika</label>
+                <div>
+                  <a
+                    href=""
+                    target="_blank"
+                    class="kab_tamp-cert-url text-blue-500 hover:underline"
+                    >İncele</a
+                  >
+                </div>
+                <input type="hidden" name="guv_komps[kab_tamp][cert_url]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Resim</label>
+                <div class="flex items-center space-x-2">
+                  <a
+                    class="kab_tamp-img-anchor text-blue-500 hover:underline cursor-pointer select-none"
+                    >Yükle</a
+                  >
+                  <div id="kab_tamp-wrp" class="min-w-[150px]">
+                    <div class="progress-wrp">
+                      <div class="progress-bar"></div>
+                      <div class="status">0%</div>
+                    </div>
+
+                    <div class="file-area hidden">
+                      <a
+                        href=""
+                        download="kab_tamp"
+                        class="text-blue-500 hover:underline"
+                      >
+                        İndir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <input type="file" class="hidden kab_tamp_resim_file" />
+                <input type="hidden" name="guv_komps[kab_tamp][img]" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Karşı Ağ. Tampon -->
+        <div class="flex items-end">
+          <div class="w-[150px] font-semibold">Karşı Ağ. Tampon:</div>
+          <div class="flex items-end space-x-2">
+            <button
+              type="button"
+              class="btn-kar_tamp-sec px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-900 active:bg-blue-600"
+            >
+              CE Belg.
+            </button>
+            <div
+              style="display: none"
+              class="kar_tamp-form-area flex items-end space-x-2 pl-5"
+            >
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Marka</label>
+                <div class="kar_tamp-marka-adi"></div>
+                <input type="hidden" name="guv_komps[kar_tamp][cert_id]" />
+                <input type="hidden" name="guv_komps[kar_tamp][marka]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Tip</label>
+                <select
+                  name="guv_komps[kar_tamp][tip]"
+                  class="frm-slct"
+                ></select>
+              </div>
+              <div>
+                <label for="" class="frm-lbl">Seri No</label>
+                <input
+                  type="text"
+                  name="guv_komps[kar_tamp][serino]"
+                  class="frm-txt"
+                  placeholder="seri no"
+                />
+              </div>
+              <div class="">
+                <label for="" class="frm-lbl">Sertifika</label>
+                <div>
+                  <a
+                    href=""
+                    target="_blank"
+                    class="kar_tamp-cert-url text-blue-500 hover:underline"
+                    >İncele</a
+                  >
+                </div>
+                <input type="hidden" name="guv_komps[kar_tamp][cert_url]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Resim</label>
+                <div class="flex items-center space-x-2">
+                  <a
+                    class="kar_tamp-img-anchor text-blue-500 hover:underline cursor-pointer select-none"
+                    >Yükle</a
+                  >
+                  <div id="kar_tamp-wrp" class="min-w-[150px]">
+                    <div class="progress-wrp">
+                      <div class="progress-bar"></div>
+                      <div class="status">0%</div>
+                    </div>
+
+                    <div class="file-area hidden">
+                      <a
+                        href=""
+                        download="kar_tamp"
+                        class="text-blue-500 hover:underline"
+                      >
+                        İndir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <input type="file" class="hidden kar_tamp_resim_file" />
+                <input type="hidden" name="guv_komps[kar_tamp][img]" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Durak Kapı Kilit -->
+        <div class="flex items-end">
+          <div class="w-[150px] font-semibold">Durak Kapı Kilit:</div>
+          <div class="flex items-end space-x-2">
+            <button
+              type="button"
+              class="btn-durak_kapi_kilit-sec px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-900 active:bg-blue-600"
+            >
+              CE Belg.
+            </button>
+            <div
+              style="display: none"
+              class="durak_kapi_kilit-form-area flex items-end space-x-2 pl-5"
+            >
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Marka</label>
+                <div class="durak_kapi_kilit-marka-adi"></div>
+                <input
+                  type="hidden"
+                  name="guv_komps[durak_kapi_kilit][cert_id]"
+                />
+                <input
+                  type="hidden"
+                  name="guv_komps[durak_kapi_kilit][marka]"
+                />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Tip</label>
+                <select
+                  name="guv_komps[durak_kapi_kilit][tip]"
+                  class="frm-slct"
+                ></select>
+              </div>
+              <div>
+                <label for="" class="frm-lbl">Seri No</label>
+                <input
+                  type="text"
+                  name="guv_komps[durak_kapi_kilit][serino]"
+                  class="frm-txt"
+                  placeholder="seri no"
+                />
+              </div>
+              <div class="">
+                <label for="" class="frm-lbl">Sertifika</label>
+                <div>
+                  <a
+                    href=""
+                    target="_blank"
+                    class="durak_kapi_kilit-cert-url text-blue-500 hover:underline"
+                    >İncele</a
+                  >
+                </div>
+                <input
+                  type="hidden"
+                  name="guv_komps[durak_kapi_kilit][cert_url]"
+                />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Resim</label>
+                <div class="flex items-center space-x-2">
+                  <a
+                    class="durak_kapi_kilit-img-anchor text-blue-500 hover:underline cursor-pointer select-none"
+                    >Yükle</a
+                  >
+                  <div id="durak_kapi_kilit-wrp" class="min-w-[150px]">
+                    <div class="progress-wrp">
+                      <div class="progress-bar"></div>
+                      <div class="status">0%</div>
+                    </div>
+
+                    <div class="file-area hidden">
+                      <a
+                        href=""
+                        download="durak_kapi_kilit"
+                        class="text-blue-500 hover:underline"
+                      >
+                        İndir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <input type="file" class="hidden durak_kapi_kilit_resim_file" />
+                <input type="hidden" name="guv_komps[durak_kapi_kilit][img]" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Kabin Kapı Kilit -->
+        <div class="flex items-end">
+          <div class="w-[150px] font-semibold">Kabin Kapı Kilit:</div>
+          <div class="flex items-end space-x-2">
+            <button
+              type="button"
+              class="btn-kabin_kapi_kilit-sec px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-900 active:bg-blue-600"
+            >
+              CE Belg.
+            </button>
+            <div
+              style="display: none"
+              class="kabin_kapi_kilit-form-area flex items-end space-x-2 pl-5"
+            >
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Marka</label>
+                <div class="kabin_kapi_kilit-marka-adi"></div>
+                <input
+                  type="hidden"
+                  name="guv_komps[kabin_kapi_kilit][cert_id]"
+                />
+                <input
+                  type="hidden"
+                  name="guv_komps[kabin_kapi_kilit][marka]"
+                />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Tip</label>
+                <select
+                  name="guv_komps[kabin_kapi_kilit][tip]"
+                  class="frm-slct"
+                ></select>
+              </div>
+              <div>
+                <label for="" class="frm-lbl">Seri No</label>
+                <input
+                  type="text"
+                  name="guv_komps[kabin_kapi_kilit][serino]"
+                  class="frm-txt"
+                  placeholder="seri no"
+                />
+              </div>
+              <div class="">
+                <label for="" class="frm-lbl">Sertifika</label>
+                <div>
+                  <a
+                    href=""
+                    target="_blank"
+                    class="kabin_kapi_kilit-cert-url text-blue-500 hover:underline"
+                    >İncele</a
+                  >
+                </div>
+                <input
+                  type="hidden"
+                  name="guv_komps[kabin_kapi_kilit][cert_url]"
+                />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Resim</label>
+                <div class="flex items-center space-x-2">
+                  <a
+                    class="kabin_kapi_kilit-img-anchor text-blue-500 hover:underline cursor-pointer select-none"
+                    >Yükle</a
+                  >
+                  <div id="kabin_kapi_kilit-wrp" class="min-w-[150px]">
+                    <div class="progress-wrp">
+                      <div class="progress-bar"></div>
+                      <div class="status">0%</div>
+                    </div>
+
+                    <div class="file-area hidden">
+                      <a
+                        href=""
+                        download="kabin_kapi_kilit"
+                        class="text-blue-500 hover:underline"
+                      >
+                        İndir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <input type="file" class="hidden kabin_kapi_kilit_resim_file" />
+                <input type="hidden" name="guv_komps[kabin_kapi_kilit][img]" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- UCM ACOP -->
+        <div class="flex items-end">
+          <div class="w-[150px] font-semibold">UCM-ACOP:</div>
+          <div class="flex items-end space-x-2">
+            <button
+              type="button"
+              class="btn-ucm_acop-sec px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-900 active:bg-blue-600"
+            >
+              CE Belg.
+            </button>
+            <div
+              style="display: none"
+              class="ucm_acop-form-area flex items-end space-x-2 pl-5"
+            >
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Marka</label>
+                <div class="ucm_acop-marka-adi"></div>
+                <input type="hidden" name="guv_komps[ucm_acop][cert_id]" />
+                <input type="hidden" name="guv_komps[ucm_acop][marka]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Tip</label>
+                <select
+                  name="guv_komps[ucm_acop][tip]"
+                  class="frm-slct"
+                ></select>
+              </div>
+              <div>
+                <label for="" class="frm-lbl">Seri No</label>
+                <input
+                  type="text"
+                  name="guv_komps[ucm_acop][serino]"
+                  class="frm-txt"
+                  placeholder="seri no"
+                />
+              </div>
+              <div class="">
+                <label for="" class="frm-lbl">Sertifika</label>
+                <div>
+                  <a
+                    href=""
+                    target="_blank"
+                    class="ucm_acop-cert-url text-blue-500 hover:underline"
+                    >İncele</a
+                  >
+                </div>
+                <input type="hidden" name="guv_komps[ucm_acop][cert_url]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Resim</label>
+                <div class="flex items-center space-x-2">
+                  <a
+                    class="ucm_acop-img-anchor text-blue-500 hover:underline cursor-pointer select-none"
+                    >Yükle</a
+                  >
+                  <div id="ucm_acop-wrp" class="min-w-[150px]">
+                    <div class="progress-wrp">
+                      <div class="progress-bar"></div>
+                      <div class="status">0%</div>
+                    </div>
+
+                    <div class="file-area hidden">
+                      <a
+                        href=""
+                        download="ucm_acop"
+                        class="text-blue-500 hover:underline"
+                      >
+                        İndir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <input type="file" class="hidden ucm_acop_resim_file" />
+                <input type="hidden" name="guv_komps[ucm_acop][img]" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Motor -->
+        <div class="flex items-end">
+          <div class="w-[150px] font-semibold">Motor:</div>
+          <div class="flex items-end space-x-2">
+            <button
+              type="button"
+              class="btn-motor-sec px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-900 active:bg-blue-600"
+            >
+              CE Belg.
+            </button>
+            <div
+              style="display: none"
+              class="motor-form-area flex items-end space-x-2 pl-5"
+            >
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Marka</label>
+                <div class="motor-marka-adi"></div>
+                <input type="hidden" name="guv_komps[motor][cert_id]" />
+                <input type="hidden" name="guv_komps[motor][marka]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Tip</label>
+                <select name="guv_komps[motor][tip]" class="frm-slct"></select>
+              </div>
+              <div class="w-[100px]">
+                <label for="" class="frm-lbl">Güç(kw)</label>
+                <input
+                  type="text"
+                  name="guv_komps[motor][kw]"
+                  class="frm-txt"
+                  placeholder="kw"
+                />
+              </div>
+              <div class="w-[100px]">
+                <label for="" class="frm-lbl">Motor RPM</label>
+                <input
+                  type="text"
+                  name="guv_komps[motor][rpm]"
+                  class="frm-txt"
+                  placeholder="rpm"
+                />
+              </div>
+              <div>
+                <label for="" class="frm-lbl">Seri No</label>
+                <input
+                  type="text"
+                  name="guv_komps[motor][serino]"
+                  class="frm-txt"
+                  placeholder="seri no"
+                />
+              </div>
+              <div class="">
+                <label for="" class="frm-lbl">Sertifika</label>
+                <div>
+                  <a
+                    href=""
+                    target="_blank"
+                    class="motor-cert-url text-blue-500 hover:underline"
+                    >İncele</a
+                  >
+                </div>
+                <input type="hidden" name="guv_komps[motor][cert_url]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Resim</label>
+                <div class="flex items-center space-x-2">
+                  <a
+                    class="motor-img-anchor text-blue-500 hover:underline cursor-pointer select-none"
+                    >Yükle</a
+                  >
+                  <div id="motor-wrp" class="min-w-[150px]">
+                    <div class="progress-wrp">
+                      <div class="progress-bar"></div>
+                      <div class="status">0%</div>
+                    </div>
+
+                    <div class="file-area hidden">
+                      <a
+                        href=""
+                        download="motor"
+                        class="text-blue-500 hover:underline"
+                      >
+                        İndir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <input type="file" class="hidden motor_resim_file" />
+                <input type="hidden" name="guv_komps[motor][img]" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Kapı Panel -->
+        <div class="flex items-center">
+          <div class="min-w-[150px] font-semibold">Kapı Panel Yangın:</div>
+          <div class="flex items-end space-x-2">
+            <button
+              type="button"
+              class="btn-kapi_panel_yangin-sec px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-900 active:bg-blue-600"
+            >
+              CE Belg.
+            </button>
+            <div
+              style="display: none"
+              class="kapi_panel_yangin-form-area flex items-end space-x-2 pl-5"
+            >
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Marka</label>
+                <div class="kapi_panel_yangin-marka-adi"></div>
+                <input
+                  type="hidden"
+                  name="guv_komps[kapi_panel_yangin][cert_id]"
+                />
+                <input
+                  type="hidden"
+                  name="guv_komps[kapi_panel_yangin][marka]"
+                />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Tip</label>
+                <select
+                  name="guv_komps[kapi_panel_yangin][tip]"
+                  class="frm-slct"
+                ></select>
+              </div>
+              <div>
+                <label for="" class="frm-lbl">Seri No</label>
+                <input
+                  type="text"
+                  name="guv_komps[kapi_panel_yangin][serino]"
+                  class="frm-txt"
+                  placeholder="seri no"
+                />
+              </div>
+              <div class="">
+                <label for="" class="frm-lbl">Sertifika</label>
+                <div>
+                  <a
+                    href=""
+                    target="_blank"
+                    class="kapi_panel_yangin-cert-url text-blue-500 hover:underline"
+                    >İncele</a
+                  >
+                </div>
+                <input
+                  type="hidden"
+                  name="guv_komps[kapi_panel_yangin][cert_url]"
+                />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Resim</label>
+                <div class="flex items-center space-x-2">
+                  <a
+                    class="kapi_panel_yangin-img-anchor text-blue-500 hover:underline cursor-pointer select-none"
+                    >Yükle</a
+                  >
+                  <div id="kapi_panel_yangin-wrp" class="min-w-[150px]">
+                    <div class="progress-wrp">
+                      <div class="progress-bar"></div>
+                      <div class="status">0%</div>
+                    </div>
+
+                    <div class="file-area hidden">
+                      <a
+                        href=""
+                        download="kapi_panel_yangin"
+                        class="text-blue-500 hover:underline"
+                      >
+                        İndir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <input
+                  type="file"
+                  class="hidden kapi_panel_yangin_resim_file"
+                />
+                <input type="hidden" name="guv_komps[kapi_panel_yangin][img]" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <div class="min-w-[150px] font-semibold">Kapı Panel Sarkaç:</div>
+          <div class="flex items-end space-x-2">
+            <button
+              type="button"
+              class="btn-kapi_panel_sarkac-sec px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-900 active:bg-blue-600"
+            >
+              CE Belg.
+            </button>
+            <div
+              style="display: none"
+              class="kapi_panel_sarkac-form-area flex items-end space-x-2 pl-5"
+            >
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Marka</label>
+                <div class="kapi_panel_sarkac-marka-adi"></div>
+                <input
+                  type="hidden"
+                  name="guv_komps[kapi_panel_sarkac][cert_id]"
+                />
+                <input
+                  type="hidden"
+                  name="guv_komps[kapi_panel_sarkac][marka]"
+                />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Tip</label>
+                <select
+                  name="guv_komps[kapi_panel_sarkac][tip]"
+                  class="frm-slct"
+                ></select>
+              </div>
+              <div>
+                <label for="" class="frm-lbl">Seri No</label>
+                <input
+                  type="text"
+                  name="guv_komps[kapi_panel_sarkac][serino]"
+                  class="frm-txt"
+                  placeholder="seri no"
+                />
+              </div>
+              <div class="">
+                <label for="" class="frm-lbl">Sertifika</label>
+                <div>
+                  <a
+                    href=""
+                    target="_blank"
+                    class="kapi_panel_sarkac-cert-url text-blue-500 hover:underline"
+                    >İncele</a
+                  >
+                </div>
+                <input
+                  type="hidden"
+                  name="guv_komps[kapi_panel_sarkac][cert_url]"
+                />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Resim</label>
+                <div class="flex items-center space-x-2">
+                  <a
+                    class="kapi_panel_sarkac-img-anchor text-blue-500 hover:underline cursor-pointer select-none"
+                    >Yükle</a
+                  >
+                  <div id="kapi_panel_sarkac-wrp" class="min-w-[150px]">
+                    <div class="progress-wrp">
+                      <div class="progress-bar"></div>
+                      <div class="status">0%</div>
+                    </div>
+
+                    <div class="file-area hidden">
+                      <a
+                        href=""
+                        download="kapi_panel_sarkac"
+                        class="text-blue-500 hover:underline"
+                      >
+                        İndir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <input
+                  type="file"
+                  class="hidden kapi_panel_sarkac_resim_file"
+                />
+                <input type="hidden" name="guv_komps[kapi_panel_sarkac][img]" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Halat -->
+        <div class="flex items-end">
+          <div class="w-[150px] font-semibold">Halat:</div>
+          <div class="flex items-end space-x-2">
+            <button
+              type="button"
+              class="btn-halat-sec px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-900 active:bg-blue-600"
+            >
+              CE Belg.
+            </button>
+            <div
+              style="display: none"
+              class="halat-form-area flex items-end space-x-2 pl-5"
+            >
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Marka</label>
+                <div class="halat-marka-adi"></div>
+                <input type="hidden" name="guv_komps[halat][cert_id]" />
+                <input type="hidden" name="guv_komps[halat][marka]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Tip</label>
+                <select name="guv_komps[halat][tip]" class="frm-slct"></select>
+              </div>
+              <div>
+                <label for="" class="frm-lbl">Seri No</label>
+                <input
+                  type="text"
+                  name="guv_komps[halat][serino]"
+                  class="frm-txt"
+                  placeholder="seri no"
+                />
+              </div>
+              <div class="">
+                <label for="" class="frm-lbl">Sertifika</label>
+                <div>
+                  <a
+                    href=""
+                    target="_blank"
+                    class="halat-cert-url text-blue-500 hover:underline"
+                    >İncele</a
+                  >
+                </div>
+                <input type="hidden" name="guv_komps[halat][cert_url]" />
+              </div>
+              <div class="min-w-[150px]">
+                <label for="" class="frm-lbl">Resim</label>
+                <div class="flex items-center space-x-2">
+                  <a
+                    class="halat-img-anchor text-blue-500 hover:underline cursor-pointer select-none"
+                    >Yükle</a
+                  >
+                  <div id="halat-wrp" class="min-w-[150px]">
+                    <div class="progress-wrp">
+                      <div class="progress-bar"></div>
+                      <div class="status">0%</div>
+                    </div>
+
+                    <div class="file-area hidden">
+                      <a
+                        href=""
+                        download="halat"
+                        class="text-blue-500 hover:underline"
+                      >
+                        İndir
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <input type="file" class="hidden halat_resim_file" />
+                <input type="hidden" name="guv_komps[halat][img]" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="py-2 px-5 border-t border-gray-200 bg-white">
+      <button
+        class="btn-save-as-bilgi px-4 py-1 bg-blue-700 text-white hover:bg-blue-900 active:bg-blue-700 rounded"
+      >
+        Kaydet
+      </button>
+      <button
+        class="btn-update-as-bilgi hidden px-4 py-1 bg-orange-700 text-white hover:bg-orange-900 active:bg-orange-700 rounded"
+      >
+        Güncelle
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="as-bilgicloseOnay hidden z-[3] fixed top-0 left-0 w-full h-full bg-black/20 items-center justify-center"
+>
+  <div
+    class="w-[300px] p-10 bg-white flex flex-col items-center justify-center space-y-5 rounded"
+  >
+    <div>Kaydetmeden Çıkmak İstiyor musunz?</div>
+    <div class="flex items-center justify-center space-x-4">
+      <button
+        class="px-4 py-1 bg-blue-700 hover:bg-blue-900 text-white out-yes"
+      >
+        Evet
+      </button>
+      <button class="px-4 py-1 bg-red-700 hover:bg-red-900 text-white out-no">
+        Hayır
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="komp-sertifika z-[2] hidden fixed top-0 left-0 w-full h-full bg-black/20 items-center justify-center"
+>
+  <div
+    class="flex flex-col bg-white rounded shadow-lg overflow-hidden h-[85vh] w-[70vw]"
+  >
+    <div class="flex items-center select-none border-b border-gray-200">
+      <div class="tb-title font-semibold flex-1 pl-2">Sertifikalar</div>
+      <i
+        class="komp-sertifika-close tio text-[1.2rem] p-2 hover:bg-black/10 rounded-full cursor-pointer"
+        >clear</i
+      >
+    </div>
+    <div class="relative overflow-y-auto flex-1">
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="tb-cert-head border-b border-gray-200 py-1"></tr>
+        </thead>
+        <tbody class="cert-table"></tbody>
+      </table>
+    </div>
+    <div class="py-2 px-5 border-t border-gray-200">Footer</div>
+  </div>
+</div>

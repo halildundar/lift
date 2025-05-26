@@ -1,0 +1,68 @@
+<div
+  class="certlist fixed top-0 left-0 w-full h-full bg-black/10 flex items-center justify-center"
+>
+  <div
+    class="w-[75vw] h-[80vh] bg-white rounded-md shadow-[0_0_5px_2px_rgba(0,0,0,0.3)] flex flex-col"
+  >
+    <div class="flex items-center px-2 pl-4 py-1">
+      <div class="flex-1 font-semibold">{{cert_title}}</div>
+      <i
+        class="btn-close-popkomplist tio p-2 text-[1.4rem] cursor-pointer rounded-full hover:bg-black/5 duration-150"
+        >clear</i
+      >
+    </div>
+    <div class="flex-1 relative">
+      <form class="seleted-certs">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr>
+              <th class="border-b border-gray-200 w-[50px]">#</th>
+              <th class="border-b border-gray-200">Sertifika No</th>
+              <th class="border-b border-gray-200">Marka</th>
+              <th class="border-b border-gray-200">Tip</th>
+              <th class="border-b border-gray-200">Baş.Tarih</th>
+              <th class="border-b border-gray-200">Bit.Tarih</th>
+              <th class="border-b border-gray-200">Belge</th>
+            </tr>
+          </thead>
+          <tbody class="">
+            {{#each certs}}
+            <tr class="text-center">
+              <td
+                class="border-b border-gray-200 py-1 w-[50px] flex items-center justify-center"
+              >
+                <input
+                  type="checkbox"
+                  name="{{id}}"
+                  value="{{id}}"
+                  class="w-[1.2rem] h-[1.2rem]"
+                />
+              </td>
+              <td class="border-b border-gray-200 py-1">{{cert_no}}</td>
+              <td class="border-b border-gray-200 py-1">{{marka}}</td>
+              <td class="border-b border-gray-200 py-1">{{tip}}</td>
+              <td class="border-b border-gray-200 py-1">{{cert_start_date}}</td>
+              <td class="border-b border-gray-200 py-1">{{cert_end_date}}</td>
+              <td class="border-b border-gray-200 py-1">
+                <a
+                  href="{{cert_filepath}}"
+                  target="_blank"
+                  class="underline text-blue-600"
+                  >Belge</a
+                >
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </form>
+    </div>
+    <div class="px-4 py-2 flex justify-center">
+      <button
+        class="btn-modulbcertTamam w-[100px] py-2 rounded-md bg-blue-600 hover:bg-blue-700 active:bg-blue-600 text-white"
+      >
+        Tamam
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,130 @@
+<div
+  class="riskpop fixed top-0 left-0 w-full h-full bg-black/10 flex items-center justify-center"
+>
+  <div
+    class="w-[60vw] h-[90vh] bg-white rounded-md shadow-[0_0_5px_2px_rgba(0,0,0,0.3)] flex flex-col"
+  >
+    <div class="flex items-center px-2 pl-4 py-1">
+      <div class="flex-1 font-semibold">{{title}}</div>
+      <i
+        class="btn-close-risk tio p-2 text-[1.4rem] cursor-pointer rounded-full hover:bg-black/5 duration-150"
+        >clear</i
+      >
+    </div>
+    <form class="relative flex-1 py-2 overflow-y-auto form-risk">
+      <div class="px-2 pb-2">
+        <div>
+          <label for="yayim_tarih" class="frm-lbl">Yayim Tarihi</label>
+          <input
+            type="text"
+            id="yayim_tarih"
+            name="yayim_tarih"
+            class="frm-txt"
+          />
+        </div>
+      </div>
+      <div class="flex items-center space-x-2 px-2 pb-2">
+        <div class="flex-1">
+          <label for="risk_analiz" class="frm-lbl">Risk Analiz</label>
+          <textarea
+            name="risk_analiz"
+            id="risk_analiz"
+            class="frm-txt !h-[4rem]"
+            value="{{risk_analiz}}"
+          ></textarea>
+        </div>
+        <div class="flex-1">
+          <label for="risk_analiz" class="frm-lbl">Risk Analiz(EN)</label>
+          <textarea
+            name="risk_analiz_en"
+            id="risk_analiz_en"
+            class="frm-txt !h-[4rem] text-red-600",
+          ></textarea>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2 px-2 pb-2">
+        <div class="flex-1">
+          <label for="tehlikeli_durum" class="frm-lbl">Tehlikeli durum</label>
+          <textarea
+            name="tehlikeli_durum"
+            id="tehlikeli_durum"
+            class="frm-txt !h-[4rem]",
+          ></textarea>
+        </div>
+        <div class="flex-1">
+          <label for="tehlikeli_durum" class="frm-lbl"
+            >Tehlikeli durum(EN)</label
+          >
+          <textarea
+            name="tehlikeli_durum_en"
+            id="tehlikeli_durum_en"
+            class="frm-txt !h-[4rem] text-red-600",
+          ></textarea>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center space-x-2 px-2 pb-2">
+          <label for="" class="frm-lbl">Risk Uygulamalar</label>
+          <!-- <div
+            class="inline-block tio text-[1.2rem] p-2 rounded-full hover:bg-black/10 select-none cursor-pointer">
+            add
+          </div> -->
+        </div>
+        <div class="px-2">
+          <label for="" class="frm-lbl">Türkçe</label>
+          <ul class="pl-8 space-y-2 list-disc risk-uyg">
+          </ul>
+        </div>
+        <div class="px-2">
+          <label for="" class="frm-lbl">English</label>
+          <ul class="pl-8 space-y-2 list-disc risk-uyg-en">
+          </ul>
+        </div>
+      </div>
+      <div class="px-2 py-2">
+         <label for="" class="frm-lbl">Uygulama Resimler</label>
+      </div>
+      <div class="px-2 flex pb-2">
+          <div class="w-1/4 pr-4 uyg_img1">
+            <a  class="cursor-pointer underline text-blue-500 select-none">Resim 1</a>
+            <a href="" target="_blank">
+              <img src="" class="w-full h-[75px]" alt="" />
+            </a>
+            <input type="hidden" name="uyg_img1" />
+            <input type="file" class="hidden" accept=".jpg,.jpeg,.png" id="uyg_img1" />
+          </div>
+          <div class="w-1/4 pr-4 uyg_img2">
+            <a  class="cursor-pointer underline text-blue-500">Resim 2</a>
+            <a href="" target="_blank">
+              <img src="" class="w-full h-[75px]" alt="" />
+            </a>
+            <input type="hidden" name="uyg_img2" />
+            <input type="file" class="hidden" accept=".jpg,.jpeg,.png"  id="uyg_img2" />
+          </div>
+          <div class="w-1/4 pr-4 uyg_img3">
+            <a  class="cursor-pointer underline text-blue-500">Resim 3</a>
+            <a href="" target="_blank">
+              <img src="" class="w-full h-[75px]" alt="" />
+            </a>
+            <input type="hidden" name="uyg_img3" />
+            <input type="file" class="hidden" accept=".jpg,.jpeg,.png"  id="uyg_img3" />
+          </div>
+          <div class="w-1/4 pr-4 uyg_img4">
+            <a  class="cursor-pointer underline text-blue-500">Resim 4</a>
+            <a href="" target="_blank">
+              <img src="" class="w-full h-[75px]" alt="" />
+            </a>
+            <input type="hidden" name="uyg_img4" />
+            <input type="file" class="hidden" accept=".jpg,.jpeg,.png"  id="uyg_img4" />
+          </div>
+        </div>
+    </form>
+    <div class="px-4 py-2">
+      <button
+        class="btn-kaydet-risk w-[100px] py-2 rounded-md bg-blue-600 hover:bg-blue-700 active:bg-blue-600 text-white"
+      >
+        Kaydet
+      </button>
+    </div>
+  </div>
+</div>

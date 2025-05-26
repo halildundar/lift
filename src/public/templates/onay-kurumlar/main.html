@@ -1,0 +1,88 @@
+<div class="py-3 px-5 max-w-[--max-width] mx-auto pb-[100px]">
+  <div class="flex items-center">
+    <div class="font-semibold text-[1.6rem]">Onaylanmış Kuruluşlar</div>
+    <div class="flex-1 flex items-center justify-end space-x-1">Buton Grup</div>
+  </div>
+  <div class="flex space-x-5 py-5">
+    <div class="w-[40%] py-1 px-4 border border-gray-300 rounded">
+      <form class="space-y-2 sticky top-0 z-10 bg-white py-5">
+        <div>
+          <label for="name" class="frm-lbl">Kısa Ad</label>
+          <input type="text" name="name" id="name" class="frm-txt" />
+        </div>
+        <div>
+          <label for="unvan" class="frm-lbl">Ünvan</label>
+          <input type="text" name="unvan" id="unvan" class="frm-txt" />
+        </div>
+        <div>
+          <label for="adres" class="frm-lbl">Adres</label>
+          <input type="text" name="adres" id="adres" class="frm-txt" />
+        </div>
+        <div>
+          <label for="nobo" class="frm-lbl">Nobo</label>
+          <input
+            type="text"
+            name="nobo"
+            id="nobo"
+            class="frm-txt"
+            placeholder="XXXX"
+          />
+        </div>
+        <div>
+          <label for="nando_url" class="frm-lbl">Nando Link</label>
+          <input
+            type="text"
+            name="nando_url"
+            id="nando_url"
+            class="frm-txt"
+            placeholder="https://webgate.ec.europa.eu/"
+          />
+        </div>
+        <div class="flex items-center space-x-1 pt-4">
+          <button
+            id="save"
+            type="button"
+            class="btn-sm btn-base active:[btn-click]"
+          >
+            Kaydet
+          </button>
+          <button
+            id="update"
+            type="button"
+            class="!hidden btn-sm btn-base active:[btn-click] "
+          >
+            Güncelle
+          </button>
+          <button
+            id="delete"
+            type="button"
+            class="!hidden btn-sm btn-base active:[btn-click]"
+          >
+            Sil
+          </button>
+          <button
+            id="clear"
+            type="button"
+            class="btn-sm btn-base active:[btn-click]"
+          >
+            Temizle
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="w-[60%]">
+      <table class="table-base">
+        <thead>
+          <tr class="">
+            <th class="sticky -top-1 z-50">Adı</th>
+            <th class="sticky -top-1 z-50 w-[30%]">Ünvan</th>
+            <th class="sticky -top-1 z-50 w-[30%]">Adres</th>
+            <th class="sticky -top-1 z-50">Nobo</th>
+            <th class="sticky -top-1 z-50 w-[10%]">Nando</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>

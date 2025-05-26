@@ -1,0 +1,251 @@
+<div
+  class="save-popup fixed top-0 left-0 w-full h-full bg-black/20 flex items-center justify-center z-20"
+>
+  <div
+    class="w-[60%] max-h-[98vh] bg-white rounded shadow-[0_0_5px_rgba(0,0,0,0.5)] overflow-hidden relative"
+  >
+    <div class="flex pl-3 pr-1 py-1">
+      <div class="flex items-center flex-1 font-semibold text-[1.2rem]">
+        Denetim Planı {{save_or_update}}
+      </div>
+      <div
+        class="close tio p-2 text-2xl hover:bg-black/10 rounded-full cursor-pointer select-none"
+        title="Kapat"
+      >
+        clear
+      </div>
+    </div>
+    <div class="px-4 font-semibold text-end flex items-center justify-between">
+      <div>{{denetim_tarih}} - {{hafta_gun_adi}}</div>
+      <div>{{baslagic_text}}</div>
+    </div>
+    <form class="plan-form p-4">
+      <div class="flex items-center space-x-2 mb-1">
+        <div class="flex-1">
+          <label for="" class="frm-lbl">Montaj Firması</label>
+          <select name="as_firma_id" class="frm-slct"></select>
+        </div>
+        <div class="flex-1">
+          <label for="" class="frm-lbl">Modul</label>
+          <select name="modul" class="frm-slct">
+            <option value="Modul G">Modul G</option>
+            <option value="Modul B">Modul B</option>
+            <option value="Modul E">Modul E</option>
+            <option value="Modul H1">Modul H1</option>
+          </select>
+        </div>
+        <div class="flex-1">
+          <label for="" class="frm-lbl">Denetçi</label>
+          <select name="denetci_id" class="frm-slct"></select>
+        </div>
+      </div>
+      <div class="py-2 risk-area">
+        <div class="font-semibold">
+          Risk Değerlendirme
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-1">
+               <input type="hidden" name="risk[makdaire]" value="false">
+            <input type="checkbox" id="makdaire-risk" name="risk[makdaire]" value="true" class="w-[1.2rem] h-[1.1rem]" />
+         
+            <label for="makdaire-risk" class="select-none"
+              >Makine Dairesi Yükseklik</label
+            >
+          </div>
+          <div class="flex items-center space-x-1">
+              <input type="hidden" name="risk[kabinust]" value="false">
+            <input type="checkbox" id="kabinust-risk" name="risk[kabinust]"  value="true" class="w-[1.2rem] h-[1.1rem]" />
+          
+            <label for="kabinust-risk" class="select-none"
+              >Kabin Üst Risk</label
+            >
+          </div>
+          <div class="flex items-center space-x-1">
+             <input type="hidden" name="risk[kuyudip]" value="false">
+            <input type="checkbox" id="kuyudip-risk" name="risk[kuyudip]"  value="true"  class="w-[1.2rem] h-[1.1rem]"/>
+            <label for="kuyudip-risk" class="select-none">Kuyu Alt Risk</label>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold text-[1.1rem]">Asansör Bilgileri</div>
+        <div class="flex items-center space-x-2 mb-1">
+          <div class="w-1/4">
+            <label for="" class="frm-lbl">Yapı Ruhsat No:</label>
+            <input
+              type="text"
+              class="frm-txt"
+              name="yapi_ruhsat_no"
+              placeholder="Ruhsat No:"
+            />
+          </div>
+          <div class="w-1/4">
+            <label for="" class="frm-lbl">Yapı Sahibi Adı:</label>
+            <input
+              type="text"
+              class="frm-txt"
+              name="yapi_sahibi_adi"
+              placeholder="Yapı Sahibi Adı"
+            />
+          </div>
+          <div class="w-1/4">
+            <label for="" class="frm-lbl">Serino</label>
+            <input
+              type="text"
+              class="frm-txt"
+              name="as_seri_no"
+              placeholder="Asansör Serino"
+            />
+          </div>
+          <div class="w-1/4">
+            <label for="" class="frm-lbl">Montaj Yılı:</label>
+            <input
+              type="text"
+              class="frm-txt"
+              name="tam_yil"
+              placeholder="Montaj Yılı"
+            />
+          </div>
+        </div>
+        <div class="mb-1">
+          <label for="" class="frm-lbl">Adres</label>
+          <div class="flex items-center space-x-2 mb-1">
+            <select name="il_id" class="frm-slct"></select>
+            <select name="ilce_id" class="frm-slct"></select>
+            <select name="mahalle_id" class="frm-slct"></select>
+          </div>
+          <input
+            type="text"
+            class="frm-txt"
+            name="adres"
+            placeholder="Cadde/Bulvar/Sokak/Kapı No..."
+          />
+          <div class="flex items-center space-x-2 mb-1 mt-1">
+            <div class="flex-1">
+              <label for="" class="frm-lbl">Ada</label>
+              <input type="text" class="frm-txt" name="ada" placeholder="Ada" />
+            </div>
+            <div class="flex-1">
+              <label for="" class="frm-lbl">Parsel</label>
+              <input
+                type="text"
+                class="frm-txt"
+                name="parsel"
+                placeholder="parsel"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2 mb-1">
+          <div class="w-1/2">
+            <label for="" class="frm-lbl">Tip:</label>
+            <select class="frm-slct" name="elek_hidrolik">
+              <option value="Elektrikli">Elektrikli</option>
+              <option value="Hidrolik">Hidrolik</option>
+            </select>
+          </div>
+          <div class="w-1/2">
+            <label for="" class="frm-lbl">Makine Konum:</label>
+            <select class="frm-slct" name="makine_konum">
+              <option value="Kuyu içi/Kuyu üst">
+                Makine dairesiz - Kuyu içi / Kuyu üst
+              </option>
+              <option value="Kuyu dışı/Kuyu üst">
+                Makine daireli - Kuyu dışı / Kuyu üst
+              </option>
+              <option value="Kuyu dışı/Kuyu alt">
+                Makine daireli - Kuyu dışı / Kuyu alt
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2 mb-1">
+          <div class="w-1/2">
+            <label for="" class="frm-lbl">Durak Sayısı:</label>
+            <input
+              type="text"
+              class="frm-txt"
+              name="durak_sayisi"
+              placeholder="Durak Sayısı"
+            />
+          </div>
+          <div class="w-1/2">
+            <label for="" class="frm-lbl">Seyir Mesafesi(mm):</label>
+            <input
+              type="text"
+              class="frm-txt"
+              name="seyir_mesafesi"
+              placeholder="Seyir Mesafesi(mm)"
+            />
+          </div>
+          <div class="w-1/2">
+            <label for="" class="frm-lbl">Beyan Yükü(kg):</label>
+            <input
+              type="text"
+              class="frm-txt"
+              name="beyan_yuku"
+              placeholder="kg"
+            />
+          </div>
+          <div class="w-1/2">
+            <label for="" class="frm-lbl">Kişi Sayısı:</label>
+            <input
+              type="text"
+              class="frm-txt"
+              name="kisi_sayisi"
+              placeholder="Kişi Sayısı"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div id="yapi_ruhsati">
+        <div class="flex items-center space-x-2">
+          <button
+            type="button"
+            class="px-2 py-1 bg-red-500 text-white w-[150px]"
+          >
+            Yapı Ruhsatı
+          </button>
+          <input type="hidden" name="yapi_ruhsati" />
+          <input
+            type="file"
+            accept=".pdf,image/*"
+            class="hidden"
+            id="file_yapi_ruhsati"
+          />
+          <div class="file-msg flex-1"></div>
+          <a
+            href=""
+            download=""
+            class="indir-link text-blue-600 underline hidden"
+            >Yapı Ruhsatı</a
+          >
+        </div>
+        <div class="progress-wrp hidden">
+          <div class="progress-bar"></div>
+          <div class="status">0%</div>
+        </div>
+        <div class="msg-area text-red-500 text-center py-2"></div>
+      </div>
+      <div id="files-links"></div>
+      <div class="flex justify-center items-center space-x-1">
+        <button type="button" class="savebtn btn-sm btn-base">
+          {{btn_ad}}
+        </button>
+      </div>
+    </form>
+    <div
+      class="hidden sppin-area absolute top-0 left-0 w-full h-full bg-white flex-col space-y-2 justify-center items-center"
+    >
+      <div class="flex items-center text-[64px] scale-75">
+        <div class="spin icon-spin-3 spin-steps2"></div>
+      </div>
+      <div class="text-[1.6rem] text-center">
+        Formlar oluşturuluyor!<br /><strong class="text-[1.2rem]"
+          >Lütfen Bekleyiniz...</strong
+        >
+      </div>
+    </div>
+  </div>
+</div>

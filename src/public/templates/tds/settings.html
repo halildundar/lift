@@ -1,0 +1,106 @@
+<div>
+  <div class="py-2">
+    <div class="font-semibold underline">Firma Bilgi</div>
+    <div class="grid gap-5 grid-cols-3 p-2">
+      <div class="logo-area">
+        <div class="space-x-2 text-[0.9rem]">
+          <label class="font-semibold inline-block">Logo</label>
+          <div class="inline-block">
+            <a title="yukle" class="underline cursor-pointer text-blue-600"
+              >Yükle</a
+            >
+            <input type="file" class="hidden" name="logo" accept=".png" />
+          </div>
+        </div>
+        <a href="{{logo_url}}" target="_blank">
+          <img
+            src="{{logo_url}}"
+            class="max-h-[100px] w-full object-cover"
+            alt=""
+          />
+        </a>
+      </div>
+      <div class="imza-kase-area">
+        <div class="space-x-2 text-[0.9rem]">
+          <label class="font-semibold inline-block">İmza Kaşe</label>
+          <div class="inline-block">
+            <a title="yukle" class="underline cursor-pointer text-blue-600"
+              >Yükle</a
+            >
+            <input type="file" class="hidden" name="imza-kase" accept=".png" />
+          </div>
+        </div>
+        <a href="{{imza_kase_url}}" target="_blank">
+          <img
+            src="{{imza_kase_url}}"
+            class="max-h-[100px] w-full object-cover"
+            alt=""
+          />
+        </a>
+      </div>
+      <div class="son-kon-area">
+        <div class="space-x-2 text-[0.9rem]">
+          <label class="font-semibold inline-block">Son Kontrolcu</label>
+          <div class="inline-block">
+            <a title="yukle" class="underline cursor-pointer text-blue-600"
+              >Yükle</a
+            >
+          </div>
+          <input type="file" class="hidden" name="son_kon_imz" accept=".png" />
+        </div>
+        <a href="{{son_kon_imz_url}}" target="_blank">
+          <img
+            src="{{son_kon_imz_url}}"
+            class="max-h-[100px] w-full object-cover"
+            alt=""
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="py-2">
+    <div class="font-semibold underline">Diğer Data</div>
+   <div class="diger-area space-y-2">
+        <form class="grid gap-5 grid-cols-3">
+          <div >
+            <label class="frm-lbl">Son Kontrol Tarih</label>
+            <input
+              type="text"
+              class="frm-txt"
+              name="son_kon_tarih"
+              placeholder="dd.MM.yyyy"
+            />
+          </div>
+          <div >
+            <label class="frm-lbl">Ab Uyg.Tarih</label>
+            <input
+              type="text"
+              class="frm-txt"
+              name="ab_uyg_tarih"
+              placeholder="dd.MM.yyyy"
+            />
+          </div>
+          <div class="flex items-end">
+            <button
+            class="btn-ab-son-tarih-save px-2 py-1 bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-500 rounded-md text-[0.9rem]"
+          >
+            Kaydet
+          </button>
+          </div>
+        </form>
+      </div>
+  </div>
+  <div class="py-2">
+    <div class="font-semibold underline">Komponent Resimler</div>
+    <div class="grid gap-5 grid-cols-4 p-2">
+      {{#each guv_komps}}
+      <div>
+        <label class="font-semibold text-[0.9rem]">{{komp_name}}</label>
+        <a href="{{img}}" target="_blank">
+          <img src="{{img}}" class="max-h-[100px] w-full object-cover" alt="" />
+        </a>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

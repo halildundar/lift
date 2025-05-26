@@ -1,0 +1,124 @@
+<div class="py-3 px-5 max-w-[--max-width] mx-auto pb-[100px]">
+  <div class="flex items-center">
+    <div class="font-semibold text-[1.6rem]">Proje Firmaları</div>
+    <div class="flex-1 flex items-center justify-end space-x-1"></div>
+  </div>
+  <div class="flex space-x-5 py-5">
+    <div class="w-[40%] py-1 px-4 border border-gray-300 rounded">
+        <div class="sticky top-0 z-10 bg-white py-5">
+          <form class="form-area space-y-2 ">
+            <div>
+              <label for="unvan" class="frm-lbl">Yıl</label>
+              <select name="yil" class="frm-slct">
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+              </select>
+            </div>
+            <div>
+              <label for="unvan" class="frm-lbl">Büro Tescil Ünvan</label>
+              <input type="text" name="unvan" class="frm-txt" />
+            </div>
+            <div>
+              <label for="adres" class="frm-lbl">Büro Adres</label>
+              <input type="text" name="adres" class="frm-txt" />
+            </div>
+            <div class="flex space-x-2">
+              <div class="w-1/2">
+                <div>
+                  <label for="elk_muh_adi" class="frm-lbl">Elk Müh. Ad-Soyad</label>
+                  <input type="text" name="elk_muh_adi" class="frm-txt" />
+                </div>
+                <div>
+                  <label for="elk_smm_no" class="frm-lbl">Elk Müh. SMM No</label>
+                  <input type="text" name="elk_smm_no" class="frm-txt" />
+                </div>
+                <div>
+                  <label for="elk_oda_no" class="frm-lbl"
+                    >Elk Müh. Oda Sicil No</label
+                  >
+                  <input type="text" name="elk_oda_no" class="frm-txt" />
+                </div>
+              </div>
+              <div class="w-1/2">
+                <div>
+                  <label for="mak_muh_adi" class="frm-lbl"
+                    >Makine Müh. Ad-Soyad</label
+                  >
+                  <input type="text" name="mak_muh_adi" class="frm-txt" />
+                </div>
+                <div>
+                  <label for="mak_smm_no" class="frm-lbl">Makine Müh. SMM No</label>
+                  <input type="text" name="mak_smm_no" class="frm-txt" />
+                </div>
+                <div>
+                  <label for="mak_oda_no" class="frm-lbl"
+                    >Makine Müh. Oda Sicil No</label
+                  >
+                  <input type="text" name="mak_oda_no" class="frm-txt" />
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="msg-area text-red-600 py-2"></div>
+          <div>
+            <div id="file-name-fromdb" class="py-2"></div>
+            <div class="py-2 flex flex-col space-x-2">
+              <button type="button" id="file-add-btn" class="btn-sm btn-base active:[btn-click]">
+                SMM Dosyaları(max.10mb)
+              </button>
+              <div class="file-name-cli"></div>
+              <input type="file" name="file-inpt" accept=".zip" class="hidden" />
+            </div>
+          </div>
+          <div class="flex items-center space-x-1 pt-4">
+            <button
+              id="save"
+              type="button"
+              class="btn-sm btn-base active:[btn-click]"
+            >
+              Kaydet
+            </button>
+            <button
+              id="update"
+              type="button"
+              class="!hidden btn-sm btn-base active:[btn-click]"
+            >
+              Güncelle
+            </button>
+            <button
+              id="delete"
+              type="button"
+              class="!hidden btn-sm btn-base active:[btn-click]"
+            >
+              Sil
+            </button>
+            <button
+              id="clear"
+              type="button"
+              class="btn-sm btn-base active:[btn-click]"
+            >
+              Temizle
+            </button>
+          </div>
+        </div>
+    </div>
+    <div class="w-[60%]">
+      <table class="table-base">
+        <thead>
+          <tr class="">
+            <th class="sticky -top-1 z-50 w-[30%]">Yil</th>
+            <th class="sticky -top-1 z-50">Ünvan</th>
+            <th class="sticky -top-1 z-50 w-[30%]">Elk. Müh</th>
+            <th class="sticky -top-1 z-50">Mak.Müh.</th>
+            <th class="sticky -top-1 z-50 w-[10%]">SMMler</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>

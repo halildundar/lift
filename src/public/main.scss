@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@theme {
+  --breakpoint-xs: 50rem;
+  --breakpoint-sm: 60rem;
+  --breakpoint-md: 68rem;
+  --breakpoint-lg: 84rem;
+  --breakpoint-2xl: 100rem;
+  --breakpoint-3xl: 120rem;
+}
+
+@import "./util/icons.scss";
+@import "./util/spinner.scss";
+.deneme {
+  background-image: url(./assets/logo.webp);
+  background-image: url(./assets/logo-w.webp);
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  --max-width: 1400px;
+  --thm-color: #0287e5;
+  --thm-color-dark: #005fa3;
+  --bg-color: #ebebeb;
+  font-family: "Inter", sans-serif, "arial";
+  font-optical-sizing: auto;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  margin: 0;
+}
+
+input,
+textarea {
+  outline: none;
+}
+.form-label {
+  @apply block mb-2 text-sm  text-gray-900 dark:text-white font-semibold;
+}
+.form-text {
+  @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+}
+
+.btn-blue {
+  @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800;
+}
+.btn {
+  @apply relative overflow-hidden inline-block duration-100   px-4 py-2 rounded text-center   cursor-pointer select-none;
+}
+.btn-sm {
+  @apply relative overflow-hidden inline-block duration-100 min-w-[65px]  px-2 py-0.5 rounded text-center  cursor-pointer select-none text-[0.9rem];
+}
+.btn.btn-thm-color {
+  @apply bg-[--thm-color] text-white hover:bg-[--thm-color-dark];
+}
+.btn.btn-thm,
+.btn-sm.btn-thm {
+  @apply bg-[--thm-color] text-white hover:bg-[--thm-color-dark];
+}
+.btn.btn-active,
+.btn-sm.btn-active {
+  @apply bg-[--thm-color-dark];
+}
+
+.btn.btn-base,
+.btn-sm.btn-base {
+  @apply min-w-fit bg-gradient-to-b from-gray-200 via-gray-100 to-gray-200 duration-300  hover:bg-gray-400 border border-gray-400 rounded-md text-gray-800;
+}
+.btn.btn-base.btn-active,
+.btn-sm.btn-base.btn-active {
+  @apply from-gray-300 via-gray-100 to-gray-300;
+}
+.frm-lbl {
+  @apply block font-semibold text-[0.8rem] text-gray-800;
+}
+.btn.btn-base.btn-click,
+.btn-sm.btn-base.btn-click {
+  @apply from-gray-300 via-gray-100 to-gray-300;
+}
+.btn.btn-base.btn-disabled,
+.btn-sm.btn-base.btn-disabled {
+  @apply pointer-events-none text-gray-400;
+}
+.frm-txt,
+.frm-slct {
+  box-shadow: inset 0 0 3px rgba(black, 0.1);
+  @apply border border-gray-300 text-[0.8rem] px-1 h-[1.8rem] w-full outline-none bg-gray-100;
+}
+.frm-chckbx {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1px solid #f3f4f6;
+  border-radius: 5px;
+}
+.table-base {
+  @apply border border-gray-300 border-collapse w-full;
+
+  th,
+  td {
+    @apply border-t border-l border-gray-300;
+  }
+  th {
+    @apply bg-gray-100 border-b  py-1;
+  }
+  td {
+    @apply px-2 py-0.5;
+  }
+  tr:hover {
+    @apply bg-black/5 cursor-pointer;
+  }
+}
+.spinner-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(white, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.progress-wrp {
+  border: 1px solid #0099cc;
+  padding: 1px;
+  position: relative;
+  height: 30px;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: left;
+  background: #fff;
+  box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.12);
+}
+.progress-wrp .progress-bar {
+  height: 100%;
+  border-radius: 3px;
+  background-color: rgb(25, 213, 255);
+  width: 0;
+  box-shadow: inset 1px 1px 10px rgba(0, 0, 0, 0.11);
+}
+.progress-wrp .status {
+  top: 3px;
+  left: 50%;
+  position: absolute;
+  display: inline-block;
+  color: #000000;
+}
+.sabah,
+.ogle {
+  li {
+    position: relative;
+    padding-left: 1rem;
+  }
+  li:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background-color: #0569e4;
+    transform: translateY(-50%);
+  }
+}
+@media screen and (min-width: 1500px) {
+  .btn.btn-base,
+  .btn-sm.btn-base {
+    @apply text-[1rem];
+  }
+  .frm-lbl {
+    @apply text-[1rem];
+  }
+  .frm-txt,
+  .frm-slct {
+    @apply text-[1rem] px-1.5 h-[2rem];
+  }
+}
+@media screen and (min-width: 1900px) {
+  .btn.btn-base,
+  .btn-sm.btn-base {
+    @apply text-[1.1rem];
+  }
+  .frm-lbl {
+    @apply text-[1.1rem];
+  }
+  .frm-txt,
+  .frm-slct {
+    @apply text-[1.1rem] px-2 h-[2.4rem];
+  }
+}

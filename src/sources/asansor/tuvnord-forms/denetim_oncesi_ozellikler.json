@@ -1,0 +1,86 @@
+[
+  {
+    "filename": "1.APPLICATION FROM.docx",
+    "searchs": [
+      "{as_firma_adi}",
+      "{as_firma_adresi}",
+      "{yapi_sahibi_adi}",
+      "{as_firma_posta_kod}",
+      "{as_firma_tel}",
+      "{as_firma_vergi_no}",
+      "{montaj_adresi}",
+      "{ada}",
+      "{parsel}",
+      "{as_seri_no}",
+      "{durak_sayisi}",
+      "{seyir_mesafesi}",
+      "{beyan_yuku}",
+      "{kisi_sayisi}",
+      "{basvuru_tarih}",
+      "{modul}",
+      "{il_adi}",
+      "{ilce_adi}",
+      "{mahalle_adi}",
+      "{firma_imza_kase_img1}"
+    ]
+  },
+  {
+    "filename": "4.ELEVATOR INSPECTION REPORT.docx",
+    "searchs": [
+      "{denetci_adi}",
+      "{as_firma_sahibi}",
+      "{as_firma_adi}",
+      "{tam_yil}",
+      "{as_seri_no}",
+      "{yapi_sahibi_adi}",
+      "{yapi_ruhsat_no}",
+      "{elek_hidrolik}",
+      "{makine_konum}",
+      "{montaj_adresi}",
+      "{ada}","{parsel}",   
+      "{firma_imza_kase_img1}",
+      "{denetim_tarih}",
+      "{as_firma_muhendis}"
+    ]
+  },
+  {
+    "filename": "11.TECHNICAL FILE REPORT FOR ELEVATOR.docx",
+    "searchs": [
+      "{denetci_adi}",
+      "{denetim_tarih}",
+      "{montaj_adresi}",
+      "{as_firma_muhendis}",
+      "{yapi_sahibi_adi}",
+      "{yapi_ruhsat_no}",
+      "{as_firma_sahibi}",
+      "{tam_yil}",
+      "{as_seri_no}",
+      "{elek_hidrolik}",
+      "{makine_konum}",
+      "{as_firma_sahibi}",
+      "{as_firma_adi}",
+      "{firma_imza_kase_img1}",
+      "{ada}","{parsel}"
+    ]
+  },
+  {
+    "filename": "3.CHECKLIST_PREV.docx",
+    "searchs": [
+      "{as_seri_no}",
+      "{yapi_sahibi_adi}",
+      "{as_firma_adi}",
+      "{montaj_adresi}",
+      "{ada}",
+      "{parsel}",
+       "{il_adi}"
+    ]
+  },
+  {
+    "filename": "10.CONTRACT.docx",
+    "searchs": [
+      "{as_firma_adi}",
+      "{as_firma_adresi}",
+      "{modul}"
+    ]
+  }
+]

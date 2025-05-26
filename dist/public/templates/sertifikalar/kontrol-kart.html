@@ -1,0 +1,173 @@
+<div class="relative">
+    <div class="flex">
+      <div class="w-1/3 py-2 pr-10">
+        <form class="form-area space-y-2">
+          <div class="flex space-x-2">
+            <div class="w-1/2">
+              <label for="onay_kurum_id" class="frm-lbl">Onaylanmış Kurum</label>
+              <select
+                name="onay_kurum_id"
+                id="onay_kurum_id"
+                class="frm-slct"
+              ></select>
+            </div>
+            <div class="w-1/2">
+              <label for="cert_no" class="frm-lbl">Sertifika No</label>
+              <input
+                id="cert_no"
+                class="frm-txt"
+                name="cert_no"
+                type="text"
+                placeholder="Sertifika No"
+              />
+            </div>
+          </div>
+  
+          <div class="flex items-center space-x-2">
+            <div class="w-1/2">
+              <label for="cert_start_date" class="frm-lbl"
+                >Sertifika Baş. Tarih</label
+              >
+              <input
+                id="cert_start_date"
+                class="frm-txt"
+                name="cert_start_date"
+                type="text"
+                placeholder="dd.MM.yyyy"
+              />
+            </div>
+            <div class="w-1/2">
+              <label for="cert_end_date" class="frm-lbl"
+                >Sertifika Bit. Tarih</label
+              >
+              <input
+                id="cert_end_date"
+                class="frm-txt"
+                name="cert_end_date"
+                type="text"
+                placeholder="dd.MM.yyyy"
+              />
+            </div>
+          </div>
+  
+          <div class="w-full">
+            <label for="marka" class="frm-lbl">Marka</label>
+            <input
+              id="marka"
+              class="frm-txt"
+              name="marka"
+              type="text"
+              placeholder="Marka"
+            />
+          </div>
+  
+          <div class="w-full">
+            <label for="tip" class="frm-lbl">Tipler</label>
+            <input
+              id="tip"
+              class="frm-txt"
+              name="tip"
+              type="text"
+              placeholder="Tip1,Tip2,Tip3,..."
+            />
+          </div>
+      
+          <input
+            id="cert_filepath"
+            name="cert_filepath"
+            type="text"
+            class="hidden"
+          />
+        </form>
+        <form>
+          <div>
+            <div id="cert-name-fromdb" class="py-2"></div>
+            <div class="py-2 flex flex-col space-x-2">
+              <button
+                type="button"
+                id="cert-add-btn"
+                class="btn-sm btn-base active:[btn-click]"
+              >
+                Sertifika
+              </button>
+              <div class="cert-name-cli">
+  
+              </div>
+              <input
+                type="file"
+                id="cert-file"
+                name="cert-file"
+                accept=".pdf"
+                class="hidden"
+              />
+            </div>
+          </div>
+        </form>
+        <div class="msg-area text-red-600 py-2"></div>
+        <div class="flex items-center space-x-1 pt-4">
+          <button
+            id="save"
+            type="button"
+            class="btn-sm btn-base active:[btn-click]"
+          >
+            Kaydet
+          </button>
+          <button
+            id="update"
+            type="button"
+            class="!hidden btn-sm btn-base active:[btn-click]"
+          >
+            Güncelle
+          </button>
+          <button
+            id="delete"
+            type="button"
+            class="!hidden btn-sm btn-base active:[btn-click]"
+          >
+            Sil
+          </button>
+          <button
+            id="clear"
+            type="button"
+            class="btn-sm btn-base active:[btn-click]"
+          >
+            Temizle
+          </button>
+        </div>
+      </div>
+  
+      <div class="w-2/3 py-2 pr-2">
+        <div class="px-3 py-1">
+          <table class="table-base">
+            <thead>
+              <tr>
+                <th>Marka</th>
+                <th>Tip</th>
+                <th>Onay Kurum</th>
+                <th>Sert.No</th>
+                <th>Bit.Tarih</th>
+                <th>Belge</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="spinner-area !hidden">
+    <div class="w-full">
+      <div class="flex flex-col justify-center items-center space-x-2 text-[3rem] text-blue-400">
+        <div class="spinner icon-spinner-1 spinner-steps1"></div>
+        <div class="text-[2rem]">Lütfen Bekleyiniz</div>
+      </div>
+      <div class="w-1/4 mx-auto">
+        <div id="progress-wrp">
+          <div class="progress-bar"></div>
+          <div class="status">0%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

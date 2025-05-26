@@ -1,0 +1,1 @@
+export const MAINHOST =   'http://localhost:3000';

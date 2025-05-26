@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "The-Icon-of";
+  src: url("./util/fonts/The-Icon-of.woff2");
+  src: url("./util/fonts/The-Icon-of.eot");
+  src: url("./util/fonts/The-Icon-of.eot#iefix") format("embedded-opentype"),
+    url("./util/fonts/The-Icon-of.woff2") format("woff2"),
+    url("./util/fonts/The-Icon-of.ttf") format("truetype"),
+    url("./util/fonts/The-Icon-of.woff") format("woff"),
+    url("./util/fonts/The-Icon-of.svg#The-Icon-of") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+.tio {
+  font-family: "The-Icon-of";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  .more_vertical:before {
+    content: "\ed4a";
+  }
+  .call:before {
+    content: "\ea13";
+  }
+  .email:before {
+    content: "\ea26";
+  }
+  .search:before {
+    content: "\e956";
+  }
+  .facebook:before {
+    content: "\ec98";
+  }
+  .twitter:before {
+    content: "\ecb4";
+  }
+  .instagram:before {
+    content: "\eca1";
+  }
+  .linkedin:before {
+    content: "\eca3";
+  }
+  .poi:before {
+    content: "\eb27";
+  }
+  .chevron_down:before {
+    content: "\e9b1";
+  }
+  .chevron_left:before {
+    content: "\e9b2";
+  }
+  .chevron_right:before {
+    content: "\e9b3";
+  }
+  .chevron_up:before {
+    content: "\e9b4";
+  }
+}

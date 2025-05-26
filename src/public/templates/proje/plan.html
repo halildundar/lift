@@ -1,0 +1,207 @@
+{{#each plans}}
+<div
+  id="plan{{id}}"
+  class="flex py-1 border-b border-gray-200 first:border-t cursor-pointer hover:bg-black/5"
+>
+  <div class="flex-1 pl-2">{{status}}</div>
+  <div class="flex-1 pl-2">{{as_seri_no}}</div>
+  <div class="flex-1">{{denetim_tarih}} - {{baslangic}}</div>
+  <div class="flex-1">{{as_firma_kisa_ad}}</div>
+  <div class="flex-1">{{modul}}</div>
+  <div class="flex-1">{{as_ilce}} - {{as_il}}</div>
+  <div class="flex-1 pr-2">{{denetci}}</div>
+</div>
+<div
+  style="display: none"
+  class="plan{{id}} px-10 py-4 shadow-[inset_0_0_3px_rgba(0,0,0,0.3)] bg-black/5 "
+>
+  <div class="flex justify-between items-center">
+    <div class="flex space-x-2">
+      <div>
+        <a
+          target="_blank"
+          href="{{yapi_ruhsati}}"
+          class="underline text-blue-500"
+          >Yapı Ruhsatı</a
+        >
+      </div>
+      <div>
+        <strong>Asansör Adres:</strong> {{as_mahalle}} {{adres}} {{as_ilce}} /
+        {{as_il}}
+      </div>
+      <div><strong>Ada/Parsel:</strong> {{ada}} - {{parsel}}</div>
+    </div>
+    <div class="flex items-center space-x-2">
+      <button class="btn-denetime-gonder px-4 py-1 bg-red-600 text-white hover:bg-red-700 active:bg-red-500 select-none">Denetime Gönder</button>
+      <button class="btn-kontrole-gonder px-4 py-1 bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-500 select-none">Tamamla</button>
+    </div>
+  </div>
+  <div class="py-4 flex">
+    <div class="proje-area">
+      <div class="font-semibold">Proje Bilgileri</div>
+      <form class="flex items-start space-x-4">
+        <table class="border-collapse space-x-2 text-left">
+          <tr class="dwg">
+            <th>Full Proje(dwg)</th>
+            <th>:</th>
+            <td>
+              <a
+                title="Yükle"
+                class="underline cursor-pointer text-red-500 px-2"
+                >Yükle</a
+              >
+            </td>
+            <td>
+              <a
+                href=""
+                title="İndir"
+                download="Proje.dwg"
+                class="hidden underline cursor-pointer text-blue-500 px-2"
+                >İndir</a
+              >
+            </td>
+            <input type="file" name="dwg" class="hidden" accept=".dwg" />
+            <input type="hidden" name="proje[dwg]" />
+          </tr>
+          <tr class="pdf">
+            <th>Full Proje(pdf)</th>
+            <th>:</th>
+            <td>
+              <a
+                title="Yükle"
+                class="underline cursor-pointer text-red-500 px-2"
+                >Yükle</a
+              >
+            </td>
+            <td>
+              <a
+                href=""
+                title="İndir"
+                download="Proje.pdf"
+                class="hidden underline cursor-pointer text-blue-500 px-2"
+                >İndir</a
+              >
+            </td>
+            <input type="file" name="pdf" class="hidden" accept=".pdf" />
+            <input type="hidden" name="proje[pdf]" />
+          </tr>
+          <tr class="kapak">
+            <th>Proje Kapak(pdf)</th>
+            <th>:</th>
+            <td>
+              <a
+                title="Yükle"
+                class="underline cursor-pointer text-red-500 px-2"
+                >Yükle</a
+              >
+            </td>
+            <td>
+              <a
+                href=""
+                title="İndir"
+                download="Proje Kapak.pdf"
+                class="hidden underline cursor-pointer text-blue-500 px-2"
+                >İndir</a
+              >
+            </td>
+            <input type="file" name="kapak" class="hidden" accept=".pdf" />
+            <input type="hidden" name="proje[kapak]" />
+          </tr>
+        </table>
+        <table class="border-collapse space-x-2 text-left">
+          <tr class="sozlesme">
+            <th>Proje Sözleşme ve Taahhüt(pdf)</th>
+            <th>:</th>
+            <td>
+              <a
+                title="Yükle"
+                class="underline cursor-pointer text-red-500 px-2"
+                >Yükle</a
+              >
+            </td>
+            <td>
+              <a
+                href=""
+                title="İndir"
+                class="hidden underline cursor-pointer text-blue-500 px-2"
+                >İndir</a
+              >
+            </td>
+            <input type="file" name="sozlesme" class="hidden" accept=".pdf" />
+            <input type="hidden" name="proje[sozlesme]" />
+          </tr>
+          <tr class="smm">
+            <th>SMMler(.zip,pdf)</th>
+            <th>:</th>
+            <td>
+              <a
+                title="Yükle"
+                class="underline cursor-pointer text-red-500 px-2"
+                >Yükle</a
+              >
+            </td>
+            <td>
+              <a
+                href=""
+                title="İndir"
+                class="hidden underline cursor-pointer text-blue-500 px-2"
+                >İndir</a
+              >
+            </td>
+            <input type="file" name="smm" class="hidden" accept=".zip,.pdf" />
+            <input type="hidden" name="proje[smm]" />
+          </tr>
+        </table>
+        <table class="table-tip-proje border-collapse space-x-2 text-left">
+          <tr class="tip_proje">
+            <th>Tip Projeler(.zip)</th>
+            <th>:</th>
+            <td>
+              <a
+                title="Yükle"
+                class="underline cursor-pointer text-red-500 px-2"
+                >Yükle</a
+              >
+            </td>
+            <td>
+              <a
+                href=""
+                title="İndir"
+                class="hidden underline cursor-pointer text-blue-500 px-2"
+                >İndir</a
+              >
+            </td>
+            <input
+              type="file"
+              name="tip_proje"
+              class="hidden"
+              accept=".pdf,.zip,.rar"
+            />
+            <input type="hidden" name="proje[tip_proje]" />
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+
+  <div class="py-4 flex">
+    <div class="firma-evrak w-full">
+      <div class="font-semibold">Firmadan Gelenler</div>
+      <div class="py-2 text-center font-bold text-[1.1rem] text-black/20">
+        <div>Yapım Aşamasında</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex space-x-5">
+    <div class="w-[45%] as-bilgi">
+      <div class="font-semibold">Asansör Bilgileri</div>
+      <div class="as-bilgi-area"></div>
+    </div>
+    <div class="w-[55%] imzali-form-area">
+      <div class="font-semibold">Firma Bilgileri</div>
+      <div class="firma-bilgi-area"></div>
+    </div>
+  </div>
+</div>
+{{/each}}

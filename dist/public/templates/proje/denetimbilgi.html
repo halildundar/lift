@@ -1,0 +1,39 @@
+<div class="">
+    <div class="flex space-x-2">
+        <table class="mt-4 border-collapse border border-gray-200 bg-white">
+            <tbody>
+                
+                <tr class="text-[0.9rem]">
+                    <th class="border-l border-b border-gray-200 text-left text-[0.8rem] pl-1 capitalize">As.Seri No</th>
+                    <th class="border-l border-b border-gray-200 px-2">:</th>
+                    <td class="border-l border-b border-gray-200 px-2">{{as_seri_no}}</td>
+                </tr>
+                 <tr class="text-[0.9rem]">
+                    <th class="border-l border-b border-gray-200 text-left text-[0.8rem] pl-1 capitalize">Motor KW</th>
+                    <th class="border-l border-b border-gray-200 px-2">:</th>
+                    <td class="border-l border-b border-gray-200 px-2">{{motor_kw}}</td>
+                </tr>
+                {{#each items1}}
+                <tr class="text-[0.9rem]">
+                    <th class="border-l border-b border-gray-200 text-left text-[0.8rem] pl-1 capitalize">{{title}}</th>
+                    <th class="border-l border-b border-gray-200 px-2">:</th>
+                    <td class="border-l border-b border-gray-200 px-2">{{value}}</td>
+                </tr>
+                {{/each}}
+               
+            </tbody>
+        </table>
+        <table class="mt-4 border-collapse border border-gray-200 bg-white">
+            <tbody>
+                {{#each items2}}
+                <tr class="text-[0.9rem]">
+                    <th class="border-l border-b border-gray-200 text-left text-[0.8rem] pl-1 capitalize">{{title}}</th>
+                    <th class="border-l border-b border-gray-200 px-2">:</th>
+                    <td class="border-l border-b border-gray-200 px-2">{{value}}</td>
+                </tr>
+                {{/each}}
+                
+            </tbody>
+        </table>
+    </div>
+</div>
