@@ -1,23 +1,13 @@
 import {
   Upload,
   pad,
-  push,
-  getDayName,
   getAyGunuHesapla,
-  getMonthName,
-  FileValidation,
-  TrToEnChar,
 } from "../util/fncs.js";
 
 import {
-  GetListOnayKurumlar,
-  AddSertifika,
   GetSertifikalar,
-  DeleteSertifika,
-  UpdateSertifika,
-  DeleteSertifikaFile,
 } from "./sertifikalar.js";
-import { AdresAlanInit, GetIl, GetIlce, GetMahalle } from "../util/adres.js";
+import {GetIl, GetIlce, GetMahalle } from "../util/adres.js";
 import { isJson } from "../util/fncs.js";
 let month;
 let year;
