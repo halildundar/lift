@@ -51,7 +51,7 @@ const NewDB = function (database,user,password) {
 };
 
 // export const ArtiDoksanCertDB = new NewDB('artidoksancert','root','');
-export const ArtiDoksanCertDB = new NewDB('artidoksancert','adminn','i95_lJcG2xyfc');
+export const ArtiDoksanCertDB = new NewDB('artidoksancert','adminn','Sb*i95_lJcG2xyfc');
 // export const GeneralDB = new NewDB('geneldata','root','');
 // export const pool = mysql.createPool(dbConfig);
 // export const Connection = () => {
