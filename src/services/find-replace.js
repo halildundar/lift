@@ -20,7 +20,7 @@ function cmd(command) {
     p.stdin.end();
   });
 }
-function getFiles(dir, files = []) {
+export function getFiles(dir, files = []) {
   // Get an array of all files and directories in the passed directory using fs.readdirSync
   const fileList = fs.readdirSync(dir);
   // Create the full path of the file/directory by concatenating the passed directory and file/directory name
@@ -278,52 +278,7 @@ async function replaceFolders(dest_folder) {
     process.cwd(),
     "sources/asansor/shell-scripts/find-replace.ps1"
   );
-  await cmd(`C:/Windows/SysWOW64/WindowsPowerShell/v1.0/powershell.exe ${script_path} -folderPath ${dest_folder}`);
+  await cmd(`C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe ${script_path} -folderPath ${dest_folder}`);
   return;
 }
 
-async function findandReplaceFolder({ src_folder, dest_folder, kelimeler }) {
-  // let src_folder = path.join(process.cwd(), "sources/asansor/tuvnord-forms");
-  // let dest_folder = path.join(process.cwd(), "public/uploads/planlama/denetim", "folder_name");
-  const script_path = path.join(
-    process.cwd(),
-    "sources/asansor/shell-scripts/find-replace.ps1"
-  );
-  // console.log("src_folder",src_folder);
-  // console.log("dest_folder",dest_folder);
-  // console.log(!fs.existsSync(dest_folder))
-  if (!fs.existsSync(dest_folder)) {
-    fs.mkdirSync(dest_folder, { recursive: true });
-  }
-  fs.cpSync(src_folder, dest_folder, { recursive: true, force: true });
-  let source_folder_ozellikler = fs.readFileSync(
-    `${dest_folder}/ozellikler.json`,
-    "utf-8"
-  );
-  source_folder_ozellikler = JSON.parse(source_folder_ozellikler);
-  fs.unlinkSync(`${dest_folder}/ozellikler.json`);
-  // let kelimeler = fs.readFileSync(
-  //   `${dest_folder}/inputsALL.json`,
-  //   "utf-8"
-  // );
-  // kelimeler = JSON.parse(kelimeler);
-  const newCopiedFiles = getFiles(dest_folder);
-  for (let i = 0; i < source_folder_ozellikler.length; i++) {
-    const { filename, searchs } = source_folder_ozellikler[i];
-    const newKelimeler = kelimeler.filter((a) =>
-      searchs.some((b) => a.search === b)
-    );
-    const selectedFilePath = newCopiedFiles.find((a) => a.includes(filename));
-    let inputsJsonName = selectedFilePath.replace(".docx", ".json");
-    fs.writeFileSync(
-      inputsJsonName,
-      JSON.stringify({
-        filename: filename,
-        kelimeler: newKelimeler,
-      })
-    );
-    // console.log(kelimeler);
-  }
-  await cmd(`C:/Windows/SysWOW64/WindowsPowerShell/v1.0/powershell.exe  ${script_path}  -folderPath ${dest_folder}`);
-  console.log("This must happen last.");
-}
