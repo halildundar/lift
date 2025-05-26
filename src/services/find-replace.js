@@ -278,7 +278,7 @@ async function replaceFolders(dest_folder) {
     process.cwd(),
     "sources/asansor/shell-scripts/find-replace.ps1"
   );
-  await cmd(`powershell.exe -NoProfile -ExecutionPolicy Bypass ${script_path} -folderPath ${dest_folder}  -Verb RunAs`);
+  await cmd(`C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe ${script_path} -folderPath ${dest_folder}  -Verb RunAs`);
   return;
 }
 
@@ -324,6 +324,6 @@ async function findandReplaceFolder({ src_folder, dest_folder, kelimeler }) {
     );
     // console.log(kelimeler);
   }
-  await cmd(`powershell.exe -NoProfile -ExecutionPolicy Bypass ${script_path}  -folderPath ${dest_folder}  -Verb RunAs`);
+  await cmd(`C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe  ${script_path}  -folderPath ${dest_folder}  -Verb RunAs`);
   console.log("This must happen last.");
 }
