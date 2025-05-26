@@ -1,16 +1,14 @@
 import express from "express";
 import { ArtiDoksanCertDB } from "./mysql.js";
 import { TeknikDosyaFormYazdir } from "./find-replace.js";
-import { makeZipFolder, addFileToZip } from "./make-zip.js";
+import { makeZipFolder} from "./make-zip.js";
 import {
   copyFileSync,
   existsSync,
   mkdirSync,
-  COPYFILE_FICLONE_FORCE,
 } from "node:fs";
 import { join } from "path";
 let router = express.Router({ mergeParams: true });
-// import { ArtiDoksanCertDB } from "./mysql.js";
 export const TDSApi = (app) => {
   router.post("/tds/get-planlamalar", GetPlanlamalar);
   router.post("/tds/get-onay-kurum", GetOnayKurumByCertId);
