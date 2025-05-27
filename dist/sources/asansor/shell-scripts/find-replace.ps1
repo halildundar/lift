@@ -2,7 +2,6 @@ param([string]$folderPath);
 
 $WordApp = New-Object -ComObject Word.Application;
 $WordApp.Visible = $false;
-$WordApp.DisplayAlerts = $False
 $def = $null;
 
 function Open-Folder {
