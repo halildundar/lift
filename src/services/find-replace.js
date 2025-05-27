@@ -6,7 +6,7 @@ import path from "path";
 // const path = require('node:path');
 
 function cmd(command) {
-  let p = spawn(command, { shell: true });
+  let p = spawn(command, { shell: true,stdio: 'inherit' });
   return new Promise((resolve) => {
     p.stdout.on("data", (x) => {
       process.stdout.write(x.toString());
