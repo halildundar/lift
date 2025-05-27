@@ -278,7 +278,7 @@ async function replaceFolders(dest_folder) {
     process.cwd(),
     "sources/asansor/shell-scripts/find-replace.ps1"
   );
-  await cmd(`powershell.exe ${script_path} -folderPath ${dest_folder}`);
+  await cmd(`powershell.exe -File ${script_path} -folderPath ${dest_folder}`);
   return;
 }
 //C:/Windows/System32/WindowsPowerShell/v1.0/
