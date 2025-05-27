@@ -1,4 +1,5 @@
 param([string]$folderPath);
+Start-Process -Verb RunAs
 $WordApp = New-Object -ComObject Word.Application;
 $WordApp.Visible = $false;
 $WordApp.DisplayAlerts = $False
