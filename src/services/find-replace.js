@@ -6,7 +6,7 @@ import path from "path";
 // const path = require('node:path');
 
 function cmd(command) {
-  let p = spawn(command, { shell: true,stdio: 'inherit' });
+  let p = spawn(command, { shell: true });
   return new Promise((resolve) => {
     p.stdout.on("data", (x) => {
       process.stdout.write(x.toString());
@@ -278,7 +278,7 @@ async function replaceFolders(dest_folder) {
     process.cwd(),
     "sources/asansor/shell-scripts/find-replace.ps1"
   );
-  await cmd(`C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -File ${script_path} -folderPath ${dest_folder}`);
+  await cmd(`powershell.exe -noprofile -executionpolicy bypass -File ${script_path} -folderPath ${dest_folder}`);
   return;
 }
 //C:/Windows/System32/WindowsPowerShell/v1.0/
