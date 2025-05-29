@@ -1,7 +1,6 @@
 import express from "express";
 import {  ArtiDoksanCertDB } from "./mysql.js";
 let router = express.Router({ mergeParams: true });
-// import { ArtiDoksanCertDB } from "./mysql.js";
 export const ProjeApi = (app) => {
   router.post("/proje/get-planlamalar", GetPlanlamalar);
   router.post("/proje/get-denetim-by-planid", GetDenetimByPlanId);
