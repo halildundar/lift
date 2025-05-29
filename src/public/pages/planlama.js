@@ -545,7 +545,7 @@ async function updatePlanToDb(data) {
     dataType: "json",
     contentType: "application/json",
   });
-  const { formpaths, formpathsfolder } = resp;
+  let { formpaths, formpathsfolder } = resp;
   data.formpaths = JSON.stringify(formpaths);
   data.formpathsfolder = formpathsfolder;
   await $.ajax({
@@ -582,9 +582,18 @@ async function SavePopupTemp(data) {
     });
     if (!!data.risk) {
       data.risk = JSON.parse(data.risk);
-      $(`[type='checkbox'][name='risk[makdaire]']`).attr("checked", !!JSON.parse(data.risk.makdaire));
-      $(`[type='checkbox'][name='risk[kuyudip]']`).attr("checked", !!JSON.parse(data.risk.kuyudip));
-      $(`[type='checkbox'][name='risk[kabinust]']`).attr("checked", !!JSON.parse(data.risk.kabinust));
+      $(`[type='checkbox'][name='risk[makdaire]']`).attr(
+        "checked",
+        !!JSON.parse(data.risk.makdaire)
+      );
+      $(`[type='checkbox'][name='risk[kuyudip]']`).attr(
+        "checked",
+        !!JSON.parse(data.risk.kuyudip)
+      );
+      $(`[type='checkbox'][name='risk[kabinust]']`).attr(
+        "checked",
+        !!JSON.parse(data.risk.kabinust)
+      );
     }
     $.map(firmalar, function (val, key) {
       $("[name='as_firma_id']").append(

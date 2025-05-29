@@ -1,5 +1,4 @@
-param([string]$folderPath);
-
+param([string]$folderPath,[string]$IsRecursive);
 $WordApp = New-Object -ComObject Word.Application;
 $WordApp.Visible = $false;
 $def = $null;
@@ -125,7 +124,12 @@ function Open-Folder {
     Remove-Item $JsonPath
 }
 
-$Files = @(Get-ChildItem -Path $folderPath -Filter *.doc? -Recurse -Name);
+if($IsRecursive -eq 'true'){
+    $Files = @(Get-ChildItem -Path $folderPath -Filter *.doc? -Recurse -Name);
+}else{
+    $Files = @(Get-ChildItem -Path $folderPath -Filter *.doc? -Name);
+}
+
 foreach ($File in $files) {
     Open-Folder($File);
 }

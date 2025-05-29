@@ -48,18 +48,12 @@ export async function DenetimOncesiFormYazdir(inputs) {
 
   let dest_folder = "public/uploads/planlama/denetim/" + timeFolderName;
   let source_folder_ozellikler = fs.readFileSync(
-    `${src_folder}/denetim_oncesi_ozellikler.json`,
+    `${src_folder}denetim_oncesi_ozellikler.json`,
     "utf-8"
   );
   source_folder_ozellikler = JSON.parse(source_folder_ozellikler);
 
-  let formpaths = {
-    0: `/uploads/planlama/denetim/${timeFolderName}/`,
-    1: `/uploads/planlama/denetim/${timeFolderName}/`,
-    2: `/uploads/planlama/denetim/${timeFolderName}/`,
-    3: `/uploads/planlama/denetim/${timeFolderName}/`,
-    4: `/uploads/planlama/denetim/${timeFolderName}/`,
-  };
+ let formpaths = [];
 
   if (!fs.existsSync(dest_folder)) {
     fs.mkdirSync(dest_folder, { recursive: true });
@@ -67,9 +61,12 @@ export async function DenetimOncesiFormYazdir(inputs) {
 
   for (let i = 0; i < source_folder_ozellikler.length; i++) {
     const { filename, searchs } = source_folder_ozellikler[i];
+    console.log(filename);
     const srcCurrFile = path.join(process.cwd(), src_folder, filename);
     const destCurrFile = path.join(process.cwd(), dest_folder, filename);
-    formpaths[i] += filename;
+    formpaths.push(
+      `/uploads/planlama/denetim/${timeFolderName}/${filename}`
+    );
     fs.copyFileSync(srcCurrFile, destCurrFile);
     let newKelimeler = inputs.filter((a) =>
       searchs.some((b) => a.search === b)
@@ -132,7 +129,7 @@ export async function DenetimOncesiFormYazdir(inputs) {
         newKelimeler1.push(newKelime);
       }
     }
-    console.log(newKelimeler1);
+    
     fs.writeFileSync(
       inputsJsonName,
       JSON.stringify({
@@ -141,7 +138,7 @@ export async function DenetimOncesiFormYazdir(inputs) {
       })
     );
   }
-  await replaceFolders(path.join(process.cwd(), dest_folder));
+  await replaceFolders(path.join(process.cwd(), dest_folder),'false');
   return { formpaths: formpaths, formpathsfolder: timeFolderName.toString() };
 }
 export async function TeknikDosyaFormYazdir(temp_name, inputs, risk) {
@@ -190,12 +187,10 @@ export async function TeknikDosyaFormYazdir(temp_name, inputs, risk) {
         (item) => !(item.filename === "20.Kabin Üst Risk Analiz.docx" || item.filename === "21.Kuyu Dip Risk Analiz.docx" || item.filename === "22.Makine Dairesi Risk Analiz.docx")
       );
   }
-  console.log(source_folder_ozellikler)
   for (let i = 0; i < source_folder_ozellikler.length; i++) {
     let { filename, searchs } = source_folder_ozellikler[i];
     let srcCurrFile = path.join(process.cwd(), src_folder, filename);
     let destCurrFile = path.join(process.cwd(), dest_folder, filename);
-    // formpaths[i] += filename;
     formpaths.push(
       `/uploads/planlama/denetim/${timeFolderName}/teknikdosya/${filename}`
     );
@@ -270,15 +265,15 @@ export async function TeknikDosyaFormYazdir(temp_name, inputs, risk) {
       })
     );
   }
-  await replaceFolders(path.join(process.cwd(), dest_folder));
+  await replaceFolders(path.join(process.cwd(), dest_folder),'true');
   return { formpaths: formpaths, formpathsfolder: timeFolderName.toString() };
 }
-async function replaceFolders(dest_folder) {
+async function replaceFolders(dest_folder,recursive) {
   const script_path = path.join(
     process.cwd(),
     "sources/asansor/shell-scripts/find-replace.ps1"
   );
-  await cmd(`powershell.exe -File ${script_path} -folderPath ${dest_folder}`);
+  await cmd(`powershell.exe -File ${script_path} -folderPath ${dest_folder} -IsRecursive ${recursive}`);
   return;
 }
 
