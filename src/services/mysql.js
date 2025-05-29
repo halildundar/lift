@@ -6,7 +6,7 @@ let dbConfig = {
   host: process.env.MYSQL_DB_HOST,
   user:process.env.NODE_ENV == "development" ? process.env.MYSQL_DB_USERNAME : process.env.MYSQL_DB_USERNAME1,
   password:process.env.NODE_ENV == "development" ? process.env.MYSQL_DB_PASSWORD : process.env.MYSQL_DB_PASSWORD1,
-  database: process.env.NODE_ENV == "development" ? process.env.MYSQL_DB_NAME: process.env.MYSQL_DB_NAME1,
+  database: process.env.MYSQL_DB_NAME,
   connectionLimit: 20, 
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
