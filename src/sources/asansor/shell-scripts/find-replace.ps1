@@ -1,4 +1,6 @@
 param([string]$folderPath,[string]$IsRecursive);
+
+Set-Location -path $folderPath;
 $WordApp = New-Object -ComObject Word.Application;
 # Write-Host $WordApp;
 $WordApp.Visible = $false;

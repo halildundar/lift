@@ -1,12 +1,9 @@
-// const spawn = require("node:child_process").spawn;
-import { spawn,exec } from "node:child_process";
+import { spawn } from "node:child_process";
 import fs from "fs";
-// const fs = require("node:fs");
 import path from "path";
-// const path = require('node:path');
 
 function cmd(command,workdir) {
-  let p = exec(command, { shell: "powershell.exe",cwd:workdir });
+  let p = spawn(command, { shell: true,cwd:workdir });
   console.log("workdir",workdir)
   return new Promise((resolve) => {
     p.stdout.on("data", (x) => {
@@ -270,7 +267,7 @@ async function replaceFolders(dest_folder,recursive) {
     process.cwd(),
     "sources/asansor/shell-scripts/find-replace.ps1"
   );
-  await cmd(`${script_path} -folderPath ${dest_folder} -IsRecursive ${recursive}`,dest_folder);
+  await cmd(`powershell.exe ${script_path} -folderPath ${dest_folder} -IsRecursive ${recursive}`,dest_folder);
   return;
 }
 
