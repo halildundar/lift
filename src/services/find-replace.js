@@ -273,7 +273,7 @@ async function replaceFolders(dest_folder,recursive) {
     process.cwd(),
     "sources/asansor/shell-scripts/find-replace.ps1"
   );
-  await cmd(`powershell.exe -File ${script_path} -folderPath ${dest_folder} -IsRecursive ${recursive} -Verb RunAs -WorkingDirectory ${dest_folder}`);
+  await cmd(`powershell.exe -PassThru -Verb RunAs -WorkingDirectory ${dest_folder} -File ${script_path} -folderPath ${dest_folder} -IsRecursive ${recursive} `);
   return;
 }
 
