@@ -8,11 +8,9 @@ function cmd(command,workdir) {
   return new Promise((resolve) => {
     p.stdout.on("data", (x) => {
       process.stdout.write(x.toString());
-      console.log("workdir",x.toString())
     });
     p.stderr.on("data", (x) => {
       process.stderr.write(x.toString());
-            console.log("workdir",x.toString())
     });
     p.on("exit", (code) => {
       resolve(code);
