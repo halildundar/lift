@@ -4,7 +4,13 @@ import { DenetimOncesiFormYazdir } from './find-replace.js';
 let router = express.Router({ mergeParams: true });
 // import { ArtiDoksanCertDB } from "./mysql.js";
 export const PlanlamaApi = (app) => {
-  router.post("/planlama/denetim-formlar", DenetimFormlar);
+  router.post("/planlama/denetim-formlar",(req, res, next) => {
+    res.setTimeout(300000, ()=>{
+        console.log('Request has timed out.');
+            res.sendStatus(408);
+        });
+    next();
+}, DenetimFormlar);
   router.post("/planlama/get-il", GetIl);
   router.post("/planlama/get-iller", GetIller);
   router.post("/planlama/get-ilce", GetIlce);
