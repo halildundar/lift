@@ -1,6 +1,6 @@
 param([string]$folderPath,[string]$IsRecursive);
 $WordApp = New-Object -ComObject Word.Application;
-$WordApp.Visible = $false;
+#$WordApp.Visible = $false;
 $def = $null;
 
 function Open-Folder {
