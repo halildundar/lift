@@ -1,5 +1,5 @@
 param([string]$folderPath,[string]$IsRecursive);
-$WordApp = New-Object -ComObject Word.Application;
+$WordApp = New-Object -ComObject Microsoft.Office.Interop.Word.Application;
 $WordApp.Visible = $false;
 $def = $null;
 
