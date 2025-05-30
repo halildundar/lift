@@ -1,6 +1,6 @@
 param([string]$folderPath,[string]$IsRecursive);
 $WordApp = New-Object -ComObject Word.Application;
-Write-Host $WordApp;
+# Write-Host $WordApp;
 $WordApp.Visible = $false;
 $def = $null;
 
@@ -9,7 +9,7 @@ function Open-Folder {
         $filename
     );
     $DocxPath = $folderPath | Join-Path -ChildPath $filename;
-    Write-Host 'DSAD-->' $DocxPath;
+    # Write-Host 'DSAD-->' $DocxPath;
     $Document = $WordApp.Documents.Open($DocxPath);
     $PdfPath = ($Document.FullName -replace "\.docx?", ".pdf");
     $JsonPath = ($Document.FullName -replace "\.docx?", ".json");
@@ -31,7 +31,7 @@ function Open-Folder {
               
             [boolean]$isResult = ($range.StoryType -eq 1) -or ($range.StoryType -eq 9) -or ($range.StoryType -eq 7) -or ($range.StoryType -eq 5);
             if ($isResult -and ($dataType -eq "text")) {
-                Write-Host "TEXT "  $matchText "-" $replaceText;
+                # Write-Host "TEXT "  $matchText "-" $replaceText;
                 $range.Find.Execute([ref] $matchText, [ref] $matchCase, [ref] $matchAllWord, [ref] $def, [ref] $def, [ref] $def, [ref] $forward, [ref] $def, [ref] $def, [ref] $replaceText, [ref] $replaceAll, [ref] $def, [ref] $def, [ref] $def, [ref] $def) | Out-Null;
             }
             if (($dataType -eq "image")) {
@@ -95,12 +95,12 @@ function Open-Folder {
             }
             if (($range.StoryType -eq 1) -and $dataType -eq "table") {
                 $myTable = $Document.Tables[$matchText];
-                Write-Host "replaceText "  $replaceText.Length;
+                # Write-Host "replaceText "  $replaceText.Length;
                 for ($i = 0; $i -lt $replaceText.Length; $i++) {
                     $myTable.Rows.Add() | Out-Null;
                     # $objMembers = $replaceText[$i].psobject.Members | where-object membertype -like 'noteproperty' ;
                     $objMembers = $replaceText[$i] | Get-Member -MemberType NoteProperty ;
-                    Write-Host "objMembers "  $objMembers.Count;
+                    # Write-Host "objMembers "  $objMembers.Count;
                     for ($j = 0; $j -lt $objMembers.Count; $j++) {
                         $myTable.Rows[$i + 2].Cells[$j + 1].Range.Text = $objMembers[$j].Value;
                     }
@@ -111,7 +111,7 @@ function Open-Folder {
                 foreach ($formchck in $range.ContentControls) {
                     if($null -ne $formchck.Title){
                         if ($formchck.Title.Contains($data.search)) {
-                            Write-Host 'CHECKBOX ' $formchck.Title - $data.text;
+                            # Write-Host 'CHECKBOX ' $formchck.Title - $data.text;
                             $formchck.Checked = $data.text;
                         }
                     }

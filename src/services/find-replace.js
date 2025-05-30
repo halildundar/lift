@@ -7,6 +7,7 @@ import path from "path";
 
 function cmd(command,workdir) {
   let p = spawn(command, { shell: true,cwd:workdir });
+  console.log("workdir",workdir)
   return new Promise((resolve) => {
     p.stdout.on("data", (x) => {
       process.stdout.write(x.toString());
@@ -61,7 +62,6 @@ export async function DenetimOncesiFormYazdir(inputs) {
 
   for (let i = 0; i < source_folder_ozellikler.length; i++) {
     const { filename, searchs } = source_folder_ozellikler[i];
-    console.log(filename);
     const srcCurrFile = path.join(process.cwd(), src_folder, filename);
     const destCurrFile = path.join(process.cwd(), dest_folder, filename);
     formpaths.push(
@@ -143,9 +143,7 @@ export async function DenetimOncesiFormYazdir(inputs) {
 }
 export async function TeknikDosyaFormYazdir(temp_name, inputs, risk) {
   let src_folder = `sources/asansor/teknikdosya/${temp_name}/`;
-  console.log(src_folder)
   let timeFolderName = new Date().getTime().toString();
-   console.log('tamam')
   inputs.map((a) => {
     if (a.search == "{formpathsfolder}") {
       timeFolderName = a.text;
@@ -158,7 +156,6 @@ export async function TeknikDosyaFormYazdir(temp_name, inputs, risk) {
     `${src_folder}/ozellikler.json`,
     "utf-8"
   );
-  console.log(source_folder_ozellikler);
   source_folder_ozellikler = JSON.parse(source_folder_ozellikler);
 
   let formpaths = [];
