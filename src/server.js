@@ -70,3 +70,4 @@ app.all("**", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is starting at ${PORT}`);
 });
+app.timeout = 300000;
