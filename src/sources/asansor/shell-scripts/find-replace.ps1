@@ -5,7 +5,7 @@ Write-Host "IsRecursive:" $IsRecursive;
 $WordApp = New-Object -ComObject Word.Application;
 Write-Host "Word app:" $WordApp;
 # $WordApp.Visible = $True;
-# $def = $null;
+$def = $null;
 function Open-Folder {
     param (
         $filename
