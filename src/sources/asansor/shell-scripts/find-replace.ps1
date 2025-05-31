@@ -140,6 +140,6 @@ foreach ($File in $files) {
     Open-Folder($File);
 }
 
-$WordApp.Quit()  
-[System.Runtime.Interopservices.Marshal]::ReleaseComObject($WordApp)
-Remove-Variable WordApp
+# $WordApp.Quit()  
+# [System.Runtime.Interopservices.Marshal]::ReleaseComObject($WordApp)
+# Remove-Variable WordApp
