@@ -4,8 +4,8 @@ import path from "path";
 
 function cmd(command,workdir) {
   // let p = spawn(command, { shell: true,cwd:workdir });
-    let p = spawn(command, { shell: true });
-  console.log("workdir",workdir)
+  let p = spawn(command, { shell: true });
+  console.log("workdir",workdir);
   return new Promise((resolve) => {
     p.stdout.on("data", (x) => {
       process.stdout.write(x.toString());
