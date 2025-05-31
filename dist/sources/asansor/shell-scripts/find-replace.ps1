@@ -2,7 +2,7 @@ param([string]$folderPath,[string]$IsRecursive);
 
 Write-Host "folderPath:" $folderPath;
 Write-Host "IsRecursive:" $IsRecursive;
-# Set-Location -path $folderPath;
+Set-Location -path $folderPath;
 $WordApp = New-Object -ComObject Word.Application;
 Write-Host "Word app:" $WordApp;
 $WordApp.Visible = $True;
@@ -141,6 +141,6 @@ foreach ($File in $files) {
     Open-Folder($File);
 }
 
-# $WordApp.Quit()  
-# [System.Runtime.Interopservices.Marshal]::ReleaseComObject($WordApp)
-# Remove-Variable WordApp
+$WordApp.Quit()  
+[System.Runtime.Interopservices.Marshal]::ReleaseComObject($WordApp)
+Remove-Variable WordApp
