@@ -1,5 +1,5 @@
 param([string]$folderPath,[string]$IsRecursive);
-Set-StrictMode -Version 3.0
+
 Write-Host "folderPath:" $folderPath;
 Write-Host "IsRecursive:" $IsRecursive;
 # Set-Location -path $folderPath;
