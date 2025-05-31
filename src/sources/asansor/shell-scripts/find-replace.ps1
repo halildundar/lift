@@ -2,7 +2,7 @@ param([string]$folderPath,[string]$IsRecursive);
 Set-Location -path $folderPath;
 $WordApp = New-Object -ComObject Word.Application;
 Write-Host "Word app:" $WordApp;
-$WordApp.Visible = $false;
+$WordApp.Visible = $False;
 $def = $null;
 function Open-Folder {
     param (
