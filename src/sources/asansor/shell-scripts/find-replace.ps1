@@ -1,21 +1,22 @@
 param([string]$folderPath,[string]$IsRecursive);
+Set-StrictMode -Version 3.0
 Write-Host "folderPath:" $folderPath;
 Write-Host "IsRecursive:" $IsRecursive;
 # Set-Location -path $folderPath;
 $WordApp = New-Object -ComObject Word.Application;
 Write-Host "Word app:" $WordApp;
 # $WordApp.Visible = $True;
-$def = $null;
+$def = $Null;
 function Open-Folder {
     param (
-        $filename
+        [string]$filename
     );
-    $DocxPath = $folderPath | Join-Path -ChildPath $filename;
+    [string]$DocxPath = $folderPath | Join-Path -ChildPath $filename;
     Write-Host "DocxPath:" $DocxPath;
     # Write-Host 'DSAD-->' $DocxPath;
-    $Document = $WordApp.Documents.Open($DocxPath);
-    $PdfPath = ($Document.FullName -replace "\.docx?", ".pdf");
-    $JsonPath = ($Document.FullName -replace "\.docx?", ".json");
+    [string]$Document = $WordApp.Documents.Open($DocxPath);
+    [string]$PdfPath = ([string]$Document.FullName -replace "\.docx?", ".pdf");
+    [string]$JsonPath = ([string]$Document.FullName -replace "\.docx?", ".json");
     $datas = [IO.File]::ReadLines($JsonPath) | ConvertFrom-Json;
     $datas = Get-Content -Raw -Path  $JsonPath | ConvertFrom-Json ;
     
