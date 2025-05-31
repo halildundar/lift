@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 
 function cmd(command,workdir) {
-  let p = spawn(command, { shell: true,cwd:workdir,stdio: 'inherit' });
+  let p = spawn(command, { shell: true,cwd:workdir });
   console.log("workdir",workdir)
   return new Promise((resolve) => {
     p.stdout.on("data", (x) => {
