@@ -1,4 +1,6 @@
 param([string]$folderPath,[string]$IsRecursive);
+Write-Host "folderPath:" $folderPath;
+Write-Host "IsRecursive:" $IsRecursive;
 Set-Location -path $folderPath;
 $WordApp = New-Object -ComObject Word.Application;
 Write-Host "Word app:" $WordApp;
@@ -131,8 +133,10 @@ if($IsRecursive -eq 'true'){
     $Files = @(Get-ChildItem -Path $folderPath -Filter *.doc? -Name);
 }
 
+
 foreach ($File in $files) {
-    Open-Folder($File);
+    write-host "File app:" $File
+    # Open-Folder($File);
 }
 
 $WordApp.Quit()  
