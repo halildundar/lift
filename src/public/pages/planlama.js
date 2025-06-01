@@ -550,12 +550,12 @@ async function updatePlanToDb(data) {
   data.formpaths = JSON.stringify(formpaths);
   data.formpathsfolder = formpathsfolder;
   console.log(data);
-  // await $.ajax({
-  //   type: "POST",
-  //   url: "/planlama/update",
-  //   data: { ...data },
-  //   dataType: "json",
-  // });
+  await $.ajax({
+    type: "POST",
+    url: "/planlama/update",
+    data: { ...data },
+    dataType: "json",
+  });
   $("body").css("overflow", "auto");
   $(".sppin-area").addClass("hidden");
   $(".sppin-area").removeClass("flex");
@@ -575,7 +575,6 @@ async function SavePopupTemp(data) {
     const content = await resp.text();
     $("#save-pop").html("");
     console.log(data);
-
     const rendered = Handlebars.compile(content);
     $("#save-pop").html(rendered({ ...data }));
     $(".save-popup .close").on("click", async function () {
