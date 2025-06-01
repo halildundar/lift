@@ -33,7 +33,7 @@ const DenetimFormlar = async (req, res) => {
   }
   let valueString = Object.values(data);
   let respData = await DenetimOncesiFormYazdir(valueString);
-  fetch('http://localhost:4000/planlama/denetim-formlar',{
+  const rawResponse = await fetch('http://localhost:4000/planlama/denetim-formlar',{
     headers:{"Accept":'applicatio/json',"Content-Type":"application/json"},
     body: JSON.stringify({a: 1, b: 'Textual content'})
   });
