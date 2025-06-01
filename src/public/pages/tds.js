@@ -1244,7 +1244,7 @@ const innerMakeTable = async (plan) => {
       komponentler: JSON.parse(selectedDenetim.guv_komps),
     };
     $(`.plan${plan.id} .btnn-area .btn-yazdir`).remove();
-     $(`.plan${plan.id} .btnn-area .btn-yazdir`).append(`
+     $(`.plan${plan.id} .btnn-area`).append(`
       <button
         class="btn-yazdir rounded min-w-[75px] bg-blue-600 hover:bg-blue-700 active:bg-blue-500 text-white py-1"
       >
