@@ -1252,7 +1252,7 @@ const innerMakeTable = async (plan) => {
       </button>
       `);
     $(`.plan${plan.id} .btn-yazdir`).on("click", async function () {
-      consoel.log('yazdir');
+      console.log('yazdir');
       // $(`.spinner-area`).css("display", "flex");
       // $("body").css("overflow", "hidden");
       // const sended_data = await makeSendedData(resultData);
