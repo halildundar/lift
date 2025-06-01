@@ -33,6 +33,12 @@ const DenetimFormlar = async (req, res) => {
   }
   let valueString = Object.values(data);
   let respData = await DenetimOncesiFormYazdir(valueString);
+  fetch('http://localhost:4000/planlama/denetim-formlar',{
+    headers:{"Accept":'applicatio/json',"Content-Type":"application/json"},
+    body: JSON.stringify({a: 1, b: 'Textual content'})
+  });
+   const content = await rawResponse.json();
+   console.log(content);
   return res.json(respData);
 };
 // SELECT * from `planlama` WHERE str_to_date(denetim_tarih,'%d.%m.%Y') between str_to_date('02.01.2025','%d.%m.%Y') AND str_to_date('05.03.2025','%d.%m.%Y')

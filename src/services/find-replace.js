@@ -3,8 +3,8 @@ import fs from "fs";
 import path from "path";
 
 function cmd(command,workdir) {
-  // let p = spawn(command, { shell: true,cwd:workdir });
-  let p = spawn(command, { shell: true });
+  let p = spawn(command, { shell: true,cwd:workdir });
+  // let p = spawn(command, { shell: true });
   console.log("workdir",workdir);
   return new Promise((resolve) => {
     p.stdout.on("data", (x) => {
@@ -268,6 +268,7 @@ async function replaceFolders(dest_folder,recursive) {
     process.cwd(),
     "sources/asansor/shell-scripts/find-replace.ps1"
   );
+  // Start-Process PowerShell -Verb Runas
   await cmd(`powershell.exe ${script_path} -folderPath ${dest_folder} -IsRecursive ${recursive}`,dest_folder);
   return;
 }
