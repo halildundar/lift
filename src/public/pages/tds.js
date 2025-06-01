@@ -1252,26 +1252,25 @@ const innerMakeTable = async (plan) => {
       </button>
       `);
     $(`.plan${plan.id} .btn-yazdir`).on("click", async function () {
-      console.log('yazdir');
-      // $(`.spinner-area`).css("display", "flex");
-      // $("body").css("overflow", "hidden");
-      // const sended_data = await makeSendedData(resultData);
-      // const rep = await $.ajax({
-      //   type: "POST",
-      //   url: "/tds/teknik-dosya",
-      //   data: { template_name: "temp1", sended_data: sended_data, risk: risk },
-      //   dataType: "json",
-      // });
-      // const { formpaths } = rep;
-      // await $.ajax({
-      //   type: "POST",
-      //   url: "/denetim/update-tds-folders",
-      //   data: { denetim_id: selectedDenetim.id, tds_folders: formpaths },
-      //   dataType: "json",
-      // });
-      // await innerMakeTable(plan);
-      // $(`.spinner-area`).css("display", "none");
-      // $("body").css("overflow", "auto");
+      $(`.spinner-area`).css("display", "flex");
+      $("body").css("overflow", "hidden");
+      const sended_data = await makeSendedData(resultData);
+      const rep = await $.ajax({
+        type: "POST",
+        url: "/tds/teknik-dosya",
+        data: { template_name: "temp1", sended_data: sended_data, risk: risk },
+        dataType: "json",
+      });
+      const { formpaths } = rep;
+      await $.ajax({
+        type: "POST",
+        url: "/denetim/update-tds-folders",
+        data: { denetim_id: selectedDenetim.id, tds_folders: formpaths },
+        dataType: "json",
+      });
+      await innerMakeTable(plan);
+      $(`.spinner-area`).css("display", "none");
+      $("body").css("overflow", "auto");
     });
   }
 };
