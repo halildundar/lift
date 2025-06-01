@@ -40,7 +40,7 @@ const DenetimFormlar = async (req, res) => {
     body: JSON.stringify(valueString)
   });
    const content = await rawResponse.json();
-   console.log(content);
+   console.log(content,respData);
   return res.json(respData);
 };
 // SELECT * from `planlama` WHERE str_to_date(denetim_tarih,'%d.%m.%Y') between str_to_date('02.01.2025','%d.%m.%Y') AND str_to_date('05.03.2025','%d.%m.%Y')
