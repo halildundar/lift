@@ -143,14 +143,13 @@ const TeknikDosyaYazdir = async (req, res) => {
   if (!data) {
     return res.json({ msg: "Data not found" });
   }
-  const { template_name, sended_data, risk } = data;
-  let valueString = Object.values(sended_data);
+  const rawResponse = await fetch('http://localhost:4000/tds/teknik-dosya',{
+    method: 'POST',
+    headers:{"Accept":'application/json',"Content-Type":"application/json"},
+    body: JSON.stringify(data)
+  });
 
-  let respData = await TeknikDosyaFormYazdir(
-    template_name,
-    valueString,
-    !!risk ? JSON.parse(risk) : null
-  );
+   const respData = await rawResponse.json();
   return res.json(respData);
   // return res.json({sended_data,risk})
   // return res.json({template_name,sended_data})

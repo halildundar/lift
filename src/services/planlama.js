@@ -32,7 +32,7 @@ const DenetimFormlar = async (req, res) => {
   }
   const rawResponse = await fetch('http://localhost:4000/planlama/denetim-formlar',{
     method: 'POST',
-    headers:{"Accept":'applicatio/json',"Content-Type":"application/json"},
+    headers:{"Accept":'application/json',"Content-Type":"application/json"},
     body: JSON.stringify(data)
   });
    const respData = await rawResponse.json();
