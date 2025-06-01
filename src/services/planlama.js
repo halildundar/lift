@@ -1,6 +1,5 @@
 import express from "express";
 import { ArtiDoksanCertDB } from "./mysql.js";
-import { DenetimOncesiFormYazdir } from './find-replace.js';
 let router = express.Router({ mergeParams: true });
 // import { ArtiDoksanCertDB } from "./mysql.js";
 export const PlanlamaApi = (app) => {
@@ -31,15 +30,12 @@ const DenetimFormlar = async (req, res) => {
   if (!data) {
     return res.json({ msg: "Data not found" });
   }
-  let valueString = Object.values(data);
-  let respData = await DenetimOncesiFormYazdir(valueString);
-  console.log(valueString);
   const rawResponse = await fetch('http://localhost:4000/planlama/denetim-formlar',{
     method: 'POST',
     headers:{"Accept":'applicatio/json',"Content-Type":"application/json"},
-    body: JSON.stringify(valueString)
+    body: JSON.stringify(data)
   });
-   const content = await rawResponse.json();
+   const respData = await rawResponse.json();
    console.log(content,respData);
   return res.json(respData);
 };

@@ -546,14 +546,16 @@ async function updatePlanToDb(data) {
     contentType: "application/json",
   });
   let { formpaths, formpathsfolder } = resp;
+  console.log(resp);
   data.formpaths = JSON.stringify(formpaths);
   data.formpathsfolder = formpathsfolder;
-  await $.ajax({
-    type: "POST",
-    url: "/planlama/update",
-    data: { ...data },
-    dataType: "json",
-  });
+  console.log(data);
+  // await $.ajax({
+  //   type: "POST",
+  //   url: "/planlama/update",
+  //   data: { ...data },
+  //   dataType: "json",
+  // });
   $("body").css("overflow", "auto");
   $(".sppin-area").addClass("hidden");
   $(".sppin-area").removeClass("flex");
