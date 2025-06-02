@@ -29,7 +29,6 @@ $(function () {
             location.reload();
         }
       } catch ({ responseJSON }) {
-        console.log("err", responseJSON);
         const { msg } = responseJSON;
         $(".err-txt").html(msg);
       }
