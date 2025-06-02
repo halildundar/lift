@@ -1,8 +1,9 @@
 import "./main.scss";
 import "./jqform-serialize.js";
 import { Routes } from "./router.js";
-Handlebars.registerHelper("inc", function(value, options){
-    return parseInt(value) + 1;
+import{AjaxPromise} from './pages/auth/signin.js';
+Handlebars.registerHelper("inc", function (value, options) {
+  return parseInt(value) + 1;
 });
 const GetBtnRoutes = () => {
   const routes = $("[route]");
@@ -28,14 +29,11 @@ const ShowTemplate = async (routePath, viewId) => {
   });
   const route = routes[routes.length - 1];
   $(viewId).html("");
-
   if (!!route) {
     const resp = await fetch(`/templates/${route.template}`);
     const content = await resp.text();
     const rendered = Handlebars.compile(content);
-    $(viewId).html(
-      rendered({})
-    );
+    $(viewId).html(rendered({}));
     route.jsFnc();
   } else {
     const resp = await fetch("/templates/404.html");
@@ -64,11 +62,8 @@ const GoToPageClick = (currPath, data) => {
 };
 const GoToPage = (currPath) => {
   let routes = Routes.routes.filter(function (r) {
-    // return routePath == r.path;
-    return currPath.includes(r.path) ;
+    return currPath.includes(r.path);
   });
- 
-
   for (let i = 0; i < routes.length; i++) {
     const route = routes[i];
     if (!!route) {
@@ -83,6 +78,7 @@ const GoToPage = (currPath) => {
       }
     } else {
       window.history.pushState({}, "", currPath);
+      console.log("currPath", currPath);
       ShowTemplate(currPath, "#root_view");
     }
     if (i == routes.length - 1) {
@@ -95,10 +91,38 @@ const GoToPage = (currPath) => {
     window.history.pushState({}, "", currPath);
     ShowTemplate(currPath, "#root_view");
   }
-
 };
 
+const usrPnlArea = () => {
+  $(".btn-user").on("click", function () {
+    if ($(".usr-sm-pnl").css("display") === "none") {
+      $(".usr-sm-pnl").css("display", "flex");
+    } else {
+      $(".usr-sm-pnl").css("display", "none");
+    }
+  });
+  $(".allusrt").on("click", function (e) {
+    e.stopPropagation();
+  });
+  $(".btn-signout").on("click", async function () {
+    try {
+      const resp = await AjaxPromise("post", "/signout", {});
+      if (!!resp && resp.ok) {
+        location.reload();
+      }
+    } catch ({ responseJSON }) {
+      console.log("err", responseJSON);
+      const { msg } = responseJSON;
+      $(".err-txt").html(msg);
+    }
+  });
+};
 $(function () {
   const currPath = window.location.pathname;
   GoToPage(currPath, {});
+  usrPnlArea();
+
+  $(document).on("click", function () {
+    $(".usr-sm-pnl").css("display", "none");
+  });
 });

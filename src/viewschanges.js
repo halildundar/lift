@@ -4,6 +4,7 @@ import "./views/layouts/main.hbs";
 import "./views/partials/header.hbs";
 import "./views/partials/footer.hbs";
 import "./views/pages/dashboard.hbs";
+import "./views/pages/signin.hbs";
 import "./views/pages/404.hbs";
 import './const.env';
 

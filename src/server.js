@@ -56,14 +56,16 @@ app.use(bodyParser.urlencoded({ limit: '50mb',extended: true }));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(methodOverride("_method"));
 //Enable flash message
-app.use(connectFlash());
+// app.use(connectFlash());
 //Config passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 appRoutes(app);
-app.all("**", (req, res) => {
-  res.render("pages/404.hbs");
-});
+// app.all("**", (req, res) => {
+//   res.render("pages/404.hbs",{
+//     title:'Kontrol Panel'
+//   });
+// });
 
 
 //****************************************/

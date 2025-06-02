@@ -1,6 +1,5 @@
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import WebpackShellPluginNext from "webpack-shell-plugin-next";
-import { glob } from "glob";
 import { resolve, dirname } from "node:path";
 import TerserPlugin from "terser-webpack-plugin";
 import nodeExternals from "webpack-node-externals";
@@ -17,6 +16,7 @@ export default {
     viewchanges: "./src/viewschanges.js",
     "public/main": "./src/public/main.js",
     "public/pages/dashboard": "./src/public/pages/dashboard.js",
+    "public/signin": "./src/public/pages/auth/signin.js"
   },
   output: {
     path: resolve(process.cwd(), "dist"),

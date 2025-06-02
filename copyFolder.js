@@ -12,11 +12,7 @@ import { resolve } from "path";
 let data = readFileSync("package.json");
 data = JSON.parse(data);
 data.type = "commonjs";
-cpSync(
-  resolve(process.cwd(), "src/sources"),
-  resolve(process.cwd(), "dist/sources"),
-  { recursive: true }
-);
+
 if (process.env.NODE_ENV !== "production") {
   data.devDependencies = {
     nodemon: data.devDependencies.nodemon,

@@ -173,6 +173,7 @@ export const Routes = new Router("myFirstRouter", [
     name: "Son Kontrol",
     jsFnc:()=>TdsInit()
   }
+ 
 ]);
 
 

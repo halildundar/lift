@@ -545,21 +545,26 @@ async function updatePlanToDb(data) {
     dataType: "json",
     contentType: "application/json",
   });
-  let { formpaths, formpathsfolder } = resp;
-  console.log(resp);
-  data.formpaths = JSON.stringify(formpaths);
-  data.formpathsfolder = formpathsfolder;
-  console.log(data);
-  await $.ajax({
-    type: "POST",
-    url: "/planlama/update",
-    data: { ...data },
-    dataType: "json",
-  });
+
+  if (!!resp) {
+    if (!resp.msg) {
+      let { formpaths, formpathsfolder } = resp;
+      console.log(resp);
+      data.formpaths = JSON.stringify(formpaths);
+      data.formpathsfolder = formpathsfolder;
+      console.log(data);
+      await $.ajax({
+        type: "POST",
+        url: "/planlama/update",
+        data: { ...data },
+        dataType: "json",
+      });
+      $(".save-popup .close").trigger("click");
+    }
+  }
   $("body").css("overflow", "auto");
   $(".sppin-area").addClass("hidden");
   $(".sppin-area").removeClass("flex");
-  $(".save-popup .close").trigger("click");
 }
 async function deletePlanToDb(data) {
   await $.ajax({
@@ -703,7 +708,6 @@ async function SavePopupTemp(data) {
             formpathsfolder: data.formpathsfolder,
             status: data.status,
           });
-          $(".save-popup .close").trigger("click");
         } else {
           await addPlanToDb({
             denetim_tarih: data.denetim_tarih,

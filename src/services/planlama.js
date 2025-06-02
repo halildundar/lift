@@ -26,7 +26,8 @@ export const PlanlamaApi = (app) => {
   return app.use("/", router);
 };
 const DenetimFormlar = async (req, res) => {
-  const data = req.body;
+ try {
+     const data = req.body;
   if (!data) {
     return res.json({ msg: "Data not found" });
   }
@@ -37,6 +38,9 @@ const DenetimFormlar = async (req, res) => {
   });
    const respData = await rawResponse.json();
   return res.json(respData);
+ } catch (error) {
+    res.json({msg:'Hata'});
+ }
 };
 // SELECT * from `planlama` WHERE str_to_date(denetim_tarih,'%d.%m.%Y') between str_to_date('02.01.2025','%d.%m.%Y') AND str_to_date('05.03.2025','%d.%m.%Y')
 const GetPlanlamalarForMonth = async(req,res)=>{

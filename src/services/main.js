@@ -11,6 +11,10 @@ import { PlanlamaApi } from "./planlama.js";
 import { DenetimApi } from "./denetim.js";
 import { ProjeApi } from "./proje.js";
 import {TDSApi} from "./tds.js";
+import {AuthApi} from "./auth/signin.js";
+import {initPassportLocal} from './auth/passportCtrl.js';
+import { checkLoggedIn } from "./auth/auth.js";
+initPassportLocal();
 export let appRoutes = (app) => {
   SertifikaApi(app);
   OnayKurumApi(app);
@@ -22,8 +26,13 @@ export let appRoutes = (app) => {
   DenetimApi(app);
   ProjeApi(app);
   TDSApi(app);
-  router.get("/*", (req,res)=>{
-    return res.render("pages/dashboard.hbs");
+  AuthApi(app);
+  router.get("*",checkLoggedIn, (req,res)=>{
+    return res.render("pages/dashboard.hbs",{
+      title:'Kontrol Panel',
+      script1:`<script defer src="/main.js"></script>`,
+      user:!!req.user ? req.user : ''
+    });
   });
   router.get(
     "/.well-known/pki-validation/8EF0E148BC848A44E6EAFE8F9FADF56F.txt",

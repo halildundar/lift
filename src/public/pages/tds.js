@@ -1304,12 +1304,6 @@ const makeTable = async (plans) => {
       $(`.plan${plan.id} .btn-onayla`).on("click", async function () {
         console.log("Belge Bekleniyor");
         await TdsInit();
-        //  await $.ajax({
-        //     type: "POST",
-        //     url: "/tds/update-plan-status",
-        //     data: {plan_id:plan.id,status:'Belge Bekleniyor'},
-        //     dataType: "json"
-        //   });
       });
     });
 
