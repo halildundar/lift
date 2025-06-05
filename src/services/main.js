@@ -32,12 +32,11 @@ export let appRoutes = (app) => {
   });
   router.get("/*", checkLoggedIn, (req, res) => {
     if (!!req.user) {
-      console.log(user);
       return res.render("pages/dashboard.hbs", {
         title: "Kontrol Panel",
         scriptname: `main`,
-        user: !!req.user ? req.user : '',
-        yetki:!!req.user.yetki ?  JSON.parse(req.user.yetki) :"{}",
+        user: req.user,
+        yetki:JSON.parse(req.user.yetki)
       });
     }
   });
