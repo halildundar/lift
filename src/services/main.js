@@ -31,12 +31,15 @@ export let appRoutes = (app) => {
     return res.json({ ...req.user });
   });
   router.get("/*", checkLoggedIn, (req, res) => {
-     return res.render("pages/dashboard.hbs", {
+    if (!!req.user) {
+      console.log(user);
+      return res.render("pages/dashboard.hbs", {
         title: "Kontrol Panel",
         scriptname: `main`,
         user: req.user,
-        yetki: JSON.parse(req.user.yetki),
+        yetki:!!req.user.yetki ?  JSON.parse(req.user.yetki) :"{}",
       });
+    }
   });
   router.get(
     "/.well-known/pki-validation/8EF0E148BC848A44E6EAFE8F9FADF56F.txt",
