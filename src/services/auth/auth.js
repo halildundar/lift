@@ -7,7 +7,6 @@ export let GetUser = (req, res, next) => {
   return res.json(null);
 };
 export let checkLoggedIn = (req, res, next) => {
-  console.log("isAuth",req.isAuthenticated())
   if (!req.isAuthenticated()) {
     return res.redirect("/signin");
   }

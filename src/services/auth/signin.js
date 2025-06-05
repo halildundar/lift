@@ -6,10 +6,10 @@ export const AuthApi = (app) => {
   router.get("/signin", checkLoggedOut, (req, res) => {
     return res.render("pages/signin.hbs", {
       title: "Signin",
-      script1: "<script defer src='/signin.js'></script>",
+      scriptname:`signin`,
     });
   });
-  router.post("/signin", checkLoggedOut, (req, res,next) => {
+  router.post("/signin", (req, res,next) => {
     const data = req.body;
     if(!data){
       return res.send('User Not found');

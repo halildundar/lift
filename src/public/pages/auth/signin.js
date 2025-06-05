@@ -1,3 +1,4 @@
+import "../../main.scss";
 import "../../jqform-serialize.js";
 export function AjaxPromise(type, url, data) {
   return new Promise((resolve, reject) => {

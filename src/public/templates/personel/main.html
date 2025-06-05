@@ -46,15 +46,11 @@
               <option value="Makine Mühendisi">Makine Mühendisi</option>
             </select>
           </div>
-          <div class="w-full ">
+          <div class="w-full">
             <label for="modul_atama" class="frm-lbl">Modul Atama</label>
             <select name="modul_atama" class="frm-slct">
-              <option value="Modul B-F-G">
-                Modul B-F-G
-              </option>
-              <option value="Modul B-F-G-E-D-H1">
-                Modul B-F-G-E-D-H1
-              </option>
+              <option value="Modul B-F-G">Modul B-F-G</option>
+              <option value="Modul B-F-G-E-D-H1">Modul B-F-G-E-D-H1</option>
             </select>
           </div>
         </div>
@@ -67,6 +63,136 @@
             placeholder="Min.6haneli"
           />
         </div>
+        <!-- Yetkilendirme alanı -->
+        <div class="flex items-center  flex-wrap">
+          <div class="w-1/3 select-none flex items-center space-x-1">
+            <input
+              type="hidden"
+              name="yetki[proje_firma]"
+              value=""
+              class="frm-lbl"
+            />
+            <input
+              type="checkbox"
+              name="yetki[proje_firma]"
+              class="frm-chckbx"
+            />
+            <label for="" class="text-[0.9rem]">Proje Firmaları</label>
+          </div>
+          <div class="w-1/3 select-none flex items-center space-x-1">
+            <input
+              type="hidden"
+              name="yetki[onay_kurum]"
+              value=""
+              class="frm-lbl"
+            />
+            <input
+              type="checkbox"
+              name="yetki[onay_kurum]"
+              class="frm-chckbx"
+            />
+            <label for="" class="text-[0.9rem]">Onay.Kurumlar</label>
+          </div>
+          <div class="w-1/3 select-none flex items-center space-x-1">
+            <input
+              type="hidden"
+              name="yetki[sertifikalar]"
+              value=""
+              class="frm-lbl"
+            />
+            <input
+              type="checkbox"
+              name="yetki[sertifikalar]"
+              class="frm-chckbx"
+            />
+            <label for="" class="text-[0.9rem]">Sertifikalar</label>
+          </div>
+           <div class="w-1/3 select-none flex items-center space-x-1">
+            <input
+              type="hidden"
+              name="yetki[personel]"
+              value=""
+              class="frm-lbl"
+            />
+            <input
+              type="checkbox"
+              name="yetki[personel]"
+              class="frm-chckbx"
+            />
+            <label for="" class="text-[0.9rem]">Personeller</label>
+          </div>
+          <div class="w-1/3 select-none flex items-center space-x-1">
+            <input
+              type="hidden"
+              name="yetki[as_firma]"
+              value=""
+              class="frm-lbl"
+            />
+            <input
+              type="checkbox"
+              name="yetki[as_firma]"
+              class="frm-chckbx"
+            />
+            <label for="" class="text-[0.9rem]">Asansör Firmalar</label>
+          </div>
+           <div class="w-1/3 select-none flex items-center space-x-1">
+            <input
+              type="hidden"
+              name="yetki[planlama]"
+              value=""
+              class="frm-lbl"
+            />
+            <input
+              type="checkbox"
+              name="yetki[planlama]"
+              class="frm-chckbx"
+            />
+            <label for="" class="text-[0.9rem]">Planlama</label>
+          </div>
+           <div class="w-1/3 select-none flex items-center space-x-1">
+            <input
+              type="hidden"
+              name="yetki[denetim]"
+              value=""
+              class="frm-lbl"
+            />
+            <input
+              type="checkbox"
+              name="yetki[denetim]"
+              class="frm-chckbx"
+            />
+            <label for="" class="text-[0.9rem]">Denetim</label>
+          </div>
+           <div class="w-1/3 select-none flex items-center space-x-1">
+            <input
+              type="hidden"
+              name="yetki[proje]"
+              value=""
+              class="frm-lbl"
+            />
+            <input
+              type="checkbox"
+              name="yetki[proje]"
+              class="frm-chckbx"
+            />
+            <label for="" class="text-[0.9rem]">Proje</label>
+          </div>
+           <div class="w-1/3 select-none flex items-center space-x-1">
+            <input
+              type="hidden"
+              name="yetki[tds]"
+              value=""
+              class="frm-lbl"
+            />
+            <input
+              type="checkbox"
+              name="yetki[tds]"
+              class="frm-chckbx"
+            />
+            <label for="" class="text-[0.9rem]">TDS</label>
+          </div>
+        </div>
+         
         <div class="select-none flex items-center space-x-1">
           <input type="hidden" name="status" value="0" />
           <input
@@ -78,6 +204,7 @@
           />
           <label for="status" class="frm-lbl">Pasif</label>
         </div>
+        
       </form>
 
       <div class="msg-area text-red-600 py-2"></div>

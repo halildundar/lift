@@ -117,7 +117,9 @@ const usrPnlArea = () => {
     }
   });
 };
-$(function () {
+
+$(async function () {
+
   const currPath = window.location.pathname;
   GoToPage(currPath, {});
   usrPnlArea();

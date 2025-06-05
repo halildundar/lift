@@ -1,179 +1,229 @@
 import { SertifikalarInit } from "./pages/sertifikalar.js";
-import {HizRegulatoruInit} from './pages/hiz-regulatoru.js';
-import {FrenInit} from './pages/fren.js';
+import { HizRegulatoruInit } from "./pages/hiz-regulatoru.js";
+import { FrenInit } from "./pages/fren.js";
 import { OnayKurumInit } from "./pages/onay-kurumlar.js";
 import { KontrolKartnInit } from "./pages/kontrol-kart.js";
-import {DurakKapiKilitInit} from "./pages/durak-kapi-kilit.js";
-import {KabinKapiKilitInit} from "./pages/kabin-kapi-kilit.js";
-import { KapiPanelInit } from './pages/kapi-panel.js';
-import { HalatInit} from './pages/halat.js';
-import { MotorInit} from './pages/motor.js';
-import { UCMACOPInit} from './pages/ucm-acop.js';  
-import { ProjeFirmaInit} from './pages/proje-firma.js';
-import {PersonelInit} from './pages/personel.js';
-import { AsFirmaInit } from './pages/as-firma.js';
-import { PlanlamaInit } from './pages/planlama.js';
-import { DenetimInit } from './pages/denetim.js';
+import { DurakKapiKilitInit } from "./pages/durak-kapi-kilit.js";
+import { KabinKapiKilitInit } from "./pages/kabin-kapi-kilit.js";
+import { KapiPanelInit } from "./pages/kapi-panel.js";
+import { HalatInit } from "./pages/halat.js";
+import { MotorInit } from "./pages/motor.js";
+import { UCMACOPInit } from "./pages/ucm-acop.js";
+import { ProjeFirmaInit } from "./pages/proje-firma.js";
+import { PersonelInit } from "./pages/personel.js";
+import { AsFirmaInit } from "./pages/as-firma.js";
+import { PlanlamaInit } from "./pages/planlama.js";
+import { DenetimInit } from "./pages/denetim.js";
 import { TamponInit } from "./pages/tampon.js";
-import {ProjeInit} from './pages/proje.js';
+import { ProjeInit } from "./pages/proje.js";
 import { TdsInit } from "./pages/tds.js";
-const Router = function (name, routes) {
+export let user;
+const getCurrUSer = async () => {
+  try {
+    return await $.ajax({
+      type: "POST",
+      url: "/gudr",
+      data: {},
+      dataType: "json",
+    });
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
+const Router = async function (name, routes) {
+  if (
+    !(location.pathname === "/signin" || location.pathname === "/dashboard")
+  ) {
+    user = await getCurrUSer();
+    let newRoutes = [];
+    const yetki = !!user && !!user.yetki ? JSON.parse(user.yetki) : null;
+    if (!!yetki) {
+      newRoutes = routes.filter((item) => {
+        const cusPath = item.path;
+        if (cusPath.includes("/proje-firma")) {
+          return yetki.proje_firma == "on";
+        } else if (cusPath.includes("/onay-kurumlar")) {
+          return yetki.onay_kurumlar == "on";
+        } else if (cusPath.includes("/guv-aksamlar")) {
+          return yetki.sertifikalar == "on";
+        } else if (cusPath.includes("/sertifikalar")) {
+          return yetki.sertifikalar == "on";
+        } else if (cusPath.includes("/personel")) {
+          return yetki.personel == "on";
+        } else if (cusPath.includes("/as-firma")) {
+          return yetki.as_firma == "on";
+        } else if (cusPath.includes("/planlama")) {
+          return yetki.planlama == "on";
+        } else if (cusPath.includes("/denetim")) {
+          return yetki.denetim == "on";
+        } else if (cusPath.includes("/proje")) {
+          return yetki.proje == "on";
+        } else if (cusPath.includes("/tds")) {
+          return yetki.tds == "on";
+        } else {
+          return true;
+        }
+      });
+    }
+    return {
+      name: name,
+      routes: newRoutes,
+    };
+  }
   return {
     name: name,
-    routes: routes,
+    routes: [],
   };
 };
 
-export const Routes = new Router("myFirstRouter", [
+export const Routes = await new Router("myFirstRouter", [
   {
     path: "/",
     viewId: "#root_view",
     template: "dashboard.html",
     name: "Ctrl Panel Anasayfa",
-    jsFnc:()=>{}
+    jsFnc: () => {},
   },
   {
     path: "/guv-aksamlar",
     viewId: "#root_view",
     template: "guv-aksamlar.html",
     name: "Güvenlik Aksamlar",
-    jsFnc:()=>GuvAksamInit()
+    jsFnc: () => GuvAksamInit(),
   },
   {
     path: "/sertifikalar",
     viewId: "#root_view",
-    redirect:'/sertifikalar/hiz-regulatoru',
+    redirect: "/sertifikalar/hiz-regulatoru",
     template: "/sertifikalar/main.html",
     name: "Güvenlik Aksam Sertifikalar",
-    jsFnc:()=>SertifikalarInit()
+    jsFnc: () => SertifikalarInit(),
   },
   {
     path: "/sertifikalar/hiz-regulatoru",
     viewId: "#komponent-list",
     template: "/sertifikalar/hiz-regulatoru.html",
     name: "Hiz Regülatörü Sertifikalar",
-    jsFnc:()=>HizRegulatoruInit()
+    jsFnc: () => HizRegulatoruInit(),
   },
   {
     path: "/sertifikalar/fren",
     viewId: "#komponent-list",
     template: "/sertifikalar/fren.html",
     name: "Fren Sertifikalar",
-    jsFnc:()=>FrenInit()
+    jsFnc: () => FrenInit(),
   },
   {
     path: "/sertifikalar/tampon",
     viewId: "#komponent-list",
     template: "/sertifikalar/tampon.html",
     name: "Tampon Sertifikalar",
-    jsFnc:()=>TamponInit()
+    jsFnc: () => TamponInit(),
   },
   {
     path: "/sertifikalar/kontrol-kart",
     viewId: "#komponent-list",
     template: "/sertifikalar/kontrol-kart.html",
     name: "Kontrol Kart Sertifikalar",
-    jsFnc:()=>KontrolKartnInit()
+    jsFnc: () => KontrolKartnInit(),
   },
   {
     path: "/sertifikalar/durak-kapi-kilit",
     viewId: "#komponent-list",
     template: "/sertifikalar/durak-kapi-kilit.html",
     name: "Durak Kapı Kilit Sertifikalar",
-    jsFnc:()=>DurakKapiKilitInit()
+    jsFnc: () => DurakKapiKilitInit(),
   },
   {
     path: "/sertifikalar/kabin-kapi-kilit",
     viewId: "#komponent-list",
     template: "/sertifikalar/kabin-kapi-kilit.html",
     name: "kabin Kapı Kilit Sertifikalar",
-    jsFnc:()=>KabinKapiKilitInit()
+    jsFnc: () => KabinKapiKilitInit(),
   },
   {
     path: "/sertifikalar/ucm-acop",
     viewId: "#komponent-list",
     template: "/sertifikalar/ucm-acop.html",
     name: "Halat Sertifikalar",
-    jsFnc:()=>UCMACOPInit()
+    jsFnc: () => UCMACOPInit(),
   },
   {
     path: "/sertifikalar/motor",
     viewId: "#komponent-list",
     template: "/sertifikalar/motor.html",
     name: "Motor Sertifikalar",
-    jsFnc:()=>MotorInit()
+    jsFnc: () => MotorInit(),
   },
   {
     path: "/sertifikalar/kapi-panel",
     viewId: "#komponent-list",
     template: "/sertifikalar/kapi-panel.html",
     name: "Kapı Panel Sertifikalar",
-    jsFnc:()=>KapiPanelInit()
+    jsFnc: () => KapiPanelInit(),
   },
   {
     path: "/sertifikalar/halat",
     viewId: "#komponent-list",
     template: "/sertifikalar/halat.html",
     name: "Halat Sertifikalar",
-    jsFnc:()=>HalatInit()
+    jsFnc: () => HalatInit(),
   },
   {
     path: "/proje-firma",
     viewId: "#root_view",
     template: "/proje-firma/main.html",
     name: "Proje Firmaları",
-    jsFnc:()=>ProjeFirmaInit()
+    jsFnc: () => ProjeFirmaInit(),
   },
   {
     path: "/onay-kurumlar",
     viewId: "#root_view",
     template: "/onay-kurumlar/main.html",
     name: "Onay Kurumlar",
-    jsFnc:()=>OnayKurumInit()
+    jsFnc: () => OnayKurumInit(),
   },
   {
     path: "/personel",
     viewId: "#root_view",
     template: "/personel/main.html",
     name: "Personeller",
-    jsFnc:()=>PersonelInit()
+    jsFnc: () => PersonelInit(),
   },
   {
     path: "/as-firma",
     viewId: "#root_view",
     template: "/as-firma/main.html",
     name: "Personeller",
-    jsFnc:()=>AsFirmaInit()
+    jsFnc: () => AsFirmaInit(),
   },
   {
     path: "/planlama",
     viewId: "#root_view",
     template: "/planlama/main.html",
     name: "Planlama",
-    jsFnc:()=>PlanlamaInit()
+    jsFnc: () => PlanlamaInit(),
   },
   {
     path: "/denetim",
     viewId: "#root_view",
     template: "/denetim/main.html",
     name: "Denetim",
-    jsFnc:()=>DenetimInit()
+    jsFnc: () => DenetimInit(),
   },
   {
     path: "/proje",
     viewId: "#root_view",
     template: "/proje/main.html",
     name: "Proje",
-    jsFnc:()=>ProjeInit()
+    jsFnc: () => ProjeInit(),
   },
   {
     path: "/tds",
     viewId: "#root_view",
     template: "/tds/main.html",
     name: "Son Kontrol",
-    jsFnc:()=>TdsInit()
-  }
- 
+    jsFnc: () => TdsInit(),
+  },
 ]);
-
-

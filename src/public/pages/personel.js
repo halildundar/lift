@@ -10,10 +10,10 @@ const GetList = async () => {
   let { msg, data } = datas;
   if (msg === "Ok!") {
     $("tbody").html("");
-    data = data.sort((a,b)=>a.status < b.status ? 1 : -1)
+    data = data.sort((a, b) => (a.status < b.status ? 1 : -1));
     for (let i = 0; i < data.length; i++) {
       const item = data[i];
-      const statusArea = item.status == 0 ? 'Pasif' :'Aktif';
+      const statusArea = item.status == 0 ? "Pasif" : "Aktif";
       $("tbody").append(`
           <tr id="onay-${item.id}">
                     <td class="text-center">${item.name}</td>
@@ -26,22 +26,33 @@ const GetList = async () => {
         `);
       $(`#onay-${item.id}`).on("click", function (e) {
         $.map(item, (val, key) => {
-          if(key == 'status'){
-            $('[name="' + key + '"]').prop('checked',val == '0' ? false : true);
-            $('[name="' + key + '"]').trigger('change');
-           
-          }else{
+          if (key == "status") {
+            $('[name="' + key + '"]').prop("checked", val == "1");
+            $('[name="' + key + '"]').val(val);
+            $('[name="' + key + '"]').trigger("change");
+          } else if (key == "yetki") {
+            $.map(JSON.parse(val), (val1, key1) => {
+              console.log(key1, val1, val1 == "on");
+              $("[type='checkbox'][name='yetki[" + key1 + "]']").prop(
+                "checked",
+                val1 == "on"
+              );
+              $("[type='checkbox'][name='yetki[" + key1 + "]']").val(val1);
+            });
+          } else {
+            $("form [name*='yetki']").prop("checked", false);
             $('[name="' + key + '"]').val(val);
           }
-          if(key == 'gorev'){
-            $('[name="' + key + '"]').trigger('change')
-          };
+          if (key == "gorev") {
+            $('[name="' + key + '"]').trigger("change");
+          }
           $("#save").addClass("!hidden");
           $("#update").removeClass("!hidden");
           $("#delete").removeClass("!hidden");
         });
         selectedItem = item;
       });
+      $(`#onay-${item.id}`).on("click", function (e) {});
       $(`a[href='${item.nando_url}']`).on("click", function (e) {
         e.stopPropagation();
       });
@@ -49,10 +60,12 @@ const GetList = async () => {
   } else {
     console.log(msg);
   }
-  $("#status").prop("checked",false);
+  $("#status").prop("checked", false);
   $("#clear").trigger("click");
 };
 const AddItem = async (data) => {
+  console.log(data);
+  data.yetki = JSON.stringify(data.yetki);
   await $.ajax({
     type: "POST",
     url: "/personel/add",
@@ -61,6 +74,8 @@ const AddItem = async (data) => {
   });
 };
 const UpdateItem = async (data) => {
+  console.log(data);
+  data.yetki = JSON.stringify(data.yetki);
   await $.ajax({
     type: "POST",
     url: "/personel/update",
@@ -80,36 +95,42 @@ const DeleteItem = async (data) => {
 export const PersonelInit = async () => {
   $("#save").on("click", async function (e) {
     let newItem = $("form").serializeJSON();
-    const isEmptyArea = Object.values(newItem).some(item=>item === '');
-    if(!isEmptyArea){
+    const isEmptyArea = Object.values(newItem).some((item) => item === "");
+    if (!isEmptyArea) {
       await AddItem(newItem);
       GetList();
     }
- 
   });
   $("#update").on("click", async function (e) {
     let newItem = $("form").serializeJSON();
-    const isEmptyArea = Object.values(newItem).some(item=>item === '');
-    if(!isEmptyArea){
+    console.log(newItem);
+    const isEmptyArea = Object.values(newItem).some((item) => item === "");
+    console.log(isEmptyArea)
+    if (!isEmptyArea) {
       await UpdateItem({ id: selectedItem.id, ...newItem });
       GetList();
     }
-
   });
   $("#delete").on("click", async function (e) {
     await DeleteItem({ id: selectedItem.id });
     GetList();
   });
   $("#clear").on("click", function (e) {
-    $("form input[type='text']").each(function (index, el) {
+    $("form [type='text']").each(function (index, el) {
       $(el).val("");
     });
-    console.log('Temizle')
-    $("#status").prop("checked",false);
+    $("form [type='checkbox']").each(function (index, el) {
+      $(el).val("");
+    });
+    console.log("Temizle");
+    $("#status").prop("checked", false);
     $("#status").trigger("change");
+    $("form [name*='yetki']").prop("checked", false);
+    $("form [name*='yetki']").trigger("change");
     $("#save").removeClass("!hidden");
     $("#update").addClass("!hidden");
     $("#delete").addClass("!hidden");
+    selectedItem = null;
   });
 
   GetList();
@@ -121,16 +142,25 @@ export const PersonelInit = async () => {
     }
   });
   $("[name='gorev']").on("change", function () {
-    if($("[name='gorev']").val() !== 'Denetçi'){
-      $(".unvan-area").addClass('hidden');
-      $("[name='unvan']").append("<option value='-'>Seçiniz</option>")
+    if ($("[name='gorev']").val() !== "Denetçi") {
+      $(".unvan-area").addClass("hidden");
+      $("[name='unvan']").append("<option value='-'>Seçiniz</option>");
       $("[name='unvan']").val("-");
-      $("[name='modul_atama']").append("<option value='-'>Seçiniz</option>")
+      $("[name='modul_atama']").append("<option value='-'>Seçiniz</option>");
       $("[name='modul_atama']").val("-");
-    }else{
-      $(".unvan-area").removeClass('hidden');
+    } else {
+      $(".unvan-area").removeClass("hidden");
       $("[name='unvan'] option[value='-']").remove();
-      $("[name='modul_atama'] option[value='-']").remove()
+      $("[name='modul_atama'] option[value='-']").remove();
     }
+  });
+  $("[name*='yetki']").map(function () {
+    $(this).on("change", function () {
+      if ($(this).is(":checked")) {
+        $(this).val("on");
+      } else {
+        $(this).val("");
+      }
+    });
   });
 };

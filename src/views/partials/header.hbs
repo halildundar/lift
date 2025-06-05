@@ -7,16 +7,38 @@
     </div>
     <div class="flex-1 flex items-center justify-end ">
       <a route="/" class="btn btn-thm-color">Dashboard</a>
-      <a route="/proje-firma" class="btn btn-thm-color">Proje Firmalar</a>
-      <a route="/onay-kurumlar" class="btn btn-thm-color">Onaylanmış Kurumlar</a>
-      <a route="/sertifikalar" class="btn btn-thm-color">Sertifikalar</a>
-      <a route="/personel" class="btn btn-thm-color">Personeller</a>
-      <a route="/as-firma" class="btn btn-thm-color">Asansör Firmalar</a>
-      <a route="/planlama" class="btn btn-thm-color">Planlama</a>
-      <a route="/denetim" class="btn btn-thm-color">Denetim</a>
-      <a route="/proje" class="btn btn-thm-color">Proje</a>
-      <a route="/tds" class="btn btn-thm-color">TDS</a>
 
+
+     
+      {{#IsEq yetki.proje_firma 'on'}}
+      <a route="/proje-firma" class="btn btn-thm-color">Proje Firmalar</a>
+      {{/IsEq}}
+      {{#IsEq yetki.onay_kurum 'on'}}
+      <a route="/onay-kurumlar" class="btn btn-thm-color">Onaylanmış Kurumlar</a>
+      {{/IsEq}}
+      {{#IsEq yetki.sertifikalar 'on'}}
+      <a route="/sertifikalar" class="btn btn-thm-color">Sertifikalar</a>
+      <a route="/onay-kurumlar" class="btn btn-thm-color">Onaylanmış Kurumlar</a>
+      {{/IsEq}}
+      {{#IsEq yetki.personel 'on'}}
+      <a route="/personel" class="btn btn-thm-color">Personeller</a>
+      {{/IsEq}}
+      {{#IsEq yetki.as_firma 'on'}}
+      <a route="/as-firma" class="btn btn-thm-color">Asansör Firmalar</a>
+      {{/IsEq}}
+      {{#IsEq yetki.planlama 'on'}}
+      <a route="/planlama" class="btn btn-thm-color">Planlama</a>
+      {{/IsEq}}
+      {{#IsEq yetki.denetim 'on'}}
+      <a route="/denetim" class="btn btn-thm-color">Denetim</a>
+      {{/IsEq}}
+      {{#IsEq yetki.proje 'on'}}
+      <a route="/proje" class="btn btn-thm-color">Proje</a>
+      {{/IsEq}}
+      {{#IsEq yetki.tds 'on'}}
+      <a route="/tds" class="btn btn-thm-color">TDS</a>
+      {{/IsEq}}
+  
       <div class="relative allusrt">
         <a
           class="btn-user p-2 hover:bg-black/10 active:bg-black/5 cursor-pointer flex items-center justify-center text-[1.4rem] rounded-full">
@@ -34,10 +56,11 @@
             <div class="text-[0.8rem]">
               {{user.unvan}}
             </div>
-          
+
           </div>
           <div class="pb-2">
-              <button class="btn-signout w-full bg-red-600 hover:bg-red-700 active:bg-red-500 text-white rounded-md py-1 text-[0.9rem] " >Çıkış</button>
+            <button
+              class="btn-signout w-full bg-red-600 hover:bg-red-700 active:bg-red-500 text-white rounded-md py-1 text-[0.9rem] ">Çıkış</button>
           </div>
         </div>
       </div>

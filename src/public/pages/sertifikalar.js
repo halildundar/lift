@@ -1,4 +1,4 @@
-import "./sertifikalar.scss";
+
 export const GetSertifikalar = async (component) => {
   const sertifikalar = await $.ajax({
     type: "POST",
