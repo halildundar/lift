@@ -36,7 +36,7 @@ export let appRoutes = (app) => {
       return res.render("pages/dashboard.hbs", {
         title: "Kontrol Panel",
         scriptname: `main`,
-        user: req.user,
+        user: !!req.user ? req.user : '',
         yetki:!!req.user.yetki ?  JSON.parse(req.user.yetki) :"{}",
       });
     }
