@@ -1,11 +1,11 @@
-/*!******************************!*\
-  !*** ./src/public/main.scss ***!
-  \******************************/
+/*!
+  SerializeJSON jQuery plugin.
+  https://github.com/marioizquierdo/jquery.serializeJSON
+  version 3.2.1 (Feb, 2021)
 
-/*!****************************************!*\
-  !*** ./src/public/jqform-serialize.js ***!
-  \****************************************/
+  Copyright (c) 2012-2021 Mario Izquierdo
+  Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
+  and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+*/
 
-/*!*****************************************!*\
-  !*** ./src/public/pages/auth/signin.js ***!
-  \*****************************************/
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
