@@ -102,11 +102,10 @@ export const PersonelInit = async () => {
       !!newItem["telefon"] &&
       !!newItem["unvan"] &&
       !!newItem["sifre"];
-    console.log(newItem);
-    // if (!isEmptyArea) {
-    //   await AddItem(newItem);
-    //   GetList();
-    // }
+    if (!isEmptyArea) {
+      await AddItem(newItem);
+      GetList();
+    }
   });
   $("#update").on("click", async function (e) {
     let newItem = $("form").serializeJSON();
