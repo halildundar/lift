@@ -91,7 +91,6 @@ const DeleteItem = async (data) => {
     dataType: "json",
   });
 };
-
 export const PersonelInit = async () => {
   $("#save").on("click", async function (e) {
     let newItem = $("form").serializeJSON();
