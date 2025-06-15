@@ -171,6 +171,15 @@ textarea {
     transform: translateY(-50%);
   }
 }
+.gndr-btn{
+  background-color: #005fa3;
+  color:white;
+  padding:2px 4px;
+  border-radius: 5px;
+  &:hover{
+    background-color: #0099cc;
+  }
+}
 @media screen and (min-width: 1500px) {
   .btn.btn-base,
   .btn-sm.btn-base {

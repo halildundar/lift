@@ -7,14 +7,23 @@ export const PersonelApi = (app) => {
   router.post("/personel/update", UpdateItem);
   router.post("/personel/delete", DeleteItem);
   router.post("/personel/get-personel-name", GetPersonelName);
+    router.post("/personel/get-danismanlar", GetDanismanlar);
   return app.use("/", router);
 };
+const GetDanismanlar = async (req,res)=>{
+   const data = req.body;
+  if (!data) {
+    return res.json({ msg: "Data not found" });
+  }
+  const rows = await ArtiDoksanCertDB.Query("SELECT * FROM `personel` WHERE gorev = 'Danışman'");
+  return res.json(rows);
+}
 const GetList = async (req, res) => {
   const data = req.body;
   if (!data) {
     return res.json({ msg: "Data not found" });
   }
-  const rows = await ArtiDoksanCertDB.Query("SELECT * FROM `personel`");
+  const rows = await ArtiDoksanCertDB.Query("SELECT * FROM `personel` WHERE gorev != 'Danışman'");
   return res.json({
     msg: "Ok!",
     data: rows,
@@ -50,7 +59,6 @@ const DeleteItem = async (req, res) => {
   if (!data) {
     return res.json({ msg: "Data not found" });
   }
-  console.log(data);
   await ArtiDoksanCertDB.Query("DELETE FROM `personel` WHERE id = ?", [
     data.id,
   ]);

@@ -1,0 +1,52 @@
+<div
+  class="ortak-uppop z-[50] fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black/10"
+>
+  <div
+    class="flex flex-col bg-white rounded-md border-black/10 shadow-[0_0_5px_rgba(0,0,0,0.3)] w-[60%] h-[75%]"
+  >
+    <div class="flex justify-between pl-2 pr-1 py-2">
+      <div class="font-semibold">Ortak Dosyalar - {{#IsEq classname '.filesmm'}} SMM Dosyası {{else}} Proje Hizmet Sözleşmesi ve Taahhütler {{/IsEq}}</div>
+      <div>
+        <a
+          class="btn-cls-ortakpop cursor-pointer select-none p-2 text-[1.2rem] tio hover:bg-black/10 rounded-full"
+          >clear</a
+        >
+      </div>
+    </div>
+    <div class="flex justify-between pl-2 pr-1 py-2">
+      <button
+        class="btn-file-ekle py-1 px-2 bg-blue-600 hover:bg-blue-700 active:bg-blue-500 select-none text-white rounded"
+      >
+        Dosya ekle
+      </button>
+      <input type="file" id="file_ort_up" class="hidden" accept=".zip,.pdf" />
+    </div>
+    <div class="relative flex-1 overflow-hidden overflow-y-auto">
+      <table class="w-full border-collapse border-r border-b border-gray-200">
+        {{#each files}}
+        <tr class="fileInde{{@index}} hover:bg-black/10 cursor-pointer" data-inde="{{@index}}">
+          <td class="px-2 py-1 border-l border-t border-gray-200  w-[2.5rem]">{{#inc @index}}{{/inc}}</td>
+          <td class="px-2 py-1 border-l border-t border-gray-200 line-clamp-1">
+            {{this}}
+          </td>
+          <td class=" px-2 py-1 border-l border-t border-gray-200">
+            <a href="/uploads/danisman/{{../danisman_id}}/ortak/{{this}}" class="underline text-blue-600" target="_blank">İndir</a>
+          </td>
+        </tr>
+        {{/each}}
+      </table>
+      {{#IsEq files.length 0}}
+        <div class="flex justify-center items-center py-5 font-semibold text-black/50">
+            Dosya bulunamadı
+        </div>
+      {{/IsEq}}
+    </div>
+    <div class="px-2 py-2 flex items-center justify-center">
+      <button style="display: none;"
+        class="btn-sec-filepath py-1 px-2 bg-blue-600 hover:bg-blue-700 active:bg-blue-500 select-none text-white rounded"
+      >
+        Tamam
+      </button>
+    </div>
+  </div>
+</div>

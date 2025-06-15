@@ -129,12 +129,14 @@ async function onGetHizRegulatorler() {
     const sertifika = sertifikalar[i];
     $(".cert-table").append(`
       <tr id="certid_${sertifika.id}" class="border-b border-gray-200  py-2 hover:bg-black/5 duration-150 cursor-pointer">
-               <td class="text-center">${sertifika.cert_no}</td>
-               <td class="text-center">${sertifika.marka}</td>
-               <td class="text-center">${sertifika.tip}</td>
-               <td class="text-center">${sertifika.nom_hiz}</td>
-               <td class="text-center">${sertifika.tripped_hiz}</td>
-               <td class="text-center"> 
+               <td class="text-center ">
+                <div class="line-clamp-1 text-[0.8rem]">${sertifika.cert_no}</div>
+               </td>
+               <td class="text-center  border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.marka}</div></td>
+               <td class="text-center  border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.tip}</div></td>
+               <td class="text-center  border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.nom_hiz}</div></td>
+               <td class="text-center  border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.tripped_hiz}</div></td>
+               <td class="text-center  border-l border-gray-200 px-2"> 
                  <a href="${sertifika.cert_filepath}" target="_blank" class="text-blue-500 hover:underline">İncele</a>
                </td>
              </tr>
@@ -226,11 +228,11 @@ async function onGetFrenler() {
     const sertifika = sertifikalar[i];
     $(".cert-table").append(`
       <tr id="certid_${sertifika.id}" class="border-b border-gray-200  py-2 hover:bg-black/5 duration-150 cursor-pointer">
-               <td class="text-center">${sertifika.cert_no}</td>
-               <td class="text-center">${sertifika.marka}</td>
-               <td class="text-center">${sertifika.tip}</td>
-               <td class="text-center">${sertifika.hiz}</td>
-               <td class="text-center">${sertifika.kapasite}</td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.cert_no}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.marka}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.tip}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.hiz}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.kapasite}</div></td>
                <td class="text-center"> 
                  <a href="${sertifika.cert_filepath}" target="_blank" class="text-blue-500 hover:underline">İncele</a>
                </td>
@@ -320,9 +322,9 @@ async function onGetKontrolKartlar() {
     const sertifika = sertifikalar[i];
     $(".cert-table").append(`
       <tr id="certid_${sertifika.id}" class="border-b border-gray-200  py-2 hover:bg-black/5 duration-150 cursor-pointer">
-               <td class="text-center">${sertifika.cert_no}</td>
-               <td class="text-center">${sertifika.marka}</td>
-               <td class="text-center">${sertifika.tip}</td>
+               <td class="text-center px-2 border-l border-gray-200"><div class="line-clamp-1 text-[0.8rem]">${sertifika.cert_no}</div></td>
+               <td class="text-center  px-2 border-l border-gray-200"><div class="line-clamp-1 text-[0.8rem]">${sertifika.marka}</div></td>
+               <td class="text-center  px-2 border-l border-gray-200"><div class="line-clamp-1 text-[0.8rem]">${sertifika.tip}</div></td>
                <td class="text-center"> 
                  <a href="${sertifika.cert_filepath}" target="_blank" class="text-blue-500 hover:underline">İncele</a>
                </td>
@@ -414,12 +416,12 @@ async function onGetKabTamponlar() {
     const sertifika = sertifikalar[i];
     $(".cert-table").append(`
       <tr id="certid_${sertifika.id}" class="border-b border-gray-200  py-2 hover:bg-black/5 duration-150 cursor-pointer">
-               <td class="text-center">${sertifika.cert_no}</td>
-               <td class="text-center">${sertifika.marka}</td>
-               <td class="text-center">${sertifika.tip}</td>
-               <td class="text-center">${sertifika.hiz}</td>
-               <td class="text-center">${sertifika.kapasite}</td>
-               <td class="text-center"> 
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.cert_no}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.marka}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.tip}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.hiz}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.kapasite}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"> 
                  <a href="${sertifika.cert_filepath}" target="_blank" class="text-blue-500 hover:underline">İncele</a>
                </td>
              </tr>
@@ -510,11 +512,11 @@ async function onGetKarTamponlar() {
     const sertifika = sertifikalar[i];
     $(".cert-table").append(`
       <tr id="certid_${sertifika.id}" class="border-b border-gray-200  py-2 hover:bg-black/5 duration-150 cursor-pointer">
-               <td class="text-center">${sertifika.cert_no}</td>
-               <td class="text-center">${sertifika.marka}</td>
-               <td class="text-center">${sertifika.tip}</td>
-               <td class="text-center">${sertifika.hiz}</td>
-               <td class="text-center">${sertifika.kapasite}</td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.cert_no}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.marka}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.tip}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.hiz}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.kapasite}</div></td>
                <td class="text-center"> 
                  <a href="${sertifika.cert_filepath}" target="_blank" class="text-blue-500 hover:underline">İncele</a>
                </td>
@@ -606,9 +608,9 @@ async function onGetDurakKapiKilitler() {
     const sertifika = sertifikalar[i];
     $(".cert-table").append(`
       <tr id="certid_${sertifika.id}" class="border-b border-gray-200  py-2 hover:bg-black/5 duration-150 cursor-pointer">
-               <td class="text-center">${sertifika.cert_no}</td>
-               <td class="text-center">${sertifika.marka}</td>
-               <td class="text-center">${sertifika.tip}</td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.cert_no}</diV></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.marka}</diV></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.tip}</diV></td>
                <td class="text-center"> 
                  <a href="${sertifika.cert_filepath}" target="_blank" class="text-blue-500 hover:underline">İncele</a>
                </td>
@@ -700,9 +702,9 @@ async function onGetKabinKapiKilitler() {
     const sertifika = sertifikalar[i];
     $(".cert-table").append(`
       <tr id="certid_${sertifika.id}" class="border-b border-gray-200  py-2 hover:bg-black/5 duration-150 cursor-pointer">
-               <td class="text-center">${sertifika.cert_no}</td>
-               <td class="text-center">${sertifika.marka}</td>
-               <td class="text-center">${sertifika.tip}</td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.cert_no}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.marka}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.tip}</div></td>
                <td class="text-center"> 
                  <a href="${sertifika.cert_filepath}" target="_blank" class="text-blue-500 hover:underline">İncele</a>
                </td>
@@ -794,9 +796,9 @@ async function onGetUCMAOPlar() {
     const sertifika = sertifikalar[i];
     $(".cert-table").append(`
       <tr id="certid_${sertifika.id}" class="border-b border-gray-200  py-2 hover:bg-black/5 duration-150 cursor-pointer">
-               <td class="text-center">${sertifika.cert_no}</td>
-               <td class="text-center">${sertifika.marka}</td>
-               <td class="text-center">${sertifika.tip}</td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.cert_no}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.marka}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.tip}</div></td>
                <td class="text-center"> 
                  <a href="${sertifika.cert_filepath}" target="_blank" class="text-blue-500 hover:underline">İncele</a>
                </td>
@@ -888,9 +890,9 @@ async function onGetMotorlar() {
     const sertifika = sertifikalar[i];
     $(".cert-table").append(`
       <tr id="certid_${sertifika.id}" class="border-b border-gray-200  py-2 hover:bg-black/5 duration-150 cursor-pointer">
-               <td class="text-center">${sertifika.cert_no}</td>
-               <td class="text-center">${sertifika.marka}</td>
-               <td class="text-center">${sertifika.tip}</td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.cert_no}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.marka}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.tip}</div></td>
                <td class="text-center"> 
                  <a href="${sertifika.cert_filepath}" target="_blank" class="text-blue-500 hover:underline">İncele</a>
                </td>
@@ -984,10 +986,10 @@ async function onGetKapiPanelYangin() {
     const sertifika = sertifikalar[i];
     $(".cert-table").append(`
       <tr id="certid_${sertifika.id}" class="border-b border-gray-200  py-2 hover:bg-black/5 duration-150 cursor-pointer">
-               <td class="text-center">${sertifika.cert_no}</td>
-               <td class="text-center">${sertifika.marka}</td>
-               <td class="text-center">${sertifika.tip}</td>
-                  <td class="text-center">${sertifika.belge_tur}</td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.cert_no}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.marka}</diV></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.tip}</diV></td>
+                  <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.belge_tur}</diV></td>
                <td class="text-center"> 
                  <a href="${sertifika.cert_filepath}" target="_blank" class="text-blue-500 hover:underline">İncele</a>
                </td>
@@ -1081,10 +1083,10 @@ async function onGetKapiPanelSarkac(folderpath) {
     const sertifika = sertifikalar[i];
     $(".cert-table").append(`
       <tr id="certid_${sertifika.id}" class="border-b border-gray-200  py-2 hover:bg-black/5 duration-150 cursor-pointer">
-               <td class="text-center">${sertifika.cert_no}</td>
-               <td class="text-center">${sertifika.marka}</td>
-               <td class="text-center">${sertifika.tip}</td>
-                  <td class="text-center">${sertifika.belge_tur}</td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.cert_no}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.marka}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.tip}</div></td>
+                  <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.belge_tur}</div></td>
                <td class="text-center"> 
                  <a href="${sertifika.cert_filepath}" target="_blank" class="text-blue-500 hover:underline">İncele</a>
                </td>
@@ -1175,10 +1177,10 @@ async function onGetHalatlar() {
     const sertifika = sertifikalar[i];
     $(".cert-table").append(`
       <tr id="certid_${sertifika.id}" class="border-b border-gray-200  py-2 hover:bg-black/5 duration-150 cursor-pointer">
-               <td class="text-center">${sertifika.cert_no}</td>
-               <td class="text-center">${sertifika.marka}</td>
-               <td class="text-center">${sertifika.tip}</td>
-                  <td class="text-center">${sertifika.belge_tur}</td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.cert_no}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.marka}</div></td>
+               <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.tip}</div></td>
+                  <td class="text-center border-l border-gray-200 px-2"><div class="line-clamp-1 text-[0.8rem]">${sertifika.belge_tur}</div></td>
                <td class="text-center"> 
                  <a href="${sertifika.cert_filepath}" target="_blank" class="text-blue-500 hover:underline">İncele</a>
                </td>

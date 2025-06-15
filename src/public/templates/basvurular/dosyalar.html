@@ -1,0 +1,14 @@
+<ul class="list-disc pl-10">
+  {{#each folders}}
+  <li class="{{@key}}">
+    {{#IsEq @key 'yapi_ruhsati'}} Yapı ruhsatı{{/IsEq}} {{#IsEq @key 'proje'}}
+    Proje{{/IsEq}} {{#IsEq @key 'proje_kapak'}} Proje Kapak{{/IsEq}} {{#IsEq
+    @key 'ab_uyg_beyan'}}Ab Uyg.Beyanı {{/IsEq}} {{#IsEq @key 'teknik_dosya'}}
+    Teknik Dosya{{/IsEq}} {{#IsEq @key 'modul_b_cert'}} Modul B Sertf.{{/IsEq}}
+    {{#IsEq @key 'iso_files'}}ISO Dosyalar{{/IsEq}} {{#IsEq @key 'smm'}}
+    SMM'ler{{/IsEq}} {{#IsEq @key 'proje_sozlesme'}}Proje
+    Hiz.Sözleş,Taahhüt{{/IsEq}} 
+     <a href="{{this}}" class="underline text-blue-500" target="_blank">İndir</a>
+  </li>
+  {{/each}}
+</ul>

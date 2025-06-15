@@ -9,7 +9,6 @@ import { KapiPanelInit } from "./pages/kapi-panel.js";
 import { HalatInit } from "./pages/halat.js";
 import { MotorInit } from "./pages/motor.js";
 import { UCMACOPInit } from "./pages/ucm-acop.js";
-import { ProjeFirmaInit } from "./pages/proje-firma.js";
 import { PersonelInit } from "./pages/personel.js";
 import { AsFirmaInit } from "./pages/as-firma.js";
 import { PlanlamaInit } from "./pages/planlama.js";
@@ -17,6 +16,10 @@ import { DenetimInit } from "./pages/denetim.js";
 import { TamponInit } from "./pages/tampon.js";
 import { ProjeInit } from "./pages/proje.js";
 import { TdsInit } from "./pages/tds.js";
+import { FirmalarInit } from "./pages/danisman/firmalar.js";
+import { BasvuruInit } from "./pages/danisman/basvuru.js";
+import { BasvInit } from "./pages/basvurular.js";
+import {DanismanlarInit} from './pages/danismanlar.js';
 export let user;
 const getCurrUSer = async () => {
   try {
@@ -31,53 +34,7 @@ const getCurrUSer = async () => {
     return null;
   }
 };
-const Router = async function (name, routes) {
-  if (
-    !(location.pathname === "/signin" || location.pathname === "/dashboard")
-  ) {
-    user = await getCurrUSer();
-    let newRoutes = [];
-    const yetki = !!user && !!user.yetki ? JSON.parse(user.yetki) : null;
-    if (!!yetki) {
-      newRoutes = routes.filter((item) => {
-        const cusPath = item.path;
-        if (cusPath.includes("/proje-firma")) {
-          return yetki.proje_firma == "on";
-        } else if (cusPath.includes("/onay-kurumlar")) {
-          return yetki.onay_kurumlar == "on";
-        } else if (cusPath.includes("/guv-aksamlar")) {
-          return yetki.sertifikalar == "on";
-        } else if (cusPath.includes("/sertifikalar")) {
-          return yetki.sertifikalar == "on";
-        } else if (cusPath.includes("/personel")) {
-          return yetki.personel == "on";
-        } else if (cusPath.includes("/as-firma")) {
-          return yetki.as_firma == "on";
-        } else if (cusPath.includes("/planlama")) {
-          return yetki.planlama == "on";
-        } else if (cusPath.includes("/denetim")) {
-          return yetki.denetim == "on";
-        } else if (cusPath.includes("/proje")) {
-          return yetki.proje == "on";
-        } else if (cusPath.includes("/tds")) {
-          return yetki.tds == "on";
-        } else {
-          return true;
-        }
-      });
-    }
-    return {
-      name: name,
-      routes: newRoutes,
-    };
-  }
-  return {
-    name: name,
-    routes: [],
-  };
-};
-
-export const Routes = await new Router("myFirstRouter", [
+const MainRoutes =  [
   {
     path: "/",
     viewId: "#root_view",
@@ -171,13 +128,6 @@ export const Routes = await new Router("myFirstRouter", [
     jsFnc: () => HalatInit(),
   },
   {
-    path: "/proje-firma",
-    viewId: "#root_view",
-    template: "/proje-firma/main.html",
-    name: "Proje Firmaları",
-    jsFnc: () => ProjeFirmaInit(),
-  },
-  {
     path: "/onay-kurumlar",
     viewId: "#root_view",
     template: "/onay-kurumlar/main.html",
@@ -226,4 +176,97 @@ export const Routes = await new Router("myFirstRouter", [
     name: "Son Kontrol",
     jsFnc: () => TdsInit(),
   },
-]);
+  
+  {
+    path: "/basvuru",
+    viewId: "#root_view",
+    template: "/basvurular/main.html",
+    name: "Gelen Başvurular",
+    jsFnc: () => BasvInit(),
+  },
+  
+    {
+    path: "/danismanlar",
+    viewId: "#root_view",
+    template: "/danismanlar/main.html",
+    name: "Danışmanlar",
+    jsFnc: () => DanismanlarInit(),
+  }
+];
+const DanisRoutes = [
+  {
+    path: "/",
+    viewId: "#root_view",
+    template: "/danisman/main.html",
+    name: "Danışman Panel Anasayfa",
+    jsFnc: () => {},
+  },
+  {
+    path: "/firmalar",
+    viewId: "#root_view",
+    template: "/danisman/firmalar.html",
+    name: "Danışman Firmalar",
+    jsFnc: ()=>FirmalarInit(),
+  },
+  {
+    path: "/basvurular",
+    viewId: "#root_view",
+    template: "/danisman/basvurular/main.html",
+    name: "Danışman Denetim Talep",
+    jsFnc: () => BasvuruInit(),
+  }
+]
+
+const Router = async function () {
+  if (location.pathname !== "/signin") {
+    user = await getCurrUSer();
+    let newRoutes = [];
+    if (!!user && user.gorev != "Danışman") {
+      const yetki = !!user && !!user.yetki ? JSON.parse(user.yetki) : null;
+      if (!!yetki) {
+       
+        newRoutes = MainRoutes.filter((item) => {
+          const cusPath = item.path;
+         if (cusPath.includes("/danismanlar")) {
+            return yetki.danismanlar == "on";
+          }  else if (cusPath.includes("/onay-kurumlar")) {
+            return yetki.onay_kurum == "on";
+          } else if (cusPath.includes("/guv-aksamlar")) {
+            return yetki.sertifikalar == "on";
+          } else if (cusPath.includes("/sertifikalar")) {
+            return yetki.sertifikalar == "on";
+          } else if (cusPath.includes("/personel")) {
+            return yetki.personel == "on";
+          } else if (cusPath.includes("/as-firma")) {
+            return yetki.as_firma == "on";
+          } else if (cusPath.includes("/planlama")) {
+            return yetki.planlama == "on";
+          } else if (cusPath.includes("/denetim")) {
+            return yetki.denetim == "on";
+          } else if (cusPath.includes("/proje")) {
+            return yetki.proje == "on";
+          } else if (cusPath.includes("/tds")) {
+            return yetki.tds == "on";
+          }else if (cusPath.includes("/basvuru")) {
+            return yetki.basvuru == "on";
+          }  else {
+            return true;
+          }
+        });
+      }
+    }else if(!!user && user.gorev == 'Danışman'){
+      newRoutes = DanisRoutes
+    }
+    return {
+      name: name,
+      routes: newRoutes,
+    };
+  } else
+    return {
+      name: name,
+      routes: [],
+    };
+};
+
+export const Routes = await new Router();
+

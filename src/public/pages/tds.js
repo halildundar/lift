@@ -1,4 +1,4 @@
-import { AdresAlanInit, GetIl, GetIlce, GetMahalle } from "../util/adres.js";
+import { GetIl, GetIlce, GetMahalle } from "../util/adres.js";
 import { Upload } from "../util/fncs.js";
 import {MAINHOST} from './constants.js';
 let firmalar;
@@ -44,15 +44,7 @@ async function GetDenetimByPlanId(planId) {
   });
   return !!resp && !!resp[0] ? resp[0] : null;
 }
-async function GetFirmaByPlanId(plan) {
-  const resp = await $.ajax({
-    type: "POST",
-    url: "/proje/get-asansor-firmaByplanId",
-    data: { as_firma_id: plan.as_firma_id },
-    dataType: "json",
-  });
-  return !!resp && !!resp[0] ? resp[0] : null;
-}
+
 const getTemp = async (htmlpath) => {
   const respPlanHtml = await fetch("/templates/" + htmlpath);
   const str = await respPlanHtml.text();

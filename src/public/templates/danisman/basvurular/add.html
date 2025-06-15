@@ -1,0 +1,157 @@
+<div
+  style="display: none"
+  class="pop-add z-[50] fixed top-0 left-0 w-[100vw] h-[100vh] justify-center items-center bg-black/10"
+>
+  <div
+    class="w-[55%] max-h-[90%] flex flex-col bg-white space-x-2 rounded-md border border-gray-200 shadow-[0_0_10px_1px_rgba(0,0,0,0.4)]"
+  >
+    <div class="pl-4 pr-2 py-2 flex items-center justify-between">
+      <div class="font-semibold popkaydet-titil">Yeni Kayıt</div>
+      <i
+        class="btn-pop-close tio text-[1.4rem] p-2 hover:bg-black/10 rounded-full select-none cursor-pointer"
+        >clear</i
+      >
+    </div>
+    <div class="flex-1 relative overflow-hidden overflow-y-auto px-4">
+      <form class="ekle-form flex flex-col space-y-2">
+        <div class="flex items-center space-x-2">
+          <div class="w-1/2">
+          <label for="firma_id" class="frm-lbl">Asansör Firması</label>
+          <select name="firma_id" id="firma_id" class="frm-slct"></select>
+        </div>
+        <div class="w-1/2">
+          <label for="modul" class="frm-lbl">CE Modul</label>
+          <select name="modul" id="modul" class="frm-slct">
+            <option value="Modul G">Modul G</option>
+            <option value="Modul B">Modul B</option>
+            <option value="Modul E">Modul E</option>
+            <option value="Modul H1">Modul H1</option>
+            <option value="Tasarım İnceleme">Tasarım İnceleme</option>
+          </select>
+        </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <div class="w-1/2">
+            <label for="yapi_ruhsat_no" class="frm-lbl">Yapı Ruhsat No</label>
+            <input type="text" class="frm-txt" name="yapi_ruhsat_no" />
+          </div>
+          <div class="w-1/2">
+            <label for="yapi_sahibi_adi" class="frm-lbl">Yapı Sahibi Adı</label>
+            <input type="text" class="frm-txt" name="yapi_sahibi_adi" />
+          </div>
+        </div>
+      
+        <div class="flex items-center space-x-2">
+          <div class="w-1/3">
+            <label for="il_id" class="frm-lbl">İl</label>
+            <select name="il_id" id="il_id" class="frm-slct"></select>
+          </div>
+          <div class="w-1/3">
+            <label for="ilce_id" class="frm-lbl">İlçe</label>
+            <select name="ilce_id" id="ilce_id" class="frm-slct"></select>
+          </div>
+          <div class="w-1/3">
+            <label for="mahalle_id" class="frm-lbl">Mahalle</label>
+            <select name="mahalle_id" id="mahalle_id" class="frm-slct"></select>
+          </div>
+        </div>
+           <div class="">
+          <label for="adres" class="frm-lbl">Adres</label>
+          <input type="text" class="frm-txt" name="adres" placeholder="Cad,Sok.No,Apt." />
+        </div>
+        <div class="flex items-center space-x-2">
+          <div class="w-1/2">
+            <label for="ada" class="frm-lbl">Ada</label>
+            <input type="text" class="frm-txt" name="ada" placeholder="" />
+          </div>
+          <div class="w-1/2">
+            <label for="parsel" class="frm-lbl">Parsel</label>
+          <input type="text" class="frm-txt" name="parsel" placeholder="" />
+          </div>
+        </div>
+        
+        <div class="flex items-center space-x-2">
+            <div class="w-1/4">
+          <label for="as_seri_no" class="frm-lbl">Asansör Seri no</label>
+          <input type="text" class="frm-txt" name="as_seri_no" />
+        </div>
+          <div class="w-1/4">
+            <label for="elek_hid" class="frm-lbl">Tahrik</label>
+            <select name="elek_hid" id="elek_hid" class="frm-slct">
+              <option value="Elektrikli">Elektrikli</option>
+              <option value="Hidrolik">Hidrolik</option>
+            </select>
+          </div>
+          <div class="w-1/4">
+            <label for="mak_dairesi" class="frm-lbl">Makine Dairesi</label>
+            <select name="mak_dairesi" id="mak_dairesi" class="frm-slct">
+              <option value="Makine Daireli">Makine Daireli</option>
+              <option value="Makine Dairesiz">Makine Dairesiz</option>
+            </select>
+          </div>
+          <div class="w-1/4">
+            <label for="aski_tip" class="frm-lbl">Askı</label>
+            <select name="aski_tip" id="aski_tip" class="frm-slct">
+              <option value="1/1 Direkt">1/1 Direkt</option>
+              <option value="2/1 Endirekt">2/1 Endirekt</option>
+                <option value="n/1 Endirekt">n/1 Endirekt</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <div class="w-1/4">
+            <label for="durak_sayisi" class="frm-lbl">Durak Sayisi</label>
+            <input type="text" name="durak_sayisi" id="durak_sayisi" class="frm-txt"></input>
+          </div>
+          <div class="w-1/4">
+            <label for="seyir_mesafesi" class="frm-lbl">Seyir Mesafesi(mm)</label>
+            <input  type="text" name="seyir_mesafesi" id="seyir_mesafesi" class="frm-txt"></input>
+          </div>
+          <div class="w-1/4">
+            <label for="beyan_yuku" class="frm-lbl">Kapasite(kg)</label>
+            <input  type="text" name="beyan_yuku" id="beyan_yuku" class="frm-txt"></input>
+          </div>
+          <div class="w-1/4">
+            <label for="kisi_sayisi" class="frm-lbl">Kişi Sayısı</label>
+            <input  type="text"7 name="kisi_sayisi" id="kisi_sayisi" class="frm-txt"></input>
+          </div>
+        </div>
+         <div class="risk-slction space-y-2 py-2 select-none">
+          <div class="font-semibold">Risk Analiz Durumu</div>
+            <div class="flex items-center space-x-1">
+              <input type="hidden" name="risk[mak_dairesi]">
+              <input type="checkbox" id="risk[mak_dairesi]" name="risk[mak_dairesi]" class="w-[1.2rem] h-[1.2rem]">
+              <label for="risk[mak_dairesi]">Makine Dairesi ve/ya Giriş kapısı Yükseklikleri</label>
+            </div>
+            <div class="flex items-center space-x-1">
+              <input type="hidden" name="risk[kabin_ust]">
+              <input type="checkbox" id="risk[kabin_ust]" name="risk[kabin_ust]" class="w-[1.2rem] h-[1.2rem]">
+              <label for="risk[kabin_ust]">Kabin üst kabin en üst konum yetersiz mesafeler</label>
+            </div>
+            <div class="flex items-center space-x-1">
+                   <input type="hidden" name="risk[kuyu_dibi]">
+              <input type="checkbox" id="risk[kuyu_dibi]" name="risk[kuyu_dibi]" class="w-[1.2rem] h-[1.2rem]">
+              <label for="risk[kuyu_dibi]">Kuyu dibi kabin en alt konum yetersiz mesafeler</label>
+            </div>
+         </div>
+      </form>
+    </div>
+    <div class="px-4 py-4 flex items-center justify-center space-x-2">
+      <button style="display: block;"
+        class="btn-bsv-kaydet min-w-[100px] py-1 px-2 select-none rounded-md bg-blue-600 hover:bg-blue-700 active:bg-blue-500 cursor-pointer text-white"
+      >
+        Kaydet
+      </button>
+      <button style="display: none;"
+        class="btn-bsv-guncelle min-w-[100px] py-1 px-2 select-none rounded-md bg-orange-600 hover:bg-orange-700 active:bg-orange-500 cursor-pointer text-white"
+      >
+        Güncelle
+      </button>
+      <button style="display: none;"
+        class="btn-bsv-sil min-w-[100px] py-1 px-2 select-none rounded-md bg-red-600 hover:bg-red-700 active:bg-red-500 cursor-pointer text-white"
+      >
+        Sil
+      </button>
+    </div>
+  </div>
+</div>

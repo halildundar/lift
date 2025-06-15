@@ -1,10 +1,17 @@
 import "./main.scss";
 import "./jqform-serialize.js";
 import { Routes } from "./router.js";
-import{AjaxPromise} from './pages/auth/signin.js';
+import { AjaxPromise } from "./pages/auth/signin.js";
 Handlebars.registerHelper("inc", function (value, options) {
   return parseInt(value) + 1;
 });
+Handlebars.registerHelper("IsEq", function (v1, v2, options) {
+  if (v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
 const GetBtnRoutes = () => {
   const routes = $("[route]");
   $.map(routes, (el) => {
@@ -78,7 +85,6 @@ const GoToPage = (currPath) => {
       }
     } else {
       window.history.pushState({}, "", currPath);
-      console.log("currPath", currPath);
       ShowTemplate(currPath, "#root_view");
     }
     if (i == routes.length - 1) {
@@ -119,7 +125,6 @@ const usrPnlArea = () => {
 };
 
 $(async function () {
-
   const currPath = window.location.pathname;
   GoToPage(currPath, {});
   usrPnlArea();

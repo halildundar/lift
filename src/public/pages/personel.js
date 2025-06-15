@@ -63,6 +63,7 @@ const GetList = async () => {
   $("#status").prop("checked", false);
   $("#clear").trigger("click");
 };
+
 const AddItem = async (data) => {
   console.log(data);
   data.yetki = JSON.stringify(data.yetki);

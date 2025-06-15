@@ -214,5 +214,46 @@ CREATE TABLE IF NOT EXISTS `denetim`(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+CREATE TABLE IF NOT EXISTS `danis_firma`(
+`id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`kisa_ad` VARCHAR(255) NOT NULL,
+`unvan` VARCHAR(255) NULL,
+`adres` VARCHAR(255)  NULL,
+`email` VARCHAR(255)  NULL,
+`telefon` VARCHAR(255)  NULL,
+`sirket_muduru` VARCHAR(255) NULL,
+`vergi_levhasi` VARCHAR(255) NULL,
+`imza_sirkuleri` VARCHAR(255) NULL,
+`faalyet_belgesi` VARCHAR(255) NULL,
+`sicil_gazetesi` VARCHAR(255) NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `danis_basvuru`(
+`id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`danisman_id` INT(11) NOT NULL,
+`firma_id` INT(11) NOT NULL,
+`modul` VARCHAR(255) NULL,
+`yapi_ruhsat_no` VARCHAR(255)  NULL,
+`as_seri_no` VARCHAR(255)  NULL,
+`yapi_sahibi_adi` VARCHAR(255)  NULL,
+`il_id` INT(11) NULL,
+`ilce_id` INT(11) NULL,
+`mahalle_id` INT(11) NULL,
+`adres` VARCHAR(255) NULL,
+`ada` VARCHAR(255) NULL,
+`parsel` VARCHAR(255) NULL,
+`durak_sayisi` VARCHAR(255) NULL,
+`seyir_mesafesi` VARCHAR(255) NULL,
+`beyan_yuku` VARCHAR(255) NULL,
+`kisi_saiyisi` VARCHAR(255) NULL,
+`yapi_ruhsati` VARCHAR(255) NULL,
+`ab_uygunluk_beyani` VARCHAR(255) NULL,
+`risk` VARCHAR(255) NULL,
+`teknik_dosya` VARCHAR(255) NULL,
+`status` VARCHAR(255) NULL,
+`aciklama` VARCHAR(255) NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 
 

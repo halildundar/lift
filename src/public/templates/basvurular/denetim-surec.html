@@ -1,0 +1,39 @@
+<div>
+  <ul class="space-y-1">
+    {{#each statuss}}
+    <li
+      class="group cursor-pointer rounded-md  bg-black/5 hover:bg-black/10 p-2 btn-msj-gor{{@index}}"
+      data-inde="{{@index}}"
+      data-pop="0"
+    >
+      <div class="flex items-center space-x-1">
+        <div class="flex-1 select-none">
+          {{#IsEq this.usertype 'Müşteri'}}
+            <div class="text-[0.8rem] leading-tight font-semibold text-red-600 group-hover:underline">-{{this.title}}</div>
+          {{else}}
+            <div class="text-[0.8rem] leading-tight font-semibold text-blue-600 group-hover:underline">-{{this.title}}</div>
+          {{/IsEq}}
+
+          <div class="italic text-[0.7rem] pl-2 leading-tight text-gray-500">
+            {{this.subtitle}}
+          </div>
+        </div>
+        {{#IsEq this.mesaj ""}}
+        {{else}}
+          <div
+          class="select-none text-[1.4rem] p-1 inline-flex items-center justify-center space-x-1 text-blue-600 hover:text-blue-700 cursor-pointer rounded-full tio"
+        >
+          sms_outlined
+        </div>
+        {{/IsEq}}
+        <div class="select-none text-[0.7rem] text-gray-700 pr-2 text-end">
+          {{#NumberToDate this.date}}{{/NumberToDate}}
+        </div>
+      </div>
+      <div
+        class="msj-alan{{@index}} pl-2 text-italic text-gray-600 text-[0.7rem] py-1"
+      ></div>
+    </li>
+    {{/each}}
+  </ul>
+</div>

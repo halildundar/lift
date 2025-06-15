@@ -25,10 +25,10 @@ const AddItem = async (req, res) => {
   if (!data) {
     return res.json({ msg: "Data not found" });
   }
-  let valueString = Object.values(data);
+ 
   await ArtiDoksanCertDB.Query(
-    "INSERT INTO `as-firma` VALUES (0,?)",
-    [[...valueString]]
+    "INSERT INTO `as-firma` SET ?",
+    [data]
   );
   return res.json({
     msg: "Ok!",

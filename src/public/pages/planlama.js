@@ -477,7 +477,7 @@ async function addPlanToDb(data) {
   const { formpaths, formpathsfolder } = resp;
   data.formpaths = JSON.stringify(formpaths);
   data.formpathsfolder = formpathsfolder;
-
+ 
   await $.ajax({
     type: "POST",
     url: "/planlama/add",
@@ -547,8 +547,7 @@ async function updatePlanToDb(data) {
   });
 
   if (!!resp) {
-    if (!resp.msg) {
-      let { formpaths, formpathsfolder } = resp;
+       let { formpaths, formpathsfolder } = resp;
       console.log(resp);
       data.formpaths = JSON.stringify(formpaths);
       data.formpathsfolder = formpathsfolder;
@@ -560,7 +559,6 @@ async function updatePlanToDb(data) {
         dataType: "json",
       });
       $(".save-popup .close").trigger("click");
-    }
   }
   $("body").css("overflow", "auto");
   $(".sppin-area").addClass("hidden");

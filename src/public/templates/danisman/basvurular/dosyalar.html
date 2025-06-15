@@ -1,0 +1,33 @@
+<ul class="list-disc pl-10">
+  {{#each folders}}
+  <li class="{{@key}}">
+    {{#IsEq @key 'yapi_ruhsati'}} Yapı ruhsatı{{/IsEq}} 
+    {{#IsEq @key 'proje'}} Proje{{/IsEq}} 
+    {{#IsEq @key 'proje_kapak'}} Proje Kapak{{/IsEq}} 
+    {{#IsEq @key 'ab_uyg_beyan'}}Ab Uyg.Beyanı {{/IsEq}} 
+    {{#IsEq @key 'teknik_dosya'}} Teknik Dosya {{/IsEq}} 
+    {{#IsEq @key 'modul_b_cert'}} Modul B Sertf.{{/IsEq}}
+    {{#IsEq @key 'iso_files'}}ISO Dosyalar{{/IsEq}} 
+    {{#IsEq @key 'smm'}} SMM'ler{{/IsEq}} 
+    {{#IsEq @key 'proje_sozlesme'}}Proje Hiz.Sözleş,Taahhüt{{/IsEq}} 
+    {{#IsEq this ''}}
+    <a class="file{{@key}} cursor-pointer underline text-red-500">Yükle</a>
+    {{else}}
+    {{#IsEq ../duzeltme_durum 1}}
+    <a class="file{{@key}} cursor-pointer  underline text-blue-500">Değiştir</a>
+    {{/IsEq}}
+    <a href="{{this}}" class="underline text-blue-500"  target="_blank">İndir</a>
+    {{/IsEq}}
+
+    {{#IsEq @key 'yapi_ruhsati'}}     <input type="file" class="hidden file_file{{@key}}" accept=".png,.jpeg,.jpg,.pdf" > {{/IsEq}} 
+    {{#IsEq @key 'proje'}}  <input type="file" class="hidden file_file{{@key}}" accept=".dwg,.pdf" >{{/IsEq}} 
+    {{#IsEq @key 'proje_kapak'}}<input type="file" class="hidden file_file{{@key}}" accept=".png,.jpeg,.jpg,.pdf" >{{/IsEq}} 
+    {{#IsEq @key 'ab_uyg_beyan'}}<input type="file" class="hidden file_file{{@key}}" accept=".png,.jpeg,.jpg,.pdf" >{{/IsEq}} 
+    {{#IsEq @key 'teknik_dosya'}} <input type="file" class="hidden file_file{{@key}}" accept=".zip" > {{/IsEq}} 
+    {{#IsEq @key 'modul_b_cert'}}<input type="file" class="hidden file_file{{@key}}" accept=".png,.jpeg,.jpg,.pdf" >{{/IsEq}}
+    {{#IsEq @key 'iso_files'}}<input type="file" class="hidden file_file{{@key}}" accept=".zip" >{{/IsEq}} 
+    {{#IsEq @key 'smm'}} <input type="file" class="hidden file_file{{@key}}" accept=".zip,.pdf" >{{/IsEq}} 
+    {{#IsEq @key 'proje_sozlesme'}}<input type="file" class="hidden file_file{{@key}}" accept=".png,.jpeg,.jpg,.pdf" >{{/IsEq}} 
+  </li>
+  {{/each}}
+</ul>

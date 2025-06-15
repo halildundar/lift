@@ -21,31 +21,37 @@ async function GetMahalleler(il_id, ilce_id) {
     dataType: "json",
   });
 }
-export async function GetIl(il_id){
-  return (await $.ajax({
-    type: "POST",
-    url: "/planlama/get-il",
-    data: {il_id},
-    dataType: "json",
-  }))[0];
+export async function GetIl(il_id) {
+  return (
+    await $.ajax({
+      type: "POST",
+      url: "/planlama/get-il",
+      data: { il_id },
+      dataType: "json",
+    })
+  )[0];
 }
-export async function GetIlce(ilce_id){
-  return (await $.ajax({
-    type: "POST",
-    url: "/planlama/get-ilce",
-    data: {ilce_id},
-    dataType: "json",
-  }))[0];
+export async function GetIlce(ilce_id) {
+  return (
+    await $.ajax({
+      type: "POST",
+      url: "/planlama/get-ilce",
+      data: { ilce_id },
+      dataType: "json",
+    })
+  )[0];
 }
-export async function GetMahalle(mahalle_id){
-  return (await $.ajax({
-    type: "POST",
-    url: "/planlama/get-mahalle",
-    data: {mahalle_id},
-    dataType: "json",
-  }))[0];
+export async function GetMahalle(mahalle_id) {
+  return (
+    await $.ajax({
+      type: "POST",
+      url: "/planlama/get-mahalle",
+      data: { mahalle_id },
+      dataType: "json",
+    })
+  )[0];
 }
-let iller,ilceler,mahalleler;
+let iller, ilceler, mahalleler;
 export async function AdresAlanInit() {
   iller = await GetIller();
   $.map(iller, function (item, key) {
@@ -93,5 +99,15 @@ export async function AdresAlanInit() {
       );
     });
   });
- 
 }
+export const SetAdresData = (il_id, ilce_id, mahalle_id) => {
+  $(`[name='il_id']`).val(il_id);
+  $(`[name='il_id']`).trigger("change");
+  setTimeout(() => {
+    $(`[name='ilce_id']`).val(ilce_id);
+    $(`[name='ilce_id']`).trigger("change");
+    setTimeout(() => {
+      $(`[name='mahalle_id']`).val(mahalle_id);
+    }, 300);
+  }, 300);
+};

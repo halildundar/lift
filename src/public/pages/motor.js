@@ -44,12 +44,12 @@ const GetMotorlar = async () => {
     );
     const finame = valueOfElement.cert_filepath.split("/").pop();
     $("tbody").append(`
-          <tr id="komp-${valueOfElement.id}">
-              <td>${valueOfElement.marka}</td>
-              <td>${valueOfElement.tip}</td>
-              <td>${selectedOnayKurum.name} - ${selectedOnayKurum.nobo}</td>
-              <td>${valueOfElement.cert_no}</td>
-              <td>${valueOfElement.cert_end_date}</td>
+          <tr id="komp-${valueOfElement.id}" class="text-[0.8rem]">
+              <td><div class="line-clamp-1  py-1">${valueOfElement.marka}</div></td>
+              <td><div class="line-clamp-1  py-1">${valueOfElement.tip}</div></td>
+              <td><div class="line-clamp-1  py-1">${selectedOnayKurum.name} - ${selectedOnayKurum.nobo}</div></td>
+              <td><div class="line-clamp-1  py-1">${valueOfElement.cert_no}</div></td>
+              <td><div class="line-clamp-1  py-1">${valueOfElement.cert_end_date}</div></td>
               <td>
                 <a href="${valueOfElement.cert_filepath}" class="text-blue-600 underline" download="${finame}">
                   İndir

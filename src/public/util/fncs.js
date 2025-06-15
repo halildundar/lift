@@ -50,44 +50,44 @@ export class Upload {
   getName() {
     return this.file.name;
   }
-  doUpload(dest_path,filename,progressBarId) {
+  doUpload(dest_path, filename, progressBarId) {
+    
     var formData = new FormData();
     formData.append("dest_path", dest_path);
     formData.append("filename", filename);
-    formData.append('file', this.file, this.getName());
-    const  progressHandling = function(event) {
+    formData.append("file", this.file, this.getName());
+    const progressHandling = function (event) {
       var percent = 0;
       var position = event.loaded || event.position;
       var total = event.total;
       if (event.lengthComputable) {
         percent = Math.ceil((position / total) * 100);
       }
-      $(progressBarId + " .file-area").addClass('hidden');
-      $(progressBarId + " .progress-wrp").removeClass('hidden');
-      $(progressBarId + " .progress-wrp .progress-bar").css("width", +percent + "%");
+      $(progressBarId + " .file-area").addClass("hidden");
+      $(progressBarId + " .progress-wrp").removeClass("hidden");
+      $(progressBarId + " .progress-wrp .progress-bar").css(
+        "width",
+        +percent + "%"
+      );
       $(progressBarId + " .progress-wrp .status").text(percent + "%");
-      if(percent == 100){
-        $(progressBarId + " .progress-wrp").addClass('hidden');
-        $(progressBarId + " .file-area").removeClass('hidden');
+      if (percent == 100) {
+        $(progressBarId + " .progress-wrp").addClass("hidden");
+        $(progressBarId + " .file-area").removeClass("hidden");
       }
-    }
+    };
     return $.ajax({
       type: "POST",
       url: "/stat/fileupload",
       xhr: function () {
         var myXhr = $.ajaxSettings.xhr();
         if (myXhr.upload) {
-          myXhr.upload.addEventListener(
-            "progress",
-            progressHandling,
-            false
-          );
+          myXhr.upload.addEventListener("progress", progressHandling, false);
         }
         return myXhr;
       },
       // success:  function(data){
       //   // your callback here
-      
+
       // },
       // error: function (error) {
       //   // handle error
@@ -97,48 +97,47 @@ export class Upload {
       cache: false,
       contentType: false,
       processData: false,
-      timeout: 60000
+      timeout: 60000,
     });
   }
 
-  async asyncDoUpload(dest_path,filename,progressBarId) {
+  async asyncDoUpload(dest_path, filename, progressBarId) {
     var formData = new FormData();
     formData.append("dest_path", dest_path);
     formData.append("filename", filename);
-    formData.append('file', this.file, this.getName());
-    const  progressHandling = function(event) {
+    formData.append("file", this.file, this.getName());
+    const progressHandling = function (event) {
       var percent = 0;
       var position = event.loaded || event.position;
       var total = event.total;
       if (event.lengthComputable) {
         percent = Math.ceil((position / total) * 100);
       }
-      $(progressBarId + " .file-area").addClass('hidden');
-      $(progressBarId + " .progress-wrp").removeClass('hidden');
-      $(progressBarId + " .progress-wrp .progress-bar").css("width", +percent + "%");
+      $(progressBarId + " .file-area").addClass("hidden");
+      $(progressBarId + " .progress-wrp").removeClass("hidden");
+      $(progressBarId + " .progress-wrp .progress-bar").css(
+        "width",
+        +percent + "%"
+      );
       $(progressBarId + " .progress-wrp .status").text(percent + "%");
-      if(percent == 100){
-        $(progressBarId + " .progress-wrp").addClass('hidden');
-        $(progressBarId + " .file-area").removeClass('hidden');
+      if (percent == 100) {
+        $(progressBarId + " .progress-wrp").addClass("hidden");
+        $(progressBarId + " .file-area").removeClass("hidden");
       }
-    }
+    };
     return await $.ajax({
       type: "POST",
       url: "/stat/fileupload",
       xhr: function () {
         var myXhr = $.ajaxSettings.xhr();
         if (myXhr.upload) {
-          myXhr.upload.addEventListener(
-            "progress",
-            progressHandling,
-            false
-          );
+          myXhr.upload.addEventListener("progress", progressHandling, false);
         }
         return myXhr;
       },
       // success:  function(data){
       //   // your callback here
-      
+
       // },
       // error: function (error) {
       //   // handle error
@@ -148,7 +147,7 @@ export class Upload {
       cache: false,
       contentType: false,
       processData: false,
-      timeout: 60000
+      timeout: 60000,
     });
   }
 }
@@ -157,38 +156,38 @@ export function isJson(str) {
     JSON.parse(str);
   } catch (e) {
     return false;
-  }  
+  }
   return true;
 }
-export const FileValidation = (file,maxFileSize) =>{
+export const FileValidation = (file, maxFileSize) => {
   // maxFileSize for mb
-  const {name,type,size} = file;
+  const { name, type, size } = file;
   let newFileData = {
-    size:'0 Kb',
+    size: "0 Kb",
     name,
-    type
+    type,
   };
-  
-  if(size / 1024 / 1024)
-  if((size / 1024 / 1024) > 1){
-    newFileData["size"] = (size / 1024 / 1024).toFixed(2) + ' mb' ;
-  }else if((size / 1024 / 1024) < 1){
-    newFileData["size"] = (size / 1024).toFixed(2) + ' kb' ;
-  }
-  const isFileBig = (size / 1024 / 1024) <= maxFileSize;
-  if(!isFileBig){
-    return {
-      status:false,
-      msg:'Max.dosya boyutu ' +maxFileSize+ ' mb olabilir',
-      size: newFileData["size"]
+
+  if (size / 1024 / 1024)
+    if (size / 1024 / 1024 > 1) {
+      newFileData["size"] = (size / 1024 / 1024).toFixed(2) + " mb";
+    } else if (size / 1024 / 1024 < 1) {
+      newFileData["size"] = (size / 1024).toFixed(2) + " kb";
     }
+  const isFileBig = size / 1024 / 1024 <= maxFileSize;
+  if (!isFileBig) {
+    return {
+      status: false,
+      msg: "Max.dosya boyutu " + maxFileSize + " mb olabilir",
+      size: newFileData["size"],
+    };
   }
-  return{
-    status:true,
+  return {
+    status: true,
     file,
-    size: newFileData["size"]
-  }
-}
+    size: newFileData["size"],
+  };
+};
 export function pad(num, size) {
   num = num.toString();
   while (num.length < size) num = "0" + num;

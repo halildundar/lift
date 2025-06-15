@@ -1,0 +1,86 @@
+{{#each basvurular}}
+<div
+  id="basvuru{{id}}"
+  class="text-[0.9rem] flex py-1 border-b border-gray-200 first:border-t cursor-pointer hover:bg-black/5 select-none"
+>
+  <div class="flex-1 py-1 px-2 flex items-center">
+    <div
+      class="px-2 py-1 text-[0.8rem] text-white bg-blue-700 rounded-md inline-block"
+    >
+      {{#StatusDataForCol status}}{{/StatusDataForCol}}
+    </div>
+  </div>
+  <div class="flex-1 pl-2 flex items-center">{{firma_kisa_ad}}</div>
+  <div class="flex-1 pl-2 flex items-center">{{modul}}</div>
+
+  <div class="flex-1 pl-2 flex items-center">{{as_seri_no}}</div>
+  <div class="flex-1 pl-2 flex items-center">
+    {{beyan_yuku}} kg / {{kisi_sayisi}} kişi
+  </div>
+  <div class="flex-1 pr-2 flex items-center">{{durak_sayisi}} durak</div>
+  <div class="flex-1 pl-2 flex items-center">{{aski_tip}}</div>
+  <div class="flex-1 pl-2 flex items-center">{{mak_dairesi}}</div>
+  <div class="flex-1 flex items-center">{{as_ilce}} - {{as_il}}</div>
+</div>
+<div
+  style="display: none"
+  class="basvuru{{id}} px-10 py-4 shadow-[inset_0_0_3px_rgba(0,0,0,0.3)] bg-black/5"
+>
+  <div class="flex space-x-2">
+    <div>
+      <strong>Asansör Adres:</strong> {{as_mahalle}} {{adres}} {{as_ilce}} /
+      {{as_il}}
+    </div>
+    <div class="flex-1"><strong>Ada/Parsel:</strong> {{ada}} - {{parsel}}</div>
+    <div class="space-x-2 flex items-center btnn-area">
+      <button
+        class="btn-duzenle rounded px-2 min-w-[75px] bg-blue-600 hover:bg-blue-700 active:bg-blue-500 text-white py-1"
+      >
+        Düzenle
+      </button>
+    </div>
+  </div>
+  <div class="flex space-x-5">
+    <div class="w-1/3">
+      <div class="font-semibold pt-2 pb-1">Dosyalar</div>
+      <div class="dosyalar pt-2"></div>
+    </div>
+    <div class="w-2/3 init-area" style="display: block">
+      <div class="dosy-yukleme-txt py-5 font-semibold" style="display: block">
+        Lütfen gerkli dosyaları yükleyiniz.
+      </div>
+      <div class="bsvr-btn-area w-1/2" style="display: none">
+        <label for="msj-area-bsvuru-yap" class="frm-lbl">Mesaj</label>
+        <textarea
+          name="msj-area-bsvuru-yap"
+          id="msj-area-bsvuru-yap"
+          class="w-full h-[150px] border border-[#d1d5db] shadow-[inset_0_0_3px_rgba(0,0,0,.1)]"
+          placeholder="Mesajınızı giriniz"
+        >
+        </textarea>
+        <div>
+          <button
+            class="btn-first-gonder px-4 py-1 bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-500 select-none"
+          >
+            Başvuru Gönder
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="w-2/3 space-x-2 past-area" style="display: none">
+      <div class="w-1/2 flex flex-col">
+        <div class="font-semibold pt-2 pb-1">Denetim Süreci</div>
+        <div class="denetim-surec flex-1 bg-white border border-black/10 p-2">
+          Denetim süreci
+        </div>
+      </div>
+      <div class="w-1/2">
+        <div class="font-semibold pt-2 pb-1">Mesajlar</div>
+        <div class="mesajlar text-[0.9rem] italic text-gray-600">
+          Mesaj alanı
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}

@@ -1,0 +1,130 @@
+<div class="relative py-3 px-5 max-w-[--max-width] mx-auto pb-[100px]">
+  <div class="flex items-center">
+    <div class="font-semibold text-[1.6rem]">Danışmanlar</div>
+    <div class="flex-1 flex items-center justify-end space-x-1"></div>
+  </div>
+  <div class="flex">
+    <div class="w-1/3 py-2 pr-10">
+      <form class="form-area space-y-2">
+        <div class="w-full">
+          <label for="name" class="frm-lbl">Ad-Soyad</label>
+          <input
+            class="frm-txt"
+            name="name"
+            type="text"
+            placeholder="Ad-Soyad"
+          />
+        </div>
+        <div class="w-full">
+          <label for="email" class="frm-lbl">Email</label>
+          <input class="frm-txt" name="email" type="text" placeholder="email" />
+        </div>
+        <div class="w-full">
+          <label for="telefon" class="frm-lbl">Telefon</label>
+          <input
+            class="frm-txt"
+            name="telefon"
+            type="text"
+            placeholder="0 5XX XXX XXXX"
+          />
+        </div>
+        <div class="w-full">
+          <input type="hidden" name="gorev" value="Danışman">
+        </div>
+        <div class="unvan-area">
+          <div class="w-full">
+            <label for="unvan" class="frm-lbl">Ünvan</label>
+            <input type="text" class="frm-txt" name="unvan" placeholder="Ünvan">
+          </div>
+          <div class="w-full">
+            <input type="hidden" name="modul_atama" value="">
+          </div>
+        </div>
+        <div class="w-full">
+          <label for="sifre" class="frm-lbl">Şifre</label>
+          <input class="frm-txt" name="sifre" type="text" placeholder="Min.6haneli"/>
+        </div>
+         
+        <div class="select-none flex items-center space-x-1">
+          <input type="hidden" name="status" value="0" />
+          <input
+            id="status"
+            type="checkbox"
+            name="status"
+            value="1"
+            class="frm-chckbx"
+          />
+          <label for="status" class="frm-lbl">Pasif</label>
+        </div>
+        
+      </form>
+
+      <div class="msg-area text-red-600 py-2"></div>
+      <div class="flex items-center space-x-1 pt-4">
+        <button
+          id="save"
+          type="button"
+          class="btn-sm btn-base active:[btn-click]"
+        >
+          Kaydet
+        </button>
+        <button
+          id="update"
+          type="button"
+          class="!hidden btn-sm btn-base active:[btn-click]"
+        >
+          Güncelle
+        </button>
+        <button
+          id="delete"
+          type="button"
+          class="!hidden btn-sm btn-base active:[btn-click]"
+        >
+          Sil
+        </button>
+        <button
+          id="clear"
+          type="button"
+          class="btn-sm btn-base active:[btn-click]"
+        >
+          Temizle
+        </button>
+      </div>
+    </div>
+
+    <div class="w-2/3 py-2 pr-2">
+      <div class="px-3 py-1">
+        <table class="table-base">
+          <thead>
+            <tr>
+              <th>Ad-Soyad</th>
+              <th>Durum</th>
+              <th>Görev</th>
+              <th>Ünvan</th>
+              <th>Telefon</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="spinner-area !hidden">
+  <div class="w-full">
+    <div
+      class="flex flex-col justify-center items-center space-x-2 text-[3rem] text-blue-400"
+    >
+      <div class="spinner icon-spinner-1 spinner-steps1"></div>
+      <div class="text-[2rem]">Lütfen Bekleyiniz</div>
+    </div>
+    <div class="w-1/4 mx-auto">
+      <div id="progress-wrp">
+        <div class="progress-bar"></div>
+        <div class="status">0%</div>
+      </div>
+    </div>
+  </div>
+</div>

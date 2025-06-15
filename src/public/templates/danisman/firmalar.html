@@ -1,0 +1,224 @@
+<div class="py-3 px-5 max-w-[--max-width] mx-auto pb-[100px]">
+  <div class="flex items-center">
+    <div class="font-semibold text-[1.6rem]">Asansör Firmaları</div>
+    <div class="flex-1 flex items-center justify-end space-x-1"></div>
+  </div>
+  <div class="flex space-x-5 py-5">
+    <div class="w-[30%] py-1 px-4 border border-gray-300 rounded">
+      <div class="sticky top-0 z-10 bg-white py-5">
+        <form class="form-area space-y-2">
+          <div>
+            <label for="kisa_ad" class="frm-lbl">Kısa Adı</label>
+            <input type="text" name="kisa_ad" class="frm-txt" />
+          </div>
+          <div>
+            <label for="unvan" class="frm-lbl">Ünvan</label>
+            <input type="text" name="unvan" class="frm-txt" />
+          </div>
+          <div>
+            <label for="adres" class="frm-lbl">Adres</label>
+            <input type="text" name="adres" class="frm-txt" />
+          </div>
+          <div>
+            <label for="vergi_no" class="frm-lbl">Vergi No</label>
+            <input type="text" name="vergi_no" class="frm-txt" />
+          </div>
+          <div class="flex items-center space-x-2">
+            <div>
+              <label for="email" class="frm-lbl">Email</label>
+              <input type="text" name="email" class="frm-txt" />
+            </div>
+            <div>
+              <label for="telefon" class="frm-lbl">Telefon</label>
+              <input type="text" name="telefon" class="frm-txt" />
+            </div>
+          </div>
+          <div class="flex items-center space-x-1">
+            <div>
+              <label for="sirket_muduru" class="frm-lbl">Şirket Müdürü</label>
+              <input type="text" name="sirket_muduru" class="frm-txt" />
+            </div>
+          </div>
+        </form>
+        <div class="flex flex-col pt-4 pr-2 space-y-1">
+          <div id="vergi_levhasi">
+            <div class="file-area flex items-center space-x-2">
+              <button
+                type="button"
+                class="px-2 py-1 bg-red-500 text-white text-[0.8rem] w-[150px]"
+              >
+                Vergi Levhası
+              </button>
+              <input
+                type="file"
+                accept=".pdf,image/*"
+                class="hidden"
+                data-id="vergi_levhasi"
+              />
+              <div class="newfile flex-1 text-[0.8rem]"></div>
+              <a
+                href=""
+                download=""
+                class="text-blue-600 underline text-[0.8rem] hidden"
+                >İndir</a
+              >
+            </div>
+            <div class="progress-wrp hidden">
+              <div class="progress-bar"></div>
+              <div class="status">0%</div>
+            </div>
+          </div>
+
+          <div id="faaliyet_belgesi">
+            <div class="file-area flex items-center space-x-2">
+              <button
+                type="button"
+                class="px-2 py-1 bg-red-500 text-white text-[0.8rem] w-[150px]"
+              >
+                Faliyet Belgesi
+              </button>
+              <input
+                type="file"
+                accept=".pdf,image/*"
+                class="hidden"
+                data-id="faaliyet_belgesi"
+              />
+              <div class="newfile flex-1 text-[0.8rem]"></div>
+              <a
+                href=""
+                download=""
+                class="text-blue-600 underline text-[0.8rem] hidden"
+                >İndir</a
+              >
+            </div>
+            <div class="progress-wrp hidden">
+              <div class="progress-bar"></div>
+              <div class="status">0%</div>
+            </div>
+          </div>
+
+          <div id="imza_sirkuleri">
+            <div class="file-area flex items-center space-x-2">
+              <button
+                type="button"
+                class="px-2 py-1 bg-red-500 text-white text-[0.8rem] w-[150px]"
+              >
+                İmza Sirküleri
+              </button>
+              <input
+                type="file"
+                accept=".pdf,image/*"
+                class="hidden"
+                data-id="imza_sirkuleri"
+              />
+              <div class="newfile flex-1 text-[0.8rem]"></div>
+              <a
+                href=""
+                download=""
+                class="text-blue-600 underline text-[0.8rem] hidden"
+                >İndir</a
+              >
+            </div>
+            <div class="progress-wrp hidden">
+              <div class="progress-bar"></div>
+              <div class="status">0%</div>
+            </div>
+          </div>
+
+          <div id="sicil_gazetesi">
+            <div class="file-area flex items-center space-x-2">
+              <button
+                type="button"
+                class="px-2 py-1 bg-red-500 text-white text-[0.8rem] w-[150px]"
+              >
+                Sicil Gazetesi
+              </button>
+              <input
+                type="file"
+                accept=".pdf,image/*"
+                class="hidden"
+                data-id="sicil_gazetesi"
+              />
+              <div class="newfile text-[0.8rem] flex-1"></div>
+              <a
+                href=""
+                download=""
+                class="text-blue-600 underline text-[0.8rem] hidden"
+                >İndir</a
+              >
+            </div>
+            <div class="progress-wrp hidden">
+              <div class="progress-bar"></div>
+              <div class="status">0%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="msg-area"></div>
+        <div>
+          <div class="flex items-center space-x-1 pt-4">
+            <button
+              id="save"
+              type="button"
+              class="btn-sm btn-base active:[btn-click]"
+            >
+              Kaydet
+            </button>
+            <button
+              id="update"
+              type="button"
+              class="!hidden btn-sm btn-base active:[btn-click]"
+            >
+              Güncelle
+            </button>
+            <button
+              id="delete"
+              type="button"
+              class="!hidden btn-sm btn-base active:[btn-click]"
+            >
+              Sil
+            </button>
+            <button
+              id="clear"
+              type="button"
+              class="btn-sm btn-base active:[btn-click]"
+            >
+              Temizle
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-[70%] pl-5">
+      <table class="w-full border-collapse border border-gray-200">
+        <thead>
+          <tr>
+            <th class="bg-gray-100 border-t border-l border-gray-200">
+              Kısa Ad
+            </th>
+            <th class="bg-gray-100 border-t border-l border-gray-200">Adres</th>
+            <th class="bg-gray-100 border-t border-l border-gray-200">Email</th>
+            <th class="bg-gray-100 border-t border-l border-gray-200">
+              Telefon
+            </th>
+            <th class="bg-gray-100 border-t border-l border-gray-200">
+              Şirket Müdürü
+            </th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="spinner-area !hidden">
+  <div class="w-full">
+    <div
+      class="flex flex-col justify-center items-center space-x-2 text-[3rem] text-blue-400"
+    >
+      <div class="spinner icon-spinner-1 spinner-steps1"></div>
+      <div class="text-[2rem]">Lütfen Bekleyiniz</div>
+    </div>
+  </div>
+</div>

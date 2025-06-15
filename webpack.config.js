@@ -33,7 +33,6 @@ export default {
         test: /.(scss|css)$/,
         exclude: /node_modules/,
         use: [
-          
           {
             loader: MiniCssExtractPlugin.loader,
             // options: { reloadAll: true },
@@ -100,7 +99,7 @@ export default {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].css"
+      filename: "[name].css",
     }),
     new WebpackShellPluginNext({
       onAfterDone: {
