@@ -96,7 +96,12 @@ const DeleteItem = async (data) => {
 export const PersonelInit = async () => {
   $("#save").on("click", async function (e) {
     let newItem = $("form").serializeJSON();
-    const isEmptyArea = Object.values(newItem).some((item) => item === "");
+    const isEmptyArea =
+      !!newItem["name"] &&
+      !!newItem["email"] &&
+      !!newItem["telefon"] &&
+      !!newItem["unvan"] &&
+      !!newItem["sifre"];
     if (!isEmptyArea) {
       await AddItem(newItem);
       GetList();
@@ -104,9 +109,12 @@ export const PersonelInit = async () => {
   });
   $("#update").on("click", async function (e) {
     let newItem = $("form").serializeJSON();
-    console.log(newItem);
-    const isEmptyArea = Object.values(newItem).some((item) => item === "");
-    console.log(isEmptyArea)
+   const isEmptyArea =
+      !!newItem["name"] &&
+      !!newItem["email"] &&
+      !!newItem["telefon"] &&
+      !!newItem["unvan"] &&
+      !!newItem["sifre"];
     if (!isEmptyArea) {
       await UpdateItem({ id: selectedItem.id, ...newItem });
       GetList();
