@@ -34,10 +34,9 @@ const AddItem = async (req, res) => {
   if (!data) {
     return res.json({ msg: "Data not found" });
   }
-  let valueString = Object.values(data);
   await ArtiDoksanCertDB.Query(
-    "INSERT INTO `personel` VALUES (0,?)",
-    [[...valueString]]
+    "INSERT INTO `personel` SET ?",
+    [data]
   );
   return res.json({
     msg: "Ok!",

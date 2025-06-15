@@ -25,13 +25,14 @@ const GetList = async () => {
                 </tr>
         `);
       $(`#onay-${item.id}`).on("click", function (e) {
+        if ((item.status = 1)) {
+          $("#status").prop("checked", true);
+        } else {
+          $("#status").prop("checked", false);
+        }
+        $("#status").trigger("change");
+        console.log(item);
         $.map(item, (val, key) => {
-          if ((item.status = 1)) {
-            $("#status").prop("checked", true);
-          } else {
-            $("#status").prop("checked", false);
-          }
-          $("#status").trigger("change");
           if (key == "yetki") {
             $.map(JSON.parse(val), (val1, key1) => {
               $("[type='checkbox'][name='yetki[" + key1 + "]']").prop(
@@ -64,7 +65,6 @@ const GetList = async () => {
   $("#clear").trigger("click");
 };
 const AddItem = async (data) => {
-  console.log(data);
   data.yetki = JSON.stringify(data.yetki);
   await $.ajax({
     type: "POST",
@@ -74,7 +74,6 @@ const AddItem = async (data) => {
   });
 };
 const UpdateItem = async (data) => {
-  console.log(data);
   data.yetki = JSON.stringify(data.yetki);
   await $.ajax({
     type: "POST",
@@ -94,28 +93,26 @@ const DeleteItem = async (data) => {
 export const PersonelInit = async () => {
   $("#save").on("click", async function (e) {
     let newItem = $("form").serializeJSON();
-    newItem.yetki = JSON.stringify(newItem.yetki);
     const isEmptyArea =
       !!newItem["name"] &&
       !!newItem["email"] &&
       !!newItem["telefon"] &&
       !!newItem["unvan"] &&
       !!newItem["sifre"];
-    if (!isEmptyArea) {
+    if (isEmptyArea) {
       await AddItem(newItem);
       GetList();
     }
   });
   $("#update").on("click", async function (e) {
     let newItem = $("form").serializeJSON();
-    newItem.yetki = JSON.stringify(newItem.yetki);
     const isEmptyArea =
       !!newItem["name"] &&
       !!newItem["email"] &&
       !!newItem["telefon"] &&
       !!newItem["unvan"] &&
       !!newItem["sifre"];
-    if (!isEmptyArea) {
+    if (isEmptyArea) {
       await UpdateItem({ id: selectedItem.id, ...newItem });
       GetList();
     }
