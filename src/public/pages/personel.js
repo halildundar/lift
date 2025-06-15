@@ -26,13 +26,14 @@ const GetList = async () => {
         `);
       $(`#onay-${item.id}`).on("click", function (e) {
         $.map(item, (val, key) => {
-          if (key == "status") {
-            $('[name="' + key + '"]').prop("checked", val == "1");
-            $('[name="' + key + '"]').val(val);
-            $('[name="' + key + '"]').trigger("change");
-          } else if (key == "yetki") {
+          if ((item.status = 1)) {
+            $("#status").prop("checked", true);
+          } else {
+            $("#status").prop("checked", false);
+          }
+          $("#status").trigger("change");
+          if (key == "yetki") {
             $.map(JSON.parse(val), (val1, key1) => {
-              console.log(key1, val1, val1 == "on");
               $("[type='checkbox'][name='yetki[" + key1 + "]']").prop(
                 "checked",
                 val1 == "on"
@@ -60,7 +61,6 @@ const GetList = async () => {
   } else {
     console.log(msg);
   }
-  $("#status").prop("checked", false);
   $("#clear").trigger("click");
 };
 const AddItem = async (data) => {
@@ -95,20 +95,23 @@ const DeleteItem = async (data) => {
 export const PersonelInit = async () => {
   $("#save").on("click", async function (e) {
     let newItem = $("form").serializeJSON();
+    newItem.yetki = JSON.stringify(newItem.yetki);
     const isEmptyArea =
       !!newItem["name"] &&
       !!newItem["email"] &&
       !!newItem["telefon"] &&
       !!newItem["unvan"] &&
       !!newItem["sifre"];
-    if (!isEmptyArea) {
-      await AddItem(newItem);
-      GetList();
-    }
+    console.log(newItem);
+    // if (!isEmptyArea) {
+    //   await AddItem(newItem);
+    //   GetList();
+    // }
   });
   $("#update").on("click", async function (e) {
     let newItem = $("form").serializeJSON();
-   const isEmptyArea =
+    newItem.yetki = JSON.stringify(newItem.yetki);
+    const isEmptyArea =
       !!newItem["name"] &&
       !!newItem["email"] &&
       !!newItem["telefon"] &&
@@ -130,7 +133,6 @@ export const PersonelInit = async () => {
     $("form [type='checkbox']").each(function (index, el) {
       $(el).val("");
     });
-    console.log("Temizle");
     $("#status").prop("checked", false);
     $("#status").trigger("change");
     $("form [name*='yetki']").prop("checked", false);
@@ -143,10 +145,12 @@ export const PersonelInit = async () => {
 
   GetList();
   $("#status").on("change", function (e) {
-    if (!$(this).is(":checked")) {
-      $("#status+label").html("Pasif");
-    } else {
+    if (this.checked) {
       $("#status+label").html("Aktif");
+      $(this).val(1);
+    } else {
+      $("#status+label").html("Pasif");
+      $(this).val(0);
     }
   });
   $("[name='gorev']").on("change", function () {

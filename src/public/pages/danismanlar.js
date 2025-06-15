@@ -23,7 +23,6 @@ const GetList = async () => {
                 </tr>
         `);
     $(`#onay-${item.id}`).on("click", function (e) {
-      console.log(item.status);
       if ((item.status = 1)) {
         $("#status").prop("checked", true);
       } else {
@@ -47,8 +46,8 @@ const GetList = async () => {
       e.stopPropagation();
     });
   }
-  $("#status").prop("checked", false);
   $("#clear").trigger("click");
+ 
 };
 const AddItem = async (data) => {
   console.log(data);
@@ -128,12 +127,12 @@ export const DanismanlarInit = async () => {
 
   GetList();
   $("#status").on("change", function (e) {
-    if ($(this).val() == 1) {
+    if (this.checked) {
       $("#status+label").html("Aktif");
-      $(this).val("0");
+      $(this).val(1);
     } else {
       $("#status+label").html("Pasif");
-      $(this).val("1");
+      $(this).val(0);
     }
   });
 };
