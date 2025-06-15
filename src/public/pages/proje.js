@@ -84,10 +84,9 @@ const uploadFile = async (
     let filename = `${downName}.${fileuzanti}`;
     let downUrl = `${folderpath}/projeler/${filename}`;
     var upload = new Upload(file);
-    const { msg } = await upload.asyncDoUpload(
+    const { msg } = await upload.doUpload(
       `${folderpath}/projeler/`,
-      downName,
-      ""
+      downName
     );
     if (!!msg && msg == "Ok!") {
       $(`.plan${plan_id}  [name="proje[${classname}]"]`).val(downUrl);

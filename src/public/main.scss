@@ -149,9 +149,11 @@ textarea {
 .progress-wrp .status {
   top: 3px;
   left: 50%;
+  transform: translateX(-50%);
   position: absolute;
   display: inline-block;
   color: #000000;
+  font-weight: bold;
 }
 .sabah,
 .ogle {

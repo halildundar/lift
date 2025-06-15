@@ -477,7 +477,7 @@ async function addPlanToDb(data) {
   const { formpaths, formpathsfolder } = resp;
   data.formpaths = JSON.stringify(formpaths);
   data.formpathsfolder = formpathsfolder;
- 
+
   await $.ajax({
     type: "POST",
     url: "/planlama/add",
@@ -547,18 +547,18 @@ async function updatePlanToDb(data) {
   });
 
   if (!!resp) {
-       let { formpaths, formpathsfolder } = resp;
-      console.log(resp);
-      data.formpaths = JSON.stringify(formpaths);
-      data.formpathsfolder = formpathsfolder;
-      console.log(data);
-      await $.ajax({
-        type: "POST",
-        url: "/planlama/update",
-        data: { ...data },
-        dataType: "json",
-      });
-      $(".save-popup .close").trigger("click");
+    let { formpaths, formpathsfolder } = resp;
+    console.log(resp);
+    data.formpaths = JSON.stringify(formpaths);
+    data.formpathsfolder = formpathsfolder;
+    console.log(data);
+    await $.ajax({
+      type: "POST",
+      url: "/planlama/update",
+      data: { ...data },
+      dataType: "json",
+    });
+    $(".save-popup .close").trigger("click");
   }
   $("body").css("overflow", "auto");
   $(".sppin-area").addClass("hidden");
@@ -577,7 +577,6 @@ async function SavePopupTemp(data) {
     const resp = await fetch(`/templates/planlama/save.html`);
     const content = await resp.text();
     $("#save-pop").html("");
-    console.log(data);
     const rendered = Handlebars.compile(content);
     $("#save-pop").html(rendered({ ...data }));
     $(".save-popup .close").on("click", async function () {
@@ -611,6 +610,7 @@ async function SavePopupTemp(data) {
     });
     await AdresAlanInit();
     if (data.save_or_update == "Güncelle") {
+      $(`.btn-bsvr-sec`).css("display", "none");
       $(`[name='il_id']`).val(data.il_id);
       $(`[name='il_id']`).trigger("change");
       setTimeout(() => {
@@ -669,6 +669,16 @@ async function SavePopupTemp(data) {
       }
     } else {
       $(`#yapi_ruhsati .indir-link`).addClass("hidden");
+      $(`.btn-bsvr-sec`).css("display", "flex");
+      //Basvuru Pop Area
+      $(`.btn-bsvr-sec`).on("click", async function () {
+        const resp = await fetch(`/templates/planlama/basvurular.html`);
+        const content = await resp.text();
+        $("body").append(content);
+        $(".btn-close-bsvr-sec").on("click", function () {
+          $(".bsvr-sec-pop").remove();
+        });
+      });
     }
     $(".save-popup .savebtn").on("click", async function () {
       const formData = $(".save-popup .plan-form").serializeJSON();
@@ -690,8 +700,7 @@ async function SavePopupTemp(data) {
             .split(".");
           uld.doUpload(
             "/uploads/planlama/yapi_ruhsat/",
-            itemFilename[0],
-            "#yapi_ruhsati"
+            itemFilename[0]
           );
         }
         if (!!formData.risk) {
@@ -744,7 +753,6 @@ async function SavePopupTemp(data) {
         }
       }
     });
-
     if ($(".save-popup [name='modul']").val() !== "Modul G") {
       $(".save-popup .risk-area").css("display", "none");
     } else {

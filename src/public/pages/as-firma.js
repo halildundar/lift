@@ -176,8 +176,7 @@ export const AsFirmaInit = async () => {
         )}.${fileType}`;
         promises.push(upload.doUpload(
           `/uploads/as-firma/${firmaname}/Kuruluş Evraklar/`,
-          `${$(this).attr("data-id")}`,
-          `#${$(this).attr("data-id")}`
+          `${$(this).attr("data-id")}`
         ));
       });
       await Promise.all(promises);
@@ -222,8 +221,7 @@ export const AsFirmaInit = async () => {
           )}.${fileType}`;
           promises.push(upload.doUpload(
             `/uploads/as-firma/${firmaname}/Kuruluş Evraklar/`,
-            `${$(this).attr("data-id")}`,
-            `#${$(this).attr("data-id")}`
+            `${$(this).attr("data-id")}`
           ));
         }
       });

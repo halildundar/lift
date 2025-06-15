@@ -84,10 +84,9 @@ const fileUploadsItem = (basvuru, classname) => {
       let fileuzanti = file.name.split(".").pop();
       let filename = `${classname}.${fileuzanti}`;
       var upload = new Upload(file);
-      const { msg } = await upload.asyncDoUpload(
+      const { msg } = await upload.doUpload(
         `${folderpath}/`,
-        classname,
-        ""
+        classname
       );
       if (!!msg && msg == "Ok!") {
         basvuru.folders[classname] = `${folderpath}/${filename}`;
@@ -403,10 +402,9 @@ const openOrtak = async (basvuru, classname, files) => {
   $("#file_ort_up").on("change", async function () {
     let file = $("#file_ort_up").get(0).files[0];
     var upload = new Upload(file);
-    const { msg } = await upload.asyncDoUpload(
+    const { msg } = await upload.doUpload(
       `${folderpath}/`,
-      upload.getName().split(".")[0],
-      ""
+      upload.getName().split(".")[0]
     );
     if (!!msg && msg == "Ok!") {
       const { files } = await getOrtakFiles(basvuru.danisman_id);

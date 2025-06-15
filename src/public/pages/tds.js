@@ -1138,7 +1138,7 @@ const innerMakeTable = async (plan) => {
       let fileuzanti = file.name.split(".").pop();
       let filename = `logo.${fileuzanti}`;
       var upload = new Upload(file);
-      const { msg } = await upload.asyncDoUpload(`${folderpath}/`, "logo", "");
+      const { msg } = await upload.doUpload(`${folderpath}/`, "logo");
       if (!!msg && msg == "Ok!") {
         await $.ajax({
           type: "POST",
@@ -1166,7 +1166,7 @@ const innerMakeTable = async (plan) => {
       let fileuzanti = file.name.split(".").pop();
       let filename = `imza_kase.${fileuzanti}`;
       var upload = new Upload(file);
-      const { msg } = await upload.asyncDoUpload(`${folderpath}/`, "imza_kase", "");
+      const { msg } = await upload.doUpload(`${folderpath}/`, "imza_kase");
       if (!!msg && msg == "Ok!") {
         await $.ajax({
           type: "POST",
@@ -1191,10 +1191,9 @@ const innerMakeTable = async (plan) => {
       let fileuzanti = file.name.split(".").pop();
       let filename = `son_kon_imza.${fileuzanti}`;
       var upload = new Upload(file);
-      const { msg } = await upload.asyncDoUpload(
+      const { msg } = await upload.doUpload(
         `${folderpath}/`,
-        "son_kon_imza",
-        ""
+        "son_kon_imza"
       );
       if (!!msg && msg == "Ok!") {
         await $.ajax({

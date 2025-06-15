@@ -50,8 +50,22 @@ export class Upload {
   getName() {
     return this.file.name;
   }
-  doUpload(dest_path, filename, progressBarId) {
-    
+  doUpload(dest_path, filename) {
+    const htmlStr = `<div 
+        class="uploader z-[60] flex  fixed top-0 left-0 w-[100vw] h-[100vh]  items-center justify-center bg-white/90">
+        <div class="flex flex-col items-center justify-center   w-1/2  ">
+            <div class="progress-wrp w-full !bg-white">
+                <div class="progress-bar"></div>
+                <div class="status">0%</div>
+            </div>
+            <div class="text-[24px] py-2 text-center">
+                <div class="text-[1.2rem] font-semibold">Yükleniyor</div>
+                <div class="spin icon-spin-1 spin-steps1 text-blue-600"></div>
+            </div>
+
+        </div>
+    </div>`;
+     $("body").append(htmlStr);
     var formData = new FormData();
     formData.append("dest_path", dest_path);
     formData.append("filename", filename);
@@ -63,16 +77,11 @@ export class Upload {
       if (event.lengthComputable) {
         percent = Math.ceil((position / total) * 100);
       }
-      $(progressBarId + " .file-area").addClass("hidden");
-      $(progressBarId + " .progress-wrp").removeClass("hidden");
-      $(progressBarId + " .progress-wrp .progress-bar").css(
-        "width",
-        +percent + "%"
-      );
-      $(progressBarId + " .progress-wrp .status").text(percent + "%");
+     
+      $(".progress-wrp .progress-bar").css("width", +percent + "%");
+      $(".progress-wrp .status").text(percent + "%");
       if (percent == 100) {
-        $(progressBarId + " .progress-wrp").addClass("hidden");
-        $(progressBarId + " .file-area").removeClass("hidden");
+           $("body .uploader").remove();
       }
     };
     return $.ajax({

@@ -58,7 +58,7 @@ const GetList = async () => {
       });
     }
   } else {
-    console.log(msg);
+    console.log('Veri Yok!');
   }
   $("#clear").trigger("click");
 };
@@ -165,8 +165,7 @@ export const FirmalarInit = async () => {
         promises.push(
           upload.doUpload(
             `/uploads/danis_firma/${firmaname}/Kuruluş Evraklar/`,
-            `${$(this).attr("data-id")}`,
-            `#${$(this).attr("data-id")}`
+            `${$(this).attr("data-id")}`
           )
         );
       });
@@ -213,8 +212,7 @@ export const FirmalarInit = async () => {
           promises.push(
             upload.doUpload(
               `/uploads/danis_firma/${firmaname}/Kuruluş Evraklar/`,
-              `${$(this).attr("data-id")}`,
-              `#${$(this).attr("data-id")}`
+              `${$(this).attr("data-id")}`
             )
           );
         }

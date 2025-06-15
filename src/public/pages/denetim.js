@@ -173,10 +173,9 @@ function RegImgSec(folderpath) {
       `${folderpath}/komponentler/${filename}`
     );
     var upload = new Upload(file);
-    const { msg } = await upload.asyncDoUpload(
+    const { msg } = await upload.doUpload(
       `${folderpath}/komponentler/`,
-      "hiz_regulator",
-      "#hiz-reg-wrp"
+      "hiz_regulator"
     );
     if (!!msg && msg == "Ok!") {
       $("#hiz-reg-wrp .file-area a").attr(
@@ -269,10 +268,9 @@ function FrenImgSec(folderpath) {
       `${folderpath}/komponentler/${filename}`
     );
     var upload = new Upload(file);
-    const { msg } = await upload.asyncDoUpload(
+    const { msg } = await upload.doUpload(
       `${folderpath}/komponentler/`,
-      "fren",
-      "#fren-wrp"
+      "fren"
     );
     if (!!msg && msg == "Ok!") {
       $("#fren-wrp .file-area a").attr(
@@ -361,10 +359,9 @@ function KartImgSec(folderpath) {
       `${folderpath}/komponentler/${filename}`
     );
     var upload = new Upload(file);
-    const { msg } = await upload.asyncDoUpload(
+    const { msg } = await upload.doUpload(
       `${folderpath}/komponentler/`,
-      "kart",
-      "#kart-wrp"
+      "kart"
     );
     if (!!msg && msg == "Ok!") {
       $("#kart-wrp .file-area a").attr(
@@ -457,10 +454,9 @@ function KabTampImgSec(folderpath) {
       `${folderpath}/komponentler/${filename}`
     );
     var upload = new Upload(file);
-    const { msg } = await upload.asyncDoUpload(
+    const { msg } = await upload.doUpload(
       `${folderpath}/komponentler/`,
-      "kab_tamp",
-      "#kab_tamp-wrp"
+      "kab_tamp"
     );
     if (!!msg && msg == "Ok!") {
       $("#kab_tamp-wrp .file-area a").attr(
@@ -553,10 +549,9 @@ function KarTampImgSec(folderpath) {
       `${folderpath}/komponentler/${filename}`
     );
     var upload = new Upload(file);
-    const { msg } = await upload.asyncDoUpload(
+    const { msg } = await upload.doUpload(
       `${folderpath}/komponentler/`,
-      "kar_tamp",
-      "#kar_tamp-wrp"
+      "kar_tamp"
     );
     if (!!msg && msg == "Ok!") {
       $("#kar_tamp-wrp .file-area a").attr(
@@ -647,10 +642,9 @@ function DurakKapiImgSec(folderpath) {
       `${folderpath}/komponentler/${filename}`
     );
     var upload = new Upload(file);
-    const { msg } = await upload.asyncDoUpload(
+    const { msg } = await upload.doUpload(
       `${folderpath}/komponentler/`,
-      "durak_kapi_kilit",
-      "#durak_kapi_kilit-wrp"
+      "durak_kapi_kilit"
     );
     if (!!msg && msg == "Ok!") {
       $("#durak_kapi_kilit-wrp .file-area a").attr(
@@ -741,10 +735,9 @@ function KabinKapiImgSec(folderpath) {
       `${folderpath}/komponentler/${filename}`
     );
     var upload = new Upload(file);
-    const { msg } = await upload.asyncDoUpload(
+    const { msg } = await upload.doUpload(
       `${folderpath}/komponentler/`,
-      "kabin_kapi_kilit",
-      "#kabin_kapi_kilit-wrp"
+      "kabin_kapi_kilit"
     );
     if (!!msg && msg == "Ok!") {
       $("#kabin_kapi_kilit-wrp .file-area a").attr(
@@ -835,10 +828,9 @@ function UcmAcopImgSec(folderpath) {
       `${folderpath}/komponentler/${filename}`
     );
     var upload = new Upload(file);
-    const { msg } = await upload.asyncDoUpload(
+    const { msg } = await upload.doUpload(
       `${folderpath}/komponentler/`,
-      "ucm_acop",
-      "#ucm_acop-wrp"
+      "ucm_acop"
     );
     if (!!msg && msg == "Ok!") {
       $("#ucm_acop-wrp .file-area a").attr(
@@ -930,10 +922,9 @@ function MotorImgSec(folderpath) {
       `${folderpath}/komponentler/${filename}`
     );
     var upload = new Upload(file);
-    const { msg } = await upload.asyncDoUpload(
+    const { msg } = await upload.doUpload(
       `${folderpath}/komponentler/`,
-      "motor",
-      "#motor-wrp"
+      "motor"
     );
     if (!!msg && msg == "Ok!") {
       $("#motor-wrp .file-area a").attr(
@@ -1027,10 +1018,9 @@ function KapiPanelYanginImgSec(folderpath) {
       `${folderpath}/komponentler/${filename}`
     );
     var upload = new Upload(file);
-    const { msg } = await upload.asyncDoUpload(
+    const { msg } = await upload.doUpload(
       `${folderpath}/komponentler/`,
-      "kapi_panel_yangin",
-      "#kapi_panel_yangin-wrp"
+      "kapi_panel_yangin"
     );
     if (!!msg && msg == "Ok!") {
       $("#kapi_panel_yangin-wrp .file-area a").attr(
@@ -1123,10 +1113,9 @@ function KapiPanelSarkacImgSec(folderpath) {
       `${folderpath}/komponentler/${filename}`
     );
     var upload = new Upload(file);
-    const { msg } = await upload.asyncDoUpload(
+    const { msg } = await upload.doUpload(
       `${folderpath}/komponentler/`,
-      "kapi_panel_sarkac",
-      "#kapi_panel_sarkac-wrp"
+      "kapi_panel_sarkac"
     );
     if (!!msg && msg == "Ok!") {
       $("#kapi_panel_sarkac-wrp .file-area a").attr(
@@ -1217,10 +1206,9 @@ function HalatImgSec(folderpath) {
       `${folderpath}/komponentler/${filename}`
     );
     var upload = new Upload(file);
-    const { msg } = await upload.asyncDoUpload(
+    const { msg } = await upload.doUpload(
       `${folderpath}/komponentler/`,
-      "halat",
-      "#halat-wrp"
+      "halat"
     );
     if (!!msg && msg == "Ok!") {
       $("#halat-wrp .file-area a").attr(
@@ -1778,10 +1766,9 @@ const imzaliFormlar = async (plan, denetim) => {
         let fileuzanti = file.name.split(".").pop();
         let filename = `${filname}.${fileuzanti}`;
         var upload = new Upload(file);
-        const { msg } = await upload.asyncDoUpload(
+        const { msg } = await upload.doUpload(
           `${folderpath}/imzali_formlar/`,
-          filname,
-          ""
+          filname
         );
         if (!!msg && msg == "Ok!") {
           denetim.imzali_formlar[
@@ -1954,7 +1941,7 @@ const popRisk = async (type, plan, denetim) => {
       let fileuzanti = file.name.split(".").pop();
       let filename = `uyg_img${i}.${fileuzanti}`;
       var upload = new Upload(file);
-      const { msg } = await upload.asyncDoUpload(
+      const { msg } = await upload.doUpload(
         `${folderpath}/risk/${type}/`,
         `uyg_img${i}`,
         ""

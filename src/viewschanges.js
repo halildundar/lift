@@ -27,6 +27,7 @@ import "./public/templates/personel/main.html";
 import "./public/templates/as-firma/main.html";
 import "./public/templates/planlama/main.html";
 import "./public/templates/planlama/save.html";
+import "./public/templates/planlama/basvurular.html";
 import "./public/templates/denetim/main.html";
 import "./public/templates/denetim/as-bilgi.html";
 import "./public/templates/denetim/modul-b-list.html";
@@ -52,5 +53,6 @@ import "./public/templates/basvurular/table.html";
 import "./public/templates/basvurular/dosyalar.html";
 import "./public/templates/basvurular/denetim-surec.html";
 import "./public/templates/danismanlar/main.html";
+
 // import { config } from "dotenv";
 // config("./.env");
